@@ -1,0 +1,148 @@
+//Typography
+
+.title-dropdown__title-design {
+  font-family: $fontFamily-text;
+  font-weight: $weightSemiBold;
+  font-size: 18px;
+  color: $gunmetal;
+  text-transform: uppercase;
+}
+
+.title-colors,
+.title-fonts {
+  font-family: $fontFamily-text;
+  font-weight: $weightRegular;
+  font-size: 14px;
+  color: $gunmetal;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
+.design-card__colors__select-palette,
+.design-Card__colors__select-font {
+  list-style: none;
+}
+
+.font {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.font-Ubuntu {
+  display: inline;
+  font-family: $fontFamily-text;
+  font-weight: $weightSemiBold;
+  font-size: 16px;
+  color: $gunmetal;
+  margin-left: 10px;
+}
+
+.font-ComicSans {
+  display: inline;
+  font-family: $fontFamily-quaternary;
+  font-size: 16px;
+  color: $gunmetal;
+  margin-left: 10px;
+}
+
+.font-Monserrat {
+  display: inline;
+  font-family: $fontFamily-Merri;
+  font-weight: $weightRegular;
+  font-size: 16px;
+  color: $gunmetal;
+  margin-left: 10px;
+}
+
+.font-Indie {
+  display: inline;
+  font-family: $fontFamily-Hand;
+  font-weight: $weightRegular;
+  font-size: 16px;
+  color: $gunmetal;
+  margin-left: 10px;
+}
+
+.font-Baskerville {
+  display: inline;
+  font-family: $fontFamily-libre;
+  font-weight: $weightRegular;
+  font-size: 16px;
+  color: $gunmetal;
+  margin-left: 10px;
+}
+
+//end typography
+
+.design-card {
+  border-bottom: solid 1px $white-two;
+}
+
+.title-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.title-dropdown__icontitle {
+  display: flex;
+  align-items: center;
+}
+
+.title-dropdown__title-design {
+  margin-left: 10px;
+}
+
+.palette-green {
+  display: flex;
+  justify-content: space-between;
+}
+
+.palette {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.design-card__colors {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0 13px 0;
+}
+
+.design-card__fonts {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.design-Card__colors__select-font {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+// form radio grom input
+.radio {
+  height: 17px;
+  width: 17px;
+}
+
+//icon
+.title-dropdown__icon-design {
+  color: $dull-orange;
+  font-size: 18px;
+}
+
+.fa-chevron-down,
+.fa-chevron-up {
+  font-size: 18px;
+  color: $gunmetal;
+}
+
+.inactive{
+  opacity: 0.4;
+
+}

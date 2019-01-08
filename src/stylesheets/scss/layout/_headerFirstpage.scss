@@ -1,0 +1,39 @@
+.header__container {
+  width: 100%;
+  background-color: $white-three;
+}
+
+.header__position {
+  padding-top: 35%;
+}
+
+.header__firstGonext {
+  display: block;
+  margin: auto;
+  width: 250px;
+}
+
+.header__firstLogo {
+  display: inline-block;
+  width: 250px;
+  height: 64px;
+}
+
+@media all and (min-width:768px) {
+  .header__position{
+    padding-top: 348px;
+  }
+  .header__firstGonext{
+    width: 420px;
+  }
+  .header__firstLogo{
+    width: 420px;
+    height: 110px;
+    margin: auto;
+  }
+}
+@media all and (min-width:1200px) {
+  .header__position{
+    padding-top: 348px;
+  }
+}

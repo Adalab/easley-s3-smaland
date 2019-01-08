@@ -1,0 +1,26 @@
+.header__container-designCard {
+  width: 100%;
+  background-color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110px;
+
+  @media all and (min-width: 768px) {
+    justify-content: left;
+    padding-left: 3%;
+    height: 13vh;
+  }
+}
+
+.header__gonext {
+  display: block;
+  margin: auto;
+  width: 200px;
+}
+
+.header__logo {
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+}
