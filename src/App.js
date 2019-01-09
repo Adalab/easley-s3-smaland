@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import './stylesheets/scss/main.scss';
-import LogoCards from './images/descarga.svg';
+import Header from './components/Header.js';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="header__container-designCard">
-          <div className="header__position-card">
-            <a className="header__gonext" href="../index.html" />
-            <img className="header__logo" src={LogoCards} alt="logo awesome profile-cards" />
-          </div>
-        </header>
+        <Header/>
         <main className="created__target">
           <section className="section__card">
             <div className="container__width">
