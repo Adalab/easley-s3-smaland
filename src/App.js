@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './stylesheets/scss/main.scss';
 import LogoCards from './images/descarga.svg';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {
@@ -77,52 +78,52 @@ class App extends Component {
                   <form className="design-card__colors__select-palette">
 
                     <label for="palette-green" className="palette">
-                      <input className="radio" id="palette-green" type="radio" data-palette="paletteGreen" value="1" required name="selectPalete"/>
-                        <div className="colors-palette">
-                          <div className="colors-palette__item green1"></div>
-                          <div className="colors-palette__item green2"></div>
-                          <div className="colors-palette__item green3"></div>
-                        </div>
+                      <input className="radio" id="palette-green" type="radio" data-palette="paletteGreen" value="1" required name="selectPalete" />
+                      <div className="colors-palette">
+                        <div className="colors-palette__item green1"></div>
+                        <div className="colors-palette__item green2"></div>
+                        <div className="colors-palette__item green3"></div>
+                      </div>
                     </label>
 
 
                     <label for="palette-red" className="palette">
-                      <input className="radio palette2" id="palette-red" type="radio" data-palette="paletteRed" value="2" name="selectPalete"/>
-                        <div className="colors-palette">
-                          <div className="colors-palette__item red1"></div>
-                          <div className="colors-palette__item red2"></div>
-                          <div className="colors-palette__item red3"></div>
-                        </div>
+                      <input className="radio palette2" id="palette-red" type="radio" data-palette="paletteRed" value="2" name="selectPalete" />
+                      <div className="colors-palette">
+                        <div className="colors-palette__item red1"></div>
+                        <div className="colors-palette__item red2"></div>
+                        <div className="colors-palette__item red3"></div>
+                      </div>
                     </label>
 
 
                     <label for="palette-blue" className="palette">
-                      <input className="radio palette3" id="palette-blue" type="radio" data-palette="paletteGrey" value="3" name="selectPalete"/>
-                        <div className="colors-palette">
-                          <div className="colors-palette__item blue1"></div>
-                          <div className="colors-palette__item blue2"></div>
-                          <div className="colors-palette__item blue3"></div>
-                        </div>
+                      <input className="radio palette3" id="palette-blue" type="radio" data-palette="paletteGrey" value="3" name="selectPalete" />
+                      <div className="colors-palette">
+                        <div className="colors-palette__item blue1"></div>
+                        <div className="colors-palette__item blue2"></div>
+                        <div className="colors-palette__item blue3"></div>
+                      </div>
                     </label>
 
 
                     <label for="palette-purple" className="palette inactive">
-                      <input className="radio palette4" id="palette-purple" type="radio" data-palette="palettePurple" value="4" name="selectPalete"/>
-                        <div className="colors-palette">
-                          <div className="colors-palette__item purple1"></div>
-                          <div className="colors-palette__item purple2"></div>
-                          <div className="colors-palette__item purple3"></div>
-                        </div>
+                      <input className="radio palette4" id="palette-purple" type="radio" data-palette="palettePurple" value="4" name="selectPalete" />
+                      <div className="colors-palette">
+                        <div className="colors-palette__item purple1"></div>
+                        <div className="colors-palette__item purple2"></div>
+                        <div className="colors-palette__item purple3"></div>
+                      </div>
                     </label>
 
 
                     <label for="palette-orange" className="palette inactive">
-                      <input className="radio" id="palette-orange" type="radio" data-palette="paletteOrange" value="5" name="selectPalete"/>
-                        <div className="colors-palette palette5">
-                          <div className="colors-palette__item orange1"></div>
-                          <div className="colors-palette__item orange2"></div>
-                          <div className="colors-palette__item orange3"></div>
-                        </div>
+                      <input className="radio" id="palette-orange" type="radio" data-palette="paletteOrange" value="5" name="selectPalete" />
+                      <div className="colors-palette palette5">
+                        <div className="colors-palette__item orange1"></div>
+                        <div className="colors-palette__item orange2"></div>
+                        <div className="colors-palette__item orange3"></div>
+                      </div>
                     </label>
 
 
@@ -137,34 +138,34 @@ class App extends Component {
 
                     <label for="font-Ubuntu" className="font">
                       <input className="radio fontradio typography1" id="font-Ubuntu" type="radio" data-font="Ubuntu" value="1"
-                        required name="selectFont"/>
-                        <p className="font-Ubuntu">Ubuntu</p>
+                        required name="selectFont" />
+                      <p className="font-Ubuntu">Ubuntu</p>
                     </label>
 
 
                     <label for="font-ComicSans " className="font ">
                       <input className="radio fontradio typography2" id="font-ComicSans" type="radio" data-font="ComicSans" value="2"
-                        name="selectFont"/>
-                        <p className="font-ComicSans">Comic Sans</p>
+                        name="selectFont" />
+                      <p className="font-ComicSans">Comic Sans</p>
                     </label>
 
 
                     <label for="font-Montserrat " className="font">
                       <input className="radio  fontradio typography3" id="font-Montserrat" type="radio" data-font="Montserrat" value="3"
-                        name="selectFont"/>
-                        <p className="font-Monserrat">Monserrat</p>
+                        name="selectFont" />
+                      <p className="font-Monserrat">Monserrat</p>
                     </label>
 
 
                     <label for="font-Indie " className="font inactive">
-                      <input className="radio fontradio typography4" id="font-Indie" type="radio" data-font="Indie" value="4" name="selectFont"/>
-                        <p className="font-Indie">Indie</p>
+                      <input className="radio fontradio typography4" id="font-Indie" type="radio" data-font="Indie" value="4" name="selectFont" />
+                      <p className="font-Indie">Indie</p>
                     </label>
 
 
                     <label for="font-Baskerville " className="font inactive">
-                      <input className="radio  fontradio  typography5" id="font-Baskerville" type="radio" data-font="Baskerville" value="5" name="selectFont"/>
-                        <p className="font-Baskerville">Baskerville</p>
+                      <input className="radio  fontradio  typography5" id="font-Baskerville" type="radio" data-font="Baskerville" value="5" name="selectFont" />
+                      <p className="font-Baskerville">Baskerville</p>
                     </label>
                   </form>
                 </div>
@@ -184,72 +185,72 @@ class App extends Component {
 
               <form action="/signup" method="post" className="form hidden">
                 <label for="name" className="item-label">Nombre completo</label>
-                <input placeholder="Ej: Sally Jill" id="name" type="text" name="name" className="item-input" required/>
+                <input placeholder="Ej: Sally Jill" id="name" type="text" name="name" className="item-input" required />
 
                 <label for="job" className="item-label">Profesión</label>
-                <input placeholder="Ej: Front-end unicorn" id="job" type="text" name="job" className="item-input" required/>
+                <input placeholder="Ej: Front-end unicorn" id="job" type="text" name="job" className="item-input" required />
 
                 <p className="item-label">Imágen de perfil</p>
                 <div className="container-image">
                   <button className="image-link" type="submit">Añadir imagen</button>
-                  <input type="file" name="" id="img-selector" className="action__hiddenField"/>
+                  <input type="file" name="" id="img-selector" className="action__hiddenField" />
                   <div className="image-preview image-preview-small">
                   </div>
                 </div>
 
                 <label for="email" className="item-label">Email</label>
-                <input placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email" className="item-input" required/>
+                <input placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email" className="item-input" required />
 
                 <label for="phone" className="item-label">Teléfono</label>
                 <input placeholder="Ej: 555·55·55·55" type="tel" id="phone" name="phone" className="item-input"
-                  required/>
+                  required />
 
                 <label for="Linkedin" className="item-label">Linkedin</label>
-                <input placeholder="Ej: sally-hill" type="text" name="linkedin" id="linkedin" className="item-input" required/>
+                <input placeholder="Ej: sally-hill" type="text" name="linkedin" id="linkedin" className="item-input" required />
 
                 <label for="GitHub" className="item-label">GitHub</label>
-                <input placeholder="Ej: sally-hill" type="text" name="github" id="github" className="item-input" required/>
+                <input placeholder="Ej: sally-hill" type="text" name="github" id="github" className="item-input" required />
 
                 <div className="container-skills">
                   <p className="text-skills">Habilidades (máximo 3)</p>
 
                   <label for="HTML" className="checkbox-label">
-                    <input id="HTML" type="checkbox" value="HTML" name="skills" className="checkbox-input"/>
+                    <input id="HTML" type="checkbox" value="HTML" name="skills" className="checkbox-input" />
                     <p>HTML</p>
                   </label>
 
                   <label for="CSS" className="checkbox-label">
-                    <input id="CSS" type="checkbox" value="CSS" name="skills" className="checkbox-input"/>
+                    <input id="CSS" type="checkbox" value="CSS" name="skills" className="checkbox-input" />
                     <p>CSS</p>
                   </label>
 
                   <label for="Sass" className="checkbox-label">
-                    <input id="sass" type="checkbox" value="Sass" name="skills" className="checkbox-input"/>
+                    <input id="sass" type="checkbox" value="Sass" name="skills" className="checkbox-input" />
                     <p>Sass</p>
                   </label>
 
                   <label for="Git" className="checkbox-label">
-                    <input id="git" type="checkbox" value="git" name="skills" className="checkbox-input"/>
+                    <input id="git" type="checkbox" value="git" name="skills" className="checkbox-input" />
                     <p>Git</p>
                   </label>
 
                   <label for="Gulp" className="checkbox-label">
-                    <input id="gulp" type="checkbox" value="gulp" name="skills" className="checkbox-input"/>
+                    <input id="gulp" type="checkbox" value="gulp" name="skills" className="checkbox-input" />
                     <p>Gulp</p>
                   </label>
 
                   <label for="JavaScript" className="checkbox-label">
-                    <input id="javascript" type="checkbox" value="JavaScript" name="skills" className="checkbox-input"/>
+                    <input id="javascript" type="checkbox" value="JavaScript" name="skills" className="checkbox-input" />
                     <p>JavaScript</p>
                   </label>
 
                   <label for="AJAX" className="checkbox-label">
-                    <input id="ajax" type="checkbox" value="AJAX" name="skills" className="checkbox-input"/>
+                    <input id="ajax" type="checkbox" value="AJAX" name="skills" className="checkbox-input" />
                     <p>AJAX</p>
                   </label>
 
                   <label for="React" className="checkbox-label">
-                    <input id="react" type="checkbox" value="React" name="skills" className="checkbox-input"/>
+                    <input id="react" type="checkbox" value="React" name="skills" className="checkbox-input" />
                     <p>React</p>
                   </label>
                 </div>
@@ -286,16 +287,9 @@ class App extends Component {
             </section>
           </div>
         </main>
+
+      <Footer />
         
-        <footer>
-          <section className="footer__section">
-            <p className="footer__text-reg">
-              Awesome profile-cards &copy;2018
-            </p>
-            <div className="footer__conection-logo">
-            </div>
-          </section>
-        </footer>
       </div>
     );
   }
