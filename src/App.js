@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './stylesheets/scss/main.scss';
 
 class App extends Component {
@@ -9,7 +8,7 @@ class App extends Component {
         <header className="header__container-designCard">
           <div className="header__position-card">
             <a className="header__gonext" href="../index.html" />
-            <img className="header__logo" src="assets/images/descarga.svg" alt="logo awesome profile-cards" />
+            <img className="header__logo" src="../src/images/descarga.svg" alt="logo awesome profile-cards" />
           </div>
         </header>
         <main className="created__target">
