@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './stylesheets/scss/main.scss';
 import Header from './components/Header.js';
+import ContainerCard from './components/ContainerCard.js';
 
 class App extends Component {
   render() {
@@ -14,43 +15,7 @@ class App extends Component {
                 <i className="far fa-trash-alt"></i>
                 <span className="button">Reset</span>
               </button>
-
-              <div className="box__card" id="box">
-
-                <div className="userInfo" id="userInfo">
-                  <div className="detail"></div>
-                  <h2 className="userInfo__name">Nombre Apellido</h2>
-                  <h3 className="userInfo__job">Front-end developer</h3>
-                </div>
-                <div className="img image-preview__file">
-                </div>
-                <ul className="list__icon">
-                  <li className="list__item">
-                    <a className="item__link mobile" href="">
-                      <i className="fas fa-mobile-alt"></i>
-                    </a>
-                  </li>
-                  <li className="list__item">
-                    <a className="item__link email" href="">
-                      <i className="far fa-envelope"></i>
-                    </a>
-                  </li>
-                  <li className="list__item">
-                    <a className="item__link linkedin" href="">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                  </li>
-                  <li className="list__item">
-                    <a className="item__link github" href="">
-                      <i className="fab fa-github-alt"></i>
-                    </a>
-                  </li>
-                </ul>
-                <div className="separation"></div>
-                <ul className="list__skills">
-
-                </ul>
-              </div>
+              <ContainerCard />
             </div>
           </section>
           <div className="tunning__responsive">
