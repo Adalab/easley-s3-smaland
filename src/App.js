@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './stylesheets/scss/main.scss';
 import Header from './components/Header.js';
 import ContainerCard from './components/ContainerCard.js';
-import LogoCards from './images/descarga.svg';
 import CollapsableContainer from './components/CollapsableContainer';
 
 
@@ -12,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <main className="created__target">
-          <section className="section__card">
+          
             <div className="container__width">
               <button className="button__reset" type="reset">
                 <i className="far fa-trash-alt"></i>
@@ -20,7 +19,7 @@ class App extends Component {
               </button>
               <ContainerCard />
             </div>
-          </section>
+            
           <CollapsableContainer />  
         </main>
         
