@@ -1,0 +1,23 @@
+.footer__section {
+  height: 10vh;
+  background-color: $white;
+  border-top: 1px solid $white-two;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $fontFamily-text;
+  font-size: 14px;
+  font-weight: $weightRegular;
+  color: $dark-grey-three;
+  padding-top: 20px;
+}
+
+
+.footer__conection-logo {
+  background-image: url('../../images/logo-adalab.png');
+  background-position: center;
+  background-size: cover;
+  margin-right: 40px;
+  width: 200px;
+  height: 50px;
+}

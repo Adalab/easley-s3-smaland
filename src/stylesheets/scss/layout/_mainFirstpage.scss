@@ -1,0 +1,117 @@
+.start__page-general {
+
+  background-color: $white-three;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.size__container-Firstpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 31px;
+  padding-bottom: 30px;
+}
+
+.start__tittle {
+  font-family: $fontFamily-Merri;
+  font-weight: 900;
+  font-size: 19px;
+  padding-bottom: 4px;
+  display: block;
+  margin: auto;
+  color: $dull-orange;
+}
+
+.start__slogan {
+  font-family: $fontFamily-text;
+  font-weight: $weightRegular;
+  font-size: 12px;
+  padding-bottom: 14px;
+  color: $dark-green-blue;
+  max-width: 265px;
+  text-align: center;
+}
+
+.start__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 268px;
+  margin: auto;
+  margin-bottom: 40px;
+  border: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: rgba(225, 115, 52, 0.2);
+}
+
+.option__position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  font-family: $fontFamily-text;
+  font-size: 12px;
+  font-weight: $weightRegular;
+  color: $gunmetal;
+}
+
+.paint__icon {
+  color: $dull-orange;
+  font-size: 22px;
+}
+
+.start__buton-continue {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: $fontFamily-text;
+  font-size: 16px;
+  font-weight: $weightBold;
+  background-color: $dirty-blue;
+  color: $white;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+}
+
+@media all and (min-width:768px) {
+  .size__container-Firstpage {
+    padding-bottom: 59px;
+  }
+
+  .start__tittle {
+    font-size: 24px;
+  }
+
+  .start__slogan {
+    font-size: 16px;
+    padding-bottom: 21px;
+    max-width: 325px;
+  }
+
+  .start__options {
+    width: 325px;
+    margin-bottom: 168px;
+  }
+
+  .option__position {
+    font-size: 16px;
+  }
+
+  .paint__icon {
+    font-size: 28px;
+  }
+
+  .start__buton-continue {
+    margin-bottom: 0;
+  }
+}
+
+@media all and (min-width:1200px) {
+    .start__options {
+      margin-bottom: 2%;
+    }
+}

@@ -1,0 +1,19 @@
+@import 'core/reset.scss';
+@import 'core/variables';
+
+@import 'components/palettes';
+@import 'components/form-style';
+
+@import 'layout/headerFirstpage';
+@import 'layout/headerDesignCard';
+@import 'layout/mainFirstpage';
+@import 'layout/footer';
+@import 'layout/mainShare';
+@import 'layout/responsive';
+@import 'layout/body';
+
+@import 'pages/cardPreview';
+@import 'pages/designCard';
+@import 'pages/fillCard';
+
+@import 'helpers/hidden-show';

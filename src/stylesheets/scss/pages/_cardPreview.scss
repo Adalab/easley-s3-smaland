@@ -1,0 +1,272 @@
+.section__card {
+  background-image: url('../../images/restaurant.png');
+  min-height: 457px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__width {
+  margin-left: 45px;
+  margin-right: 35px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+
+  @media all and (min-width: 768px) {
+    margin-right: 44px;
+  }
+
+  @media all and (min-width: 1200px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.box__card {
+  min-height: 367px;
+  width: 240px;
+  background-color: $white;
+  border-radius: 2px;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+.img {
+  background-image: url('../../images/silueta.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  width: 240px;
+}
+
+.imgWhite {
+  background-color: white;
+  background-image: none;
+}
+
+.button__reset {
+  font-size: 12px;
+  color: $gunmetal;
+  height: 30px;
+  width: 75px;
+  border-radius: 15px;
+  border: 1px white solid;
+  text-align: center;
+  margin-bottom: 20px;
+  background: none;
+  cursor: pointer;
+
+  .button {
+    border: 0;
+    font-family: $fontFamily-text;
+    text-transform: uppercase;
+    font-weight: $weightRegular;
+    padding: 0;
+    padding-left: 5px;
+    font-size: 12px;
+    line-height: 20px;
+    color: inherit;
+    padding-top: 5px;
+  }
+}
+
+.userInfo {
+  font-family: $fontFamily-text;
+  line-height: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 14px;
+  position: relative;
+}
+
+.userInfo__name {
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: $weightBold;
+  color: $dark-green-blue;
+  padding-bottom: 5px;
+}
+
+.userInfo__job {
+  font-size: 16px;
+  font-weight: $weightRegular;
+  color: $gunmetal;
+}
+
+.detail {
+  background-color: $hospital-green;
+  width: 5px;
+  height: 42px;
+  position: absolute;
+  left: 0;
+}
+
+.list__icon {
+  list-style: none;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+
+  .list__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    border: 2px $hospital-green solid;
+    height: 32px;
+    width: 32px;
+    margin-right: 10px;
+
+    .item__link {
+      text-decoration: none;
+      color: $dark-green-blue;
+      font-size: 18px;
+      padding-top: 3px;
+    }
+  }
+}
+
+.separation {
+  height: 2px;
+  width: 240px;
+  border-top: 2px $dirty-blue solid;
+  opacity: 0.2;
+}
+
+.list__skills {
+  list-style: none;
+  min-height: 50px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .list__item-skills {
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: $dirty-blue;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: $weightRegular;
+    padding: 2px 7px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    color: $white;
+    font-family: $fontFamily-text;
+  }
+}
+
+//color design
+.box__card--red {
+
+  .userInfo__name {
+    color: $dark-red;
+  }
+
+  .detail {
+    background-color: $tomato;
+  }
+
+  .list__item {
+    border: 2px $tomato solid;
+
+    .item__link {
+      color: $dark-red;
+    }
+  }
+
+  .list__item-skills {
+    background-color: $rusty-red;
+  }
+}
+
+.box__card--grey {
+
+  .userInfo__name {
+    color: $dark-grey;
+  }
+
+  .detail {
+    background-color: $light-grey-blue;
+  }
+
+  .list__item {
+    border: 2px $light-grey-blue solid;
+
+    .item__link {
+      color: $dark-grey;
+    }
+  }
+
+  .list__item-skills {
+    background-color: $dark-grey;
+  }
+}
+
+.box__card--purple {
+
+  .userInfo__name {
+    color: $dark-purple;
+  }
+
+  .detail {
+    background-color: $light-purple;
+  }
+
+  .list__item {
+    border: 2px $light-purple solid;
+
+    .item__link {
+      color: $dark-purple;
+    }
+  }
+
+  .list__item-skills {
+    background-color: $mediun-purple;
+  }
+}
+
+.box__card--orange {
+
+  .userInfo__name {
+    color: $tomato;
+  }
+
+  .detail {
+    background-color: $light-orange;
+  }
+
+  .list__item {
+    border: 2px $light-orange solid;
+
+    .item__link {
+      color: $tomato;
+    }
+  }
+
+  .list__item-skills {
+    background-color: $dark-orange;
+  }
+}
+
+//Font design
+.userInfo--quaternary {
+  font-family: $fontFamily-quaternary;
+}
+
+.userInfo--ubuntu {
+  font-family: $fontFamily-primary;
+}
+
+.userInfo--mont {
+  font-family: $fontFamily-tertiary;
+}
+
+.userInfo--hand {
+  font-family: $fontFamily-Hand;
+}
+
+.userInfo-libre {
+  font-family: $fontFamily-libre;
+}
