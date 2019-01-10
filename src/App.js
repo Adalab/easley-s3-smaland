@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './stylesheets/scss/main.scss';
+import Footer from './components/Footer';
 import Header from './components/Header.js';
 import ContainerCard from './components/ContainerCard.js';
 import CollapsableContainer from './components/CollapsableContainer';
-
 
 class App extends Component {
   render() {
@@ -19,19 +19,13 @@ class App extends Component {
               </button>
               <ContainerCard />
             </div>
-            
+      
           <CollapsableContainer />  
+
         </main>
+
+      <Footer />
         
-        <footer>
-          <section className="footer__section">
-            <p className="footer__text-reg">
-              Awesome profile-cards &copy;2018
-            </p>
-            <div className="footer__conection-logo">
-            </div>
-          </section>
-        </footer>
       </div>
     );
   }
