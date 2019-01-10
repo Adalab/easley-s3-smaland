@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 class Button extends Component  {
   render () {
     return (
-     <div>
-
-
-     </div>
+    <button type={this.props.type} className={this.props.styles}>
+    {this.props.children};
+    </button>
     );
   }
 }
