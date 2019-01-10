@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Input from './Input.js';
 class CollapsableContainer extends Component {
   render() {
     return (
@@ -128,13 +128,12 @@ class CollapsableContainer extends Component {
 
 
           <form action="/signup" method="post" className="form hidden">
-            <label for="name" className="item-label">Nombre completo</label>
-            <input placeholder="Ej: Sally Jill" id="name" type="text" name="name" className="item-input" required />
+            <Input name="job" content="Nombre completo" example="Ej: Sally Jill" />
 
             <label for="job" className="item-label">Profesión</label>
             <input placeholder="Ej: Front-end unicorn" id="job" type="text" name="job" className="item-input" required />
 
-            <p className="item-label">Imágen de perfil</p>
+            <p className="item-label">Imagen de perfil</p>
             <div className="container-image">
               <button className="image-link" type="submit">Añadir imagen</button>
               <input type="file" name="" id="img-selector" className="action__hiddenField" />
