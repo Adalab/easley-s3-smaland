@@ -12,13 +12,9 @@ class App extends Component {
         <Header/>
         <main className="created__target">
           
-            <div className="container__width">
-              <button className="button__reset" type="reset">
-                <i className="far fa-trash-alt"></i>
-                <span className="button">Reset</span>
-              </button>
+          
               <ContainerCard />
-            </div>
+            
       
           <CollapsableContainer />  
 

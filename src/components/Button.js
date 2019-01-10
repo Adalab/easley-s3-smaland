@@ -4,7 +4,7 @@ class Button extends Component  {
   render () {
     return (
     <button type={this.props.type} className={this.props.styles}>
-    {this.props.children};
+    {this.props.children}
     </button>
     );
   }
