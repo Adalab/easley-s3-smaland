@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <main className="created__target">
-          <section className="section__card">
+          
             <div className="container__width">
               <button className="button__reset" type="reset">
                 <i className="far fa-trash-alt"></i>
@@ -17,7 +17,6 @@ class App extends Component {
               </button>
               <ContainerCard />
             </div>
-          </section>
           <div className="tunning__responsive">
             <section className="design-card">
               <div className="title-dropdown">
