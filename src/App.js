@@ -6,7 +6,15 @@ import ContainerCard from './components/ContainerCard.js';
 import CollapsableContainer from './components/CollapsableContainer';
 
 class App extends Component {
+  constructor(props) {
+    super(props); 
+      this.state = {
+        skills : []
+      }
+  }
+  
   render() {
+    const {skills} = this.state;
     return (
       <div className="App">
         <Header/>
@@ -17,7 +25,8 @@ class App extends Component {
                 <i className="far fa-trash-alt"></i>
                 <span className="button">Reset</span>
               </button>
-              <ContainerCard />
+              <ContainerCard 
+              skills = {skills}/>
             </div>
       
           <CollapsableContainer />  

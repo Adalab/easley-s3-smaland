@@ -5,7 +5,7 @@ class ContainerCard extends Component{
     render(){
         return(
             <section className="section__card">
-              <Card />
+            <Card />
             </section>
         )
     }
