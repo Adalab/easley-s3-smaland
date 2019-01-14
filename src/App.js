@@ -7,6 +7,12 @@ import CollapsableContainer from './components/CollapsableContainer';
 import dataBack from './services/DataBack';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        dataBack: dataBack
+    }
+}
   render() {
     return (
       <div className="App">
@@ -18,7 +24,7 @@ class App extends Component {
                 <i className="far fa-trash-alt"></i>
                 <span className="button">Reset</span>
               </button>
-              <ContainerCard />
+              <ContainerCard dataBack={this.state.dataBack} />
             </div>
 
           <CollapsableContainer />  
