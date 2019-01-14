@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 
 class CollapsableContainer extends Component {
+  constructor(props) {
+    super(props)
+    this.renderSkills = this.renderSkills.bind(this);
+
+  }
+  renderSkills() { 
+    console.log(this.props);
+    return this.props.skills.map(skill => {
+    return (
+      <label for={skill} className="checkbox-label">
+        <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" />
+        <p>{skill}</p>
+      </label>)
+  })}
+
   render() {
     return (
       <div className="tunning__responsive">
@@ -127,7 +142,7 @@ class CollapsableContainer extends Component {
           </div>
 
 
-          <form action="/signup" method="post" className="form hidden">
+          <form action="/signup" method="post" className="form">
             <label for="name" className="item-label">Nombre completo</label>
             <input placeholder="Ej: Sally Jill" id="name" type="text" name="name" className="item-input" required />
 
@@ -157,14 +172,7 @@ class CollapsableContainer extends Component {
 
             <div className="container-skills">
               <p className="text-skills">Habilidades (máximo 3)</p>
-
-              {this.props.skills.map(skill => {
-                return (
-                  <label for={skill} className="checkbox-label">
-                    <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" />
-                    <p>{skill}</p>
-                  </label>)
-              })}
+              {this.renderSkills()}
             </div>
           </form>
         </section>
