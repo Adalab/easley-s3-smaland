@@ -28,7 +28,7 @@ class DesignCollapsable extends Component {
   
     render() { 
         return (
-          ArrayCollapsables.map(function(DesignCollapsable){
+          {ArrayCollapsables.map(function(collapsable){
             <section className="design-card">
             <div className="title-dropdown">
               <div className="title-dropdown__icontitle">
@@ -103,6 +103,7 @@ class DesignCollapsable extends Component {
           })    
         );
     }
+  }
 }
  
 export default DesignCollapsable;
