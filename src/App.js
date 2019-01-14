@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props); 
       this.state = {
-        skills : []
+        skills : ["HTML", "CSS", "Sass" ]
       }
   }
   
@@ -25,11 +25,10 @@ class App extends Component {
                 <i className="far fa-trash-alt"></i>
                 <span className="button">Reset</span>
               </button>
-              <ContainerCard 
-              skills = {skills}/>
+              <ContainerCard />
             </div>
       
-          <CollapsableContainer />  
+          <CollapsableContainer skills = {skills}/>  
 
         </main>
 
