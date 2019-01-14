@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 
 class CollapsableContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.renderSkills = this.renderSkills.bind(this);
-
-  }
   renderSkills() { 
     console.log(this.props);
     return this.props.skills.map(skill => {
