@@ -1,8 +1,8 @@
 let dataBack = {
     palette: "1",
     typography: "2",
-    name: "marina",
-    job: "reina del mundo",
+    name: "",
+    job: "",
     phone: "555555555" ,
     email: "eision@hotmail.com",
     linkedin: "lauraferrandof",

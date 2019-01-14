@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 class Card extends Component {
     render(){
         const { dataBack } = this.props;
+        const nameDefault = "Nombre Apellido"
         return(
             <div className="box__card" id="box">
                 <div className="userInfo" id="userInfo">
                     <div className="detail"></div>
-                    <h2 className="userInfo__name">{dataBack.name}</h2>
-                    <h3 className="userInfo__job">{dataBack.job}</h3>
+                    <h2 className="userInfo__name">{dataBack.name || nameDefault} </h2>
+                    <h3 className="userInfo__job">{dataBack.job || "Front-End Developer"}</h3>
                 </div>
                 <div className="img image-preview__file">
                 </div>
