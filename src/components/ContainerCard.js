@@ -11,7 +11,7 @@ class ContainerCard extends Component {
                         <i className="far fa-trash-alt"></i>
                         <span className="button">Reset</span>
                     </Button>
-                    <Card dataBack={this.props.dataBack} />
+                    <Card dataBack={this.props.dataBack} fontClass={this.props.fontClass}/>
                 </div>
             </section>
         )

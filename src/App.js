@@ -12,10 +12,25 @@ class App extends Component {
 
     this.state = {
       dataBack: dataBack,
-      skills: []
+      skills: [],
+      fontClass: '',    
     };
-
+    this.handleFontClass = this.handleFontClass.bind(this);
     this.getSkills();
+    this.handleFontClass();
+  }
+
+  handleFontClass(){
+    if(dataBack.typography === 1){
+      this.setState ({
+        fontClass: 'userInfo--ubuntu'
+      })
+    }else if(dataBack.typography === 2){
+      console.log("blabla");
+      this.setState ({
+        fontClass: 'userInfo--quaternary'
+      })
+    }
   }
 
   getSkills() {
@@ -36,7 +51,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} />
+          <ContainerCard dataBack={this.state.dataBack}fontClass={this.state.fontClass} />
           <CollapsableContainer skills={skills} />
         </main>
         <Footer />
