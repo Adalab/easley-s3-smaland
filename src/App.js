@@ -6,7 +6,28 @@ import ContainerCard from './components/ContainerCard.js';
 import CollapsableContainer from './components/CollapsableContainer';
 
 class App extends Component {
+  constructor(props) {
+    super(props); 
+    
+      this.state = {
+        skills : []
+      }
+
+    this.getSkills();
+  }
+
+  getSkills(){
+    fetch("https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      this.setState({skills: data.skills});
+      console.log('state',this.state);
+    })
+  }
+
   render() {
+    const {skills} = this.state;
     return (
       <div className="App">
         <Header/>
@@ -20,7 +41,7 @@ class App extends Component {
               <ContainerCard />
             </div>
       
-          <CollapsableContainer />  
+          <CollapsableContainer skills = {skills}/>  
 
         </main>
 
