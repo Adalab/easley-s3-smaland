@@ -39,7 +39,7 @@ class Card extends Component {
                 <ul className="list__skills">
                 {dataBack.skills.map ((skill, i ) => {
                     return (
-                        <li key = {i} className ="">
+                        <li key = {i} className ="list__item-skills">
                         {skill}
                         </li>
                     )
