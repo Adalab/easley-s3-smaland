@@ -128,10 +128,8 @@ class CollapsableContainer extends Component {
 
 
           <form action="/signup" method="post" className="form hidden">
-            <Input name="job" content="Nombre completo" example="Ej: Sally Jill" />
-
-            <label for="job" className="item-label">Profesión</label>
-            <input placeholder="Ej: Front-end unicorn" id="job" type="text" name="job" className="item-input" required />
+            <Input name="name" content="Nombre completo" example="Ej: Sally Jill" type="text"/>
+            <Input name="job" content="Profesión" example="Ej: Front-end unicorn" type="text"/>
 
             <p className="item-label">Imagen de perfil</p>
             <div className="container-image">
@@ -140,20 +138,14 @@ class CollapsableContainer extends Component {
               <div className="image-preview image-preview-small">
               </div>
             </div>
+            <Input name="email" content="Email" example="Ej: sally-hill@gmail.com" type="email"/>
 
-            <label for="email" className="item-label">Email</label>
-            <input placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email" className="item-input" required />
+            <Input name="phone" content="Teléfono" example="Ej: 555·55·55·55" type="tel"/>
 
-            <label for="phone" className="item-label">Teléfono</label>
-            <input placeholder="Ej: 555·55·55·55" type="tel" id="phone" name="phone" className="item-input"
-              required />
+            <Input name="Linkedin" content="Linkedin" example="Ej: sally-hill" type="text"/>
 
-            <label for="Linkedin" className="item-label">Linkedin</label>
-            <input placeholder="Ej: sally-hill" type="text" name="linkedin" id="linkedin" className="item-input" required />
-
-            <label for="GitHub" className="item-label">GitHub</label>
-            <input placeholder="Ej: sally-hill" type="text" name="github" id="github" className="item-input" required />
-
+            <Input name="Github" content="Github" example="Ej: sally-hill" type="text"/>
+    
             <div className="container-skills">
               <p className="text-skills">Habilidades (máximo 3)</p>
 

@@ -7,7 +7,7 @@ class Input extends Component {
         return ( 
             <div>           
             <label for={name} className="item-label">{this.props.content}</label>
-            <input placeholder={this.props.example} id={name} type="text" name={name} className="item-input" required/>
+            <input placeholder={this.props.example} id={name} type={this.props.type} name={name} className="item-input" required/>
             </div> 
         );
     }
