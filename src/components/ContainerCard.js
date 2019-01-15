@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import Card from './Card.js';
+import Button from './Button.js';
 
-class ContainerCard extends Component{
-    render(){
-        return(
+class ContainerCard extends Component {
+    render() {
+        return (
             <section className="section__card">
-                <Card dataBack={this.props.dataBack} />
+                <div className="container__width">
+                    <Button type="reset" styles="button__reset">
+                        <i className="far fa-trash-alt"></i>
+                        <span className="button">Reset</span>
+                    </Button>
+                    <Card dataBack={this.props.dataBack} />
+                </div>
             </section>
         )
     }
