@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Input from './Input.js';
 class CollapsableContainer extends Component {
   renderSkills() { 
-    console.log(this.props);
     return this.props.skills.map(skill => {
     return (
       <label for={skill} className="checkbox-label">
@@ -10,6 +9,8 @@ class CollapsableContainer extends Component {
         <p>{skill}</p>
       </label>)
   })}
+  
+  
 
   render() {
     return (
@@ -137,18 +138,9 @@ class CollapsableContainer extends Component {
           </div>
 
 
-<<<<<<< HEAD
-          <form action="/signup" method="post" className="form">
-            <label for="name" className="item-label">Nombre completo</label>
-            <input placeholder="Ej: Sally Jill" id="name" type="text" name="name" className="item-input" required />
-
-            <label for="job" className="item-label">Profesión</label>
-            <input placeholder="Ej: Front-end unicorn" id="job" type="text" name="job" className="item-input" required />
-=======
           <form action="/signup" method="post" className="form hidden">
             <Input name="name" content="Nombre completo" example="Ej: Sally Jill" type="text"/>
             <Input name="job" content="Profesión" example="Ej: Front-end unicorn" type="text"/>
->>>>>>> inputs
 
             <p className="item-label">Imagen de perfil</p>
             <div className="container-image">

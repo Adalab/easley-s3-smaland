@@ -24,9 +24,7 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState({ skills: data.skills });
-        console.log("state", this.state);
       });
   }
 
