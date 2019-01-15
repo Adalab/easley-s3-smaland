@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
 class CollapsableContainer extends Component {
+  renderSkills() { 
+    console.log(this.props);
+    return this.props.skills.map(skill => {
+    return (
+      <label for={skill} className="checkbox-label">
+        <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" />
+        <p>{skill}</p>
+      </label>)
+  })}
+
   render() {
     return (
       <div className="tunning__responsive">
@@ -127,7 +137,7 @@ class CollapsableContainer extends Component {
           </div>
 
 
-          <form action="/signup" method="post" className="form hidden">
+          <form action="/signup" method="post" className="form">
             <label for="name" className="item-label">Nombre completo</label>
             <input placeholder="Ej: Sally Jill" id="name" type="text" name="name" className="item-input" required />
 
@@ -157,46 +167,7 @@ class CollapsableContainer extends Component {
 
             <div className="container-skills">
               <p className="text-skills">Habilidades (máximo 3)</p>
-
-              <label for="HTML" className="checkbox-label">
-                <input id="HTML" type="checkbox" value="HTML" name="skills" className="checkbox-input" />
-                <p>HTML</p>
-              </label>
-
-              <label for="CSS" className="checkbox-label">
-                <input id="CSS" type="checkbox" value="CSS" name="skills" className="checkbox-input" />
-                <p>CSS</p>
-              </label>
-
-              <label for="Sass" className="checkbox-label">
-                <input id="sass" type="checkbox" value="Sass" name="skills" className="checkbox-input" />
-                <p>Sass</p>
-              </label>
-
-              <label for="Git" className="checkbox-label">
-                <input id="git" type="checkbox" value="git" name="skills" className="checkbox-input" />
-                <p>Git</p>
-              </label>
-
-              <label for="Gulp" className="checkbox-label">
-                <input id="gulp" type="checkbox" value="gulp" name="skills" className="checkbox-input" />
-                <p>Gulp</p>
-              </label>
-
-              <label for="JavaScript" className="checkbox-label">
-                <input id="javascript" type="checkbox" value="JavaScript" name="skills" className="checkbox-input" />
-                <p>JavaScript</p>
-              </label>
-
-              <label for="AJAX" className="checkbox-label">
-                <input id="ajax" type="checkbox" value="AJAX" name="skills" className="checkbox-input" />
-                <p>AJAX</p>
-              </label>
-
-              <label for="React" className="checkbox-label">
-                <input id="react" type="checkbox" value="React" name="skills" className="checkbox-input" />
-                <p>React</p>
-              </label>
+              {this.renderSkills()}
             </div>
           </form>
         </section>
