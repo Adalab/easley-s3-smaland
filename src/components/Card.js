@@ -37,6 +37,13 @@ class Card extends Component {
                 </ul>
                 <div className="separation"></div>
                 <ul className="list__skills">
+                {dataBack.skills.map ((skill, i ) => {
+                    return (
+                        <li key = {i} className ="">
+                        {skill}
+                        </li>
+                    )
+                })}
                 </ul>
             </div> 
         );
