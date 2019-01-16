@@ -13,22 +13,40 @@ class App extends Component {
     this.state = {
       dataBack: dataBack,
       skills: [],
-      fontClass: '',    
+      fontClass: '',
     };
     this.handleFontClass = this.handleFontClass.bind(this);
+    this.handleFontInput = this.handleFontInput.bind(this);
     this.getSkills();
+  }
+
+  handleFontInput(event) {
+    const currentValue = event.target.value;
+    dataBack.typography = currentValue;
     this.handleFontClass();
   }
 
-  handleFontClass(){
-    if(dataBack.typography === 1){
-      this.setState ({
+  handleFontClass() {
+    const { typography } = this.state.dataBack;
+    if (typography === "1") {
+      this.setState({
         fontClass: 'userInfo--ubuntu'
       })
-    }else if(dataBack.typography === 2){
-      console.log("blabla");
-      this.setState ({
+    } else if (typography === "2") {
+      this.setState({
         fontClass: 'userInfo--quaternary'
+      })
+    } else if (typography === "3") {
+      this.setState({
+        fontClass: 'userInfo--mont'
+      })
+    } else if (typography === "4") {
+      this.setState({
+        fontClass: 'userInfo--hand'
+      })
+    } else if (typography === "5") {
+      this.setState({
+        fontClass: 'userInfo-libre'
       })
     }
   }
@@ -39,9 +57,7 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState({ skills: data.skills });
-        console.log("state", this.state);
       });
   }
 
@@ -51,8 +67,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack}fontClass={this.state.fontClass} />
-          <CollapsableContainer skills={skills} />
+          <ContainerCard dataBack={this.state.dataBack} fontClass={this.state.fontClass} />
+          <CollapsableContainer skills={skills} handleFontInput={this.handleFontInput} />
         </main>
         <Footer />
       </div>

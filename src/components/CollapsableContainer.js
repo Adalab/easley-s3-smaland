@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class CollapsableContainer extends Component {
   renderSkills() { 
-    console.log(this.props);
     return this.props.skills.map(skill => {
     return (
       <label for={skill} className="checkbox-label">
@@ -92,33 +91,33 @@ class CollapsableContainer extends Component {
 
                 <label for="font-Ubuntu" className="font">
                   <input className="radio fontradio typography1" id="font-Ubuntu" type="radio" data-font="Ubuntu" value="1"
-                    required name="selectFont" />
+                    required name="selectFont" onChange={this.props.handleFontInput}/>
                   <p className="font-Ubuntu">Ubuntu</p>
                 </label>
 
 
                 <label for="font-ComicSans " className="font ">
                   <input className="radio fontradio typography2" id="font-ComicSans" type="radio" data-font="ComicSans" value="2"
-                    name="selectFont" />
+                    name="selectFont" onChange={this.props.handleFontInput} />
                   <p className="font-ComicSans">Comic Sans</p>
                 </label>
 
 
                 <label for="font-Montserrat " className="font">
                   <input className="radio  fontradio typography3" id="font-Montserrat" type="radio" data-font="Montserrat" value="3"
-                    name="selectFont" />
+                    name="selectFont" onChange={this.props.handleFontInput} checked={this.props.checked} />
                   <p className="font-Monserrat">Monserrat</p>
                 </label>
 
 
                 <label for="font-Indie " className="font inactive">
-                  <input className="radio fontradio typography4" id="font-Indie" type="radio" data-font="Indie" value="4" name="selectFont" />
+                  <input className="radio fontradio typography4" id="font-Indie" type="radio" data-font="Indie" value="4" name="selectFont" onChange={this.props.handleFontInput} checked={this.props.checked} />
                   <p className="font-Indie">Indie</p>
                 </label>
 
 
                 <label for="font-Baskerville " className="font inactive">
-                  <input className="radio  fontradio  typography5" id="font-Baskerville" type="radio" data-font="Baskerville" value="5" name="selectFont" />
+                  <input className="radio  fontradio  typography5" id="font-Baskerville" type="radio" data-font="Baskerville" value="5" name="selectFont" onChange={this.props.handleFontInput} checked={this.props.checked} />
                   <p className="font-Baskerville">Baskerville</p>
                 </label>
               </form>
