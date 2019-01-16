@@ -67,8 +67,10 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
+
           <ContainerCard dataBack={this.state.dataBack} fontClass={this.state.fontClass} />
-          <CollapsableContainer skills={skills} handleFontInput={this.handleFontInput} />
+          <CollapsableContainer skills={skills} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack}/>
+
         </main>
         <Footer />
       </div>
