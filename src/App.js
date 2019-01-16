@@ -15,6 +15,7 @@ class App extends Component {
       skills: [],
       colorClass: '',
       fontClass: '',
+      skillsCard: ["HTML", "CSS", "Gulp"]
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
@@ -103,7 +104,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} />
+          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} skillsCard={this.state.skillsCard} />
           <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} />
         </main>
         <Footer />

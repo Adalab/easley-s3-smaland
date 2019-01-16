@@ -2,30 +2,27 @@ import React, { Component } from 'react';
 import Input from './Input.js';
 
 class CollapsableContainer extends Component {
-  constructor (props) {
-    super(props); 
-    this.saveSkills = this.saveSkills.bind(this); 
+  constructor(props) {
+    super(props);
+    this.saveSkills = this.saveSkills.bind(this);
   }
 
-
-  renderSkills() { 
+  renderSkills() {
     return this.props.skills.map(skill => {
-    return (
-      <label for={skill} className="checkbox-label">
-        <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" onClick = {this.saveSkills}/>
-        <p>{skill}</p>
-      </label>)
-  })}
-  
-  saveSkills (event) {
+      return (
+        <label for={skill} className="checkbox-label">
+          <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" onClick={this.saveSkills} />
+          <p>{skill}</p>
+        </label>)
+    })
+  }
+
+  saveSkills(event) {
     const { dataBack } = this.props;
     const valueInput = event.currentTarget.value;
-    return (
-      dataBack.skills.push(valueInput)
-    )
-    }
-  
-  
+    dataBack.skills.push(valueInput);
+    console.log(dataBack.skills);
+  }
 
   render() {
     return (
@@ -108,7 +105,7 @@ class CollapsableContainer extends Component {
 
                 <label for="font-Ubuntu" className="font">
                   <input className="radio fontradio typography1" id="font-Ubuntu" type="radio" data-font="Ubuntu" value="1"
-                    required name="selectFont" onChange={this.props.handleFontInput}/>
+                    required name="selectFont" onChange={this.props.handleFontInput} />
                   <p className="font-Ubuntu">Ubuntu</p>
                 </label>
 
@@ -154,8 +151,8 @@ class CollapsableContainer extends Component {
 
 
           <form action="/signup" method="post" className="form ">
-            <Input name="name" content="Nombre completo" example="Ej: Sally Jill" type="text"/>
-            <Input name="job" content="Profesión" example="Ej: Front-end unicorn" type="text"/>
+            <Input name="name" content="Nombre completo" example="Ej: Sally Jill" type="text" />
+            <Input name="job" content="Profesión" example="Ej: Front-end unicorn" type="text" />
 
             <p className="item-label">Imagen de perfil</p>
             <div className="container-image">
@@ -164,14 +161,14 @@ class CollapsableContainer extends Component {
               <div className="image-preview image-preview-small">
               </div>
             </div>
-            <Input name="email" content="Email" example="Ej: sally-hill@gmail.com" type="email"/>
+            <Input name="email" content="Email" example="Ej: sally-hill@gmail.com" type="email" />
 
-            <Input name="phone" content="Teléfono" example="Ej: 555·55·55·55" type="tel"/>
+            <Input name="phone" content="Teléfono" example="Ej: 555·55·55·55" type="tel" />
 
-            <Input name="Linkedin" content="Linkedin" example="Ej: sally-hill" type="text"/>
+            <Input name="Linkedin" content="Linkedin" example="Ej: sally-hill" type="text" />
 
-            <Input name="Github" content="Github" example="Ej: sally-hill" type="text"/>
-    
+            <Input name="Github" content="Github" example="Ej: sally-hill" type="text" />
+
             <div className="container-skills">
               <p className="text-skills">Habilidades (máximo 3)</p>
               {this.renderSkills()}
