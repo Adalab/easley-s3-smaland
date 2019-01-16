@@ -35,7 +35,7 @@ class App extends Component {
         <Header />
         <main className="created__target">
           <ContainerCard dataBack={this.state.dataBack} />
-          <CollapsableContainer skills={skills} />
+          <CollapsableContainer skills={skills} dataBack={this.state.dataBack}/>
         </main>
         <Footer />
       </div>

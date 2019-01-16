@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
 import Input from './Input.js';
+
 class CollapsableContainer extends Component {
+  constructor (props) {
+    super(props); 
+    this.saveSkills = this.saveSkills.bind(this); 
+  }
+
+
   renderSkills() { 
     return this.props.skills.map(skill => {
     return (
       <label for={skill} className="checkbox-label">
-        <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" />
+        <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" onClick = {this.saveSkills}/>
         <p>{skill}</p>
       </label>)
   })}
+  
+  saveSkills (event) {
+    const { dataBack } = this.props;
+    console.log(dataBack);
+    const valueInput = event.currentTarget.value;
+    console.log(valueInput)
+    return (
+      dataBack.skills.push(valueInput)
+    )
+    }
   
   
 
@@ -138,7 +155,7 @@ class CollapsableContainer extends Component {
           </div>
 
 
-          <form action="/signup" method="post" className="form hidden">
+          <form action="/signup" method="post" className="form ">
             <Input name="name" content="Nombre completo" example="Ej: Sally Jill" type="text"/>
             <Input name="job" content="Profesión" example="Ej: Front-end unicorn" type="text"/>
 
@@ -195,7 +212,8 @@ class CollapsableContainer extends Component {
       </div>
 
     )
-  }
+  };
+
 }
 
 export default CollapsableContainer;
