@@ -13,11 +13,47 @@ class App extends Component {
     this.state = {
       dataBack: dataBack,
       skills: [],
+      colorClass: '',
       fontClass: '',
     };
+
+    this.handleColorInput = this.handleColorInput.bind(this);
+    this.handleColorClass = this.handleColorClass.bind(this);
     this.handleFontClass = this.handleFontClass.bind(this);
     this.handleFontInput = this.handleFontInput.bind(this);
     this.getSkills();
+  }
+
+  handleColorInput(event) {
+    const currentValue = event.target.value;
+    dataBack.palette = currentValue;
+    console.log(dataBack);
+    this.handleColorClass();
+  }
+
+  handleColorClass() {
+    const { palette } = this.state.dataBack;
+    if (palette === "1") {
+      this.setState({
+        colorClass: 'box__card'
+      })
+    } else if (palette === "2") {
+      this.setState({
+        colorClass: 'box__card--red'
+      })
+    } else if (palette === "3") {
+      this.setState({
+        colorClass: 'box__card--grey'
+      })
+    } else if (palette === "4") {
+      this.setState({
+        colorClass: 'box__card--purple'
+      })
+    } else if (palette === "5") {
+      this.setState({
+        colorClass: 'box__card--orange'
+      })
+    }
   }
 
   handleFontInput(event) {
@@ -67,10 +103,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-
-          <ContainerCard dataBack={this.state.dataBack} fontClass={this.state.fontClass} />
-          <CollapsableContainer skills={skills} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack}/>
-
+          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} />
+          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} />
         </main>
         <Footer />
       </div>
