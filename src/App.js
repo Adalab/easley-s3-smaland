@@ -14,14 +14,17 @@ class App extends Component {
       dataBack: dataBack,
       skills: [],
       colorClass: '',
+      fontClass: '',
     };
 
-    this.handleCustomInputs = this.handleCustomInputs.bind(this);
+    this.handleColorInput = this.handleColorInput.bind(this);
     this.handleColorClass = this.handleColorClass.bind(this);
+    this.handleFontClass = this.handleFontClass.bind(this);
+    this.handleFontInput = this.handleFontInput.bind(this);
     this.getSkills();
   }
 
-  handleCustomInputs(event) {
+  handleColorInput(event) {
     const currentValue = event.target.value;
     dataBack.palette = currentValue;
     console.log(dataBack);
@@ -53,6 +56,37 @@ class App extends Component {
     }
   }
 
+  handleFontInput(event) {
+    const currentValue = event.target.value;
+    dataBack.typography = currentValue;
+    this.handleFontClass();
+  }
+
+  handleFontClass() {
+    const { typography } = this.state.dataBack;
+    if (typography === "1") {
+      this.setState({
+        fontClass: 'userInfo--ubuntu'
+      })
+    } else if (typography === "2") {
+      this.setState({
+        fontClass: 'userInfo--quaternary'
+      })
+    } else if (typography === "3") {
+      this.setState({
+        fontClass: 'userInfo--mont'
+      })
+    } else if (typography === "4") {
+      this.setState({
+        fontClass: 'userInfo--hand'
+      })
+    } else if (typography === "5") {
+      this.setState({
+        fontClass: 'userInfo-libre'
+      })
+    }
+  }
+
   getSkills() {
     fetch(
       "https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json"
@@ -69,8 +103,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} />
-          <CollapsableContainer skills={skills} handleCustomInputs={this.handleCustomInputs} />
+          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} />
+          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} />
         </main>
         <Footer />
       </div>
