@@ -1,6 +1,6 @@
 let dataBack = {
     palette: "1",
-    typography: "2",
+    typography: "1",
     name: "",
     job: "",
     phone: "555555555" ,

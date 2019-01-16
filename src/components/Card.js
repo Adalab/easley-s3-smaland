@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 class Card extends Component {
     render(){
         const { dataBack } = this.props;
-        const nameDefault = "Nombre Apellido"
+        const nameDefault = "Nombre Apellido";
+        const jobDefault = "Front-End Developer";
         return(
             <div className="box__card" id="box">
-                <div className="userInfo" id="userInfo">
+                <div className={`userInfo ${this.props.fontClass}`} id="userInfo">
                     <div className="detail"></div>
                     <h2 className="userInfo__name">{dataBack.name || nameDefault} </h2>
-                    <h3 className="userInfo__job">{dataBack.job || "Front-End Developer"}</h3>
+                    <h3 className="userInfo__job">{dataBack.job || jobDefault}</h3>
                 </div>
                 <div className="img image-preview__file">
                 </div>

@@ -12,10 +12,43 @@ class App extends Component {
 
     this.state = {
       dataBack: dataBack,
-      skills: []
+      skills: [],
+      fontClass: '',
     };
-
+    this.handleFontClass = this.handleFontClass.bind(this);
+    this.handleFontInput = this.handleFontInput.bind(this);
     this.getSkills();
+  }
+
+  handleFontInput(event) {
+    const currentValue = event.target.value;
+    dataBack.typography = currentValue;
+    this.handleFontClass();
+  }
+
+  handleFontClass() {
+    const { typography } = this.state.dataBack;
+    if (typography === "1") {
+      this.setState({
+        fontClass: 'userInfo--ubuntu'
+      })
+    } else if (typography === "2") {
+      this.setState({
+        fontClass: 'userInfo--quaternary'
+      })
+    } else if (typography === "3") {
+      this.setState({
+        fontClass: 'userInfo--mont'
+      })
+    } else if (typography === "4") {
+      this.setState({
+        fontClass: 'userInfo--hand'
+      })
+    } else if (typography === "5") {
+      this.setState({
+        fontClass: 'userInfo-libre'
+      })
+    }
   }
 
   getSkills() {
@@ -34,8 +67,10 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} />
-          <CollapsableContainer skills={skills} dataBack={this.state.dataBack}/>
+
+          <ContainerCard dataBack={this.state.dataBack} fontClass={this.state.fontClass} />
+          <CollapsableContainer skills={skills} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack}/>
+
         </main>
         <Footer />
       </div>
