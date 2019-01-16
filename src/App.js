@@ -24,9 +24,7 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState({ skills: data.skills });
-        console.log("state", this.state);
       });
   }
 
@@ -37,7 +35,7 @@ class App extends Component {
         <Header />
         <main className="created__target">
           <ContainerCard dataBack={this.state.dataBack} />
-          <CollapsableContainer skills={skills} />
+          <CollapsableContainer skills={skills} dataBack={this.state.dataBack}/>
         </main>
         <Footer />
       </div>
