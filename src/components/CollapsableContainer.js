@@ -19,9 +19,7 @@ class CollapsableContainer extends Component {
   
   saveSkills (event) {
     const { dataBack } = this.props;
-    console.log(dataBack);
     const valueInput = event.currentTarget.value;
-    console.log(valueInput)
     return (
       dataBack.skills.push(valueInput)
     )
