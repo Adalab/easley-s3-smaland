@@ -5,7 +5,7 @@ class Card extends Component {
         const { dataBack } = this.props;
         const nameDefault = "Nombre Apellido"
         return(
-            <div className="box__card" id="box">
+            <div className={`box__card ${this.props.colorClass}`} id="box">
                 <div className="userInfo" id="userInfo">
                     <div className="detail"></div>
                     <h2 className="userInfo__name">{dataBack.name || nameDefault} </h2>

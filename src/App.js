@@ -12,10 +12,45 @@ class App extends Component {
 
     this.state = {
       dataBack: dataBack,
-      skills: []
+      skills: [],
+      colorClass: '',
     };
 
+    this.handleCustomInputs = this.handleCustomInputs.bind(this);
+    this.handleColorClass = this.handleColorClass.bind(this);
     this.getSkills();
+  }
+
+  handleCustomInputs(event) {
+    const currentValue = event.target.value;
+    dataBack.palette = currentValue;
+    console.log(dataBack);
+    this.handleColorClass();
+  }
+
+  handleColorClass() {
+    const { palette } = this.state.dataBack;
+    if (palette === "1") {
+      this.setState({
+        colorClass: 'box__card'
+      })
+    } else if (palette === "2") {
+      this.setState({
+        colorClass: 'box__card--red'
+      })
+    } else if (palette === "3") {
+      this.setState({
+        colorClass: 'box__card--grey'
+      })
+    } else if (palette === "4") {
+      this.setState({
+        colorClass: 'box__card--purple'
+      })
+    } else if (palette === "5") {
+      this.setState({
+        colorClass: 'box__card--orange'
+      })
+    }
   }
 
   getSkills() {
@@ -24,9 +59,7 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState({ skills: data.skills });
-        console.log("state", this.state);
       });
   }
 
@@ -36,8 +69,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} />
-          <CollapsableContainer skills={skills} />
+          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} />
+          <CollapsableContainer skills={skills} handleCustomInputs={this.handleCustomInputs} />
         </main>
         <Footer />
       </div>

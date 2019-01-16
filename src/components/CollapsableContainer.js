@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Input from './Input.js';
 class CollapsableContainer extends Component {
   renderSkills() { 
-    console.log(this.props);
     return this.props.skills.map(skill => {
     return (
       <label for={skill} className="checkbox-label">
@@ -32,7 +31,7 @@ class CollapsableContainer extends Component {
               <form className="design-card__colors__select-palette">
 
                 <label for="palette-green" className="palette">
-                  <input className="radio" id="palette-green" type="radio" data-palette="paletteGreen" value="1" required name="selectPalete" />
+                  <input className="radio" id="palette-green" type="radio" data-palette="paletteGreen" value="1" required name="selectPalete" onChange={this.props.handleCustomInputs} />
                   <div className="colors-palette">
                     <div className="colors-palette__item green1"></div>
                     <div className="colors-palette__item green2"></div>
@@ -42,7 +41,7 @@ class CollapsableContainer extends Component {
 
 
                 <label for="palette-red" className="palette">
-                  <input className="radio palette2" id="palette-red" type="radio" data-palette="paletteRed" value="2" name="selectPalete" />
+                  <input className="radio palette2" id="palette-red" type="radio" data-palette="paletteRed" value="2" name="selectPalete" onChange={this.props.handleCustomInputs} />
                   <div className="colors-palette">
                     <div className="colors-palette__item red1"></div>
                     <div className="colors-palette__item red2"></div>
@@ -52,7 +51,7 @@ class CollapsableContainer extends Component {
 
 
                 <label for="palette-blue" className="palette">
-                  <input className="radio palette3" id="palette-blue" type="radio" data-palette="paletteGrey" value="3" name="selectPalete" />
+                  <input className="radio palette3" id="palette-blue" type="radio" data-palette="paletteGrey" value="3" name="selectPalete" onChange={this.props.handleCustomInputs} />
                   <div className="colors-palette">
                     <div className="colors-palette__item blue1"></div>
                     <div className="colors-palette__item blue2"></div>
@@ -62,7 +61,7 @@ class CollapsableContainer extends Component {
 
 
                 <label for="palette-purple" className="palette inactive">
-                  <input className="radio palette4" id="palette-purple" type="radio" data-palette="palettePurple" value="4" name="selectPalete" />
+                  <input className="radio palette4" id="palette-purple" type="radio" data-palette="palettePurple" value="4" name="selectPalete" onChange={this.props.handleCustomInputs} />
                   <div className="colors-palette">
                     <div className="colors-palette__item purple1"></div>
                     <div className="colors-palette__item purple2"></div>
@@ -72,7 +71,7 @@ class CollapsableContainer extends Component {
 
 
                 <label for="palette-orange" className="palette inactive">
-                  <input className="radio" id="palette-orange" type="radio" data-palette="paletteOrange" value="5" name="selectPalete" />
+                  <input className="radio" id="palette-orange" type="radio" data-palette="paletteOrange" value="5" name="selectPalete" onChange={this.props.handleCustomInputs} />
                   <div className="colors-palette palette5">
                     <div className="colors-palette__item orange1"></div>
                     <div className="colors-palette__item orange2"></div>
