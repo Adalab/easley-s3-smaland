@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SkillsCard from "./SkillsCard";
 
 class Card extends Component {
   render() {
@@ -42,15 +43,7 @@ class Card extends Component {
           </li>
         </ul>
         <div className="separation" />
-        <ul className="list__skills">
-          {this.props.skillsCard.map((skill, i) => {
-            return (
-              <li key={i} className="list__item-skills">
-                {skill}
-              </li>
-            );
-          })}
-        </ul>
+        <SkillsCard skillsCard={this.props.skillsCard} />
       </div>
     );
   }

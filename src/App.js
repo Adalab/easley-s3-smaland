@@ -15,7 +15,7 @@ class App extends Component {
       skills: [],
       colorClass: '',
       fontClass: '',
-      skillsCard: ["HTML", "CSS", "Gulp"]
+      skillsCard: []
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
