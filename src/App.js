@@ -23,12 +23,12 @@ class App extends Component {
     this.handleFontClass = this.handleFontClass.bind(this);
     this.handleFontInput = this.handleFontInput.bind(this);
     this.getSkills();
+    this.saveSkills = this.saveSkills.bind(this);
   }
 
   handleColorInput(event) {
     const currentValue = event.target.value;
     dataBack.palette = currentValue;
-    console.log(dataBack);
     this.handleColorClass();
   }
 
@@ -88,6 +88,12 @@ class App extends Component {
     }
   }
 
+  saveSkills(event) {
+    const valueInput = event.currentTarget.value;
+    this.setState({skillsCard: [...this.state.skillsCard, valueInput]});
+    console.log(this.state);
+  }
+
   getSkills() {
     fetch(
       "https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json"
@@ -105,7 +111,7 @@ class App extends Component {
         <Header />
         <main className="created__target">
           <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} skillsCard={this.state.skillsCard} />
-          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} />
+          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} saveSkills={this.saveSkills} />
         </main>
         <Footer />
       </div>
