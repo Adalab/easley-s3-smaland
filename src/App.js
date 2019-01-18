@@ -13,21 +13,35 @@ class App extends Component {
     this.state = {
       dataBack: dataBack,
       skills: [],
-      colorClass: '',
-      fontClass: '',
+      colorClass: "",
+      fontClass: "",
+      name: "",
+      job: "",
+      phone: "",
+      email: "",
+      Linkedin: "",
+      Github: ""
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
     this.handleColorClass = this.handleColorClass.bind(this);
     this.handleFontClass = this.handleFontClass.bind(this);
     this.handleFontInput = this.handleFontInput.bind(this);
+    this.handleInputs = this.handleInputs.bind(this);
     this.getSkills();
+  }
+
+  handleInputs(event) {
+    this.setState({ [event.target.name]: event.target.value });
+    console.log(event.target.name);
+    console.log(event.target.value);
+    console.log(this.state.dataBack);
   }
 
   handleColorInput(event) {
     const currentValue = event.target.value;
     dataBack.palette = currentValue;
-    console.log(dataBack);
+
     this.handleColorClass();
   }
 
@@ -35,24 +49,24 @@ class App extends Component {
     const { palette } = this.state.dataBack;
     if (palette === "1") {
       this.setState({
-        colorClass: 'box__card'
-      })
+        colorClass: "box__card"
+      });
     } else if (palette === "2") {
       this.setState({
-        colorClass: 'box__card--red'
-      })
+        colorClass: "box__card--red"
+      });
     } else if (palette === "3") {
       this.setState({
-        colorClass: 'box__card--grey'
-      })
+        colorClass: "box__card--grey"
+      });
     } else if (palette === "4") {
       this.setState({
-        colorClass: 'box__card--purple'
-      })
+        colorClass: "box__card--purple"
+      });
     } else if (palette === "5") {
       this.setState({
-        colorClass: 'box__card--orange'
-      })
+        colorClass: "box__card--orange"
+      });
     }
   }
 
@@ -66,24 +80,24 @@ class App extends Component {
     const { typography } = this.state.dataBack;
     if (typography === "1") {
       this.setState({
-        fontClass: 'userInfo--ubuntu'
-      })
+        fontClass: "userInfo--ubuntu"
+      });
     } else if (typography === "2") {
       this.setState({
-        fontClass: 'userInfo--quaternary'
-      })
+        fontClass: "userInfo--quaternary"
+      });
     } else if (typography === "3") {
       this.setState({
-        fontClass: 'userInfo--mont'
-      })
+        fontClass: "userInfo--mont"
+      });
     } else if (typography === "4") {
       this.setState({
-        fontClass: 'userInfo--hand'
-      })
+        fontClass: "userInfo--hand"
+      });
     } else if (typography === "5") {
       this.setState({
-        fontClass: 'userInfo-libre'
-      })
+        fontClass: "userInfo-libre"
+      });
     }
   }
 
@@ -103,8 +117,18 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} />
-          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} />
+          <ContainerCard
+            dataBack={this.state.dataBack}
+            colorClass={this.state.colorClass}
+            fontClass={this.state.fontClass}
+          />
+          <CollapsableContainer
+            skills={skills}
+            handleColorInput={this.handleColorInput}
+            handleFontInput={this.handleFontInput}
+            handleInputs={this.handleInputs}
+            dataBack={this.state.dataBack}
+          />
         </main>
         <Footer />
       </div>

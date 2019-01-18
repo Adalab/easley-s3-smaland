@@ -5,7 +5,7 @@ class Input extends Component {
         const { value, name } = this.props;
         return (
             <Fragment>
-                <label for={name} className="item-label">
+                <label htmlFor={name} className="item-label">
                     {this.props.content}
                 </label>
                 <input
@@ -15,6 +15,7 @@ class Input extends Component {
                     type={this.props.type}
                     name={name}
                     className="item-input"
+                    onChange = {this.props.handleInputs}
                     required
                 />
             </Fragment>
