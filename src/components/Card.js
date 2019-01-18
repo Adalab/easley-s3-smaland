@@ -43,7 +43,7 @@ class Card extends Component {
           </li>
         </ul>
         <div className="separation" />
-        <SkillsCard skillsCard={this.props.skillsCard} />
+        <SkillsCard dataBack={dataBack} />
       </div>
     );
   }

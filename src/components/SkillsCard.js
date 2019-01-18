@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class SkillsCard extends Component {
   render() {
-    if (this.props.skillsCard.length === 0) {
+    if (this.props.dataBack.skills.length === 0) {
       return (
         <ul className="list__skills">
           <li className="list__item-skills">HTML</li>
@@ -13,7 +13,7 @@ class SkillsCard extends Component {
     } else {
       return (
         <ul className="list__skills">
-          {this.props.skillsCard.map((skill, i) => {
+          {this.props.dataBack.skills.map((skill, i) => {
             return (
               <li key={i} className="list__item-skills">
                 {skill}

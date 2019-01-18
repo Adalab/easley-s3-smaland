@@ -15,17 +15,17 @@ class App extends Component {
       skills: [],
       colorClass: '',
       fontClass: '',
-      skillsCard: [],
-      skillsChecked: {
-        HTMLStatus: true,
-        CSSStatus: false,
-        SassStatus: false,
-        gitStatus: false,
-        GulpStatus: false,
-        JavaScriptStatus: true,
-        AJAXStatus: false,
-        ReactStatus: false
-      }
+      // skillsCard: [],
+      // skillsChecked: {
+      //   HTMLStatus: true,
+      //   CSSStatus: false,
+      //   SassStatus: false,
+      //   gitStatus: false,
+      //   GulpStatus: false,
+      //   JavaScriptStatus: true,
+      //   AJAXStatus: false,
+      //   ReactStatus: false
+      // }
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
@@ -33,7 +33,7 @@ class App extends Component {
     this.handleFontClass = this.handleFontClass.bind(this);
     this.handleFontInput = this.handleFontInput.bind(this);
     this.getSkills();
-    this.handleSkills = this.handleSkills.bind(this);
+    // this.handleSkills = this.handleSkills.bind(this);
     this.saveSkills = this.saveSkills.bind(this);
     this.removeSkills = this.removeSkills.bind(this);
     console.log(this.state.skillsCard);
@@ -101,26 +101,31 @@ class App extends Component {
     }
   }
 
-  handleSkills(event) {
-    const currentInput = event.currentTarget;
-    const valueInput = event.currentTarget.value;
-    if(this.state.skillsChecked[`${valueInput}Status`] === false) {
-      this.setState({...this.state.skillsChecked, CSSStatus: true});
-      console.log('hola');
-      console.log(this.state.skillsChecked);
-      //this.saveSkills();
-    } else if(this.state.skillsChecked[`${valueInput}Status`] === true) {
-      this.setState({...this.state.skillsChecked, [`${valueInput}Status`]: false});
-      console.log('adios');
-      console.log(this.state.skillsChecked);
-      //this.removeSkills();
-    }
-  }
+  // handleSkills(event) {
+  //   const currentInput = event.currentTarget;
+  //   const valueInput = event.currentTarget.value;
+  //   if(this.state.skillsChecked[`${valueInput}Status`] === false) {
+  //     this.setState({...this.state.skillsChecked, CSSStatus: true});
+  //     console.log('hola');
+  //     console.log(this.state.skillsChecked);
+  //     //this.saveSkills();
+  //   } else if(this.state.skillsChecked[`${valueInput}Status`] === true) {
+  //     this.setState({...this.state.skillsChecked, [`${valueInput}Status`]: false});
+  //     console.log('adios');
+  //     console.log(this.state.skillsChecked);
+  //     //this.removeSkills();
+  //   }
+  // }
 
   saveSkills(event) {
     const valueInput = event.currentTarget.value;
-    this.setState({skillsCard: [...this.state.skillsCard, valueInput]});
-    console.log(this.state);
+    this.setState(prevState => {
+      return (
+        prevState.dataBack.skills.push(valueInput)
+      )
+    })
+    console.log('data',this.state.dataBack);
+    
   }
 
   removeSkills(event) {
@@ -145,8 +150,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} skillsCard={this.state.skillsCard} />
-          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} saveSkills={this.handleSkills} skillsChecked={this.state.skillsChecked} />
+          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} skillsCard={this.state.dataBack} />
+          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} saveSkills={this.saveSkills} skillsChecked={this.state.skillsChecked} />
         </main>
         <Footer />
       </div>
