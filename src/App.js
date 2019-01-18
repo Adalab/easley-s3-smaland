@@ -35,7 +35,7 @@ class App extends Component {
     this.getSkills();
     // this.handleSkills = this.handleSkills.bind(this);
     this.saveSkills = this.saveSkills.bind(this);
-    this.removeSkills = this.removeSkills.bind(this);
+    // this.removeSkills = this.removeSkills.bind(this);
     console.log(this.state.skillsCard);
   }
 
@@ -119,6 +119,13 @@ class App extends Component {
 
   saveSkills(event) {
     const valueInput = event.currentTarget.value;
+
+
+// tenemos que devolver un objeto, y deberiammos comprobar si la usuaria quita o añade una skills. es decir
+// filtrar o comprobar si el array incluye la skill seleccionada(target.value)
+// generar un nuevo array, no push(que solo modifica)
+// en el estado los obj y arr si quieres modificarlo hay que usar todo menos push
+
     this.setState(prevState => {
       return (
         prevState.dataBack.skills.push(valueInput)
@@ -128,11 +135,6 @@ class App extends Component {
     
   }
 
-  removeSkills(event) {
-    const valueInput = event.currentTarget.value;
-    this.setState({skillsCard: this.state.skillsCard.splice(this.state.skillsCard.indexOf[valueInput], 1)});
-    console.log(this.state.skillsCard);
-  }
 
   getSkills() {
     fetch(
