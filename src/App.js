@@ -15,12 +15,6 @@ class App extends Component {
       skills: [],
       colorClass: "",
       fontClass: "",
-      name: "",
-      job: "",
-      phone: "",
-      email: "",
-      Linkedin: "",
-      Github: ""
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
@@ -32,10 +26,15 @@ class App extends Component {
   }
 
   handleInputs(event) {
-    this.setState({ [event.target.name]: event.target.value });
-    console.log(event.target.name);
-    console.log(event.target.value);
-    console.log(this.state.dataBack);
+    const { name, value } = event.target;
+    this.setState(prevState => { 
+      return {
+      dataBack: {
+        ...prevState.dataBack,
+        [name]: value,
+      }
+    }
+    });
   }
 
   handleColorInput(event) {
