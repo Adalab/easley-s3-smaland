@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import "./stylesheets/scss/main.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header.js";
-import ContainerCard from "./components/ContainerCard.js";
-import CollapsableContainer from "./components/CollapsableContainer";
 import dataBack from "./services/DataBack";
+import { Route, Switch } from "react-router-dom";
+import MainCardCreator from "./components/MainCardCreator";
+import MainHome from './components/MainHome';
 
 class App extends Component {
   constructor(props) {
@@ -102,10 +103,23 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} />
-          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} />
-        </main>
+        <Switch>
+          <Route exact path="/" component={ MainHome } />
+          <Route 
+          path ="/card-creator"
+          render = { () => (
+            <MainCardCreator 
+              dataBack={this.state.dataBack} 
+              colorClass={this.state.colorClass} 
+              fontClass={this.state.fontClass} 
+              skills={skills} 
+              handleColorInput={this.handleColorInput} 
+              handleFontInput={this.handleFontInput} 
+              dataBack={this.state.dataBack}
+            />
+          )}
+          />
+        </Switch>
         <Footer />
       </div>
     );
