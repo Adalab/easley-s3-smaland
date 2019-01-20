@@ -28,20 +28,15 @@ class FillContainer extends Component {
     }
 
     render() {
+        const icon = React.createElement('i', {className:"far fa-keyboard"} );
+        const text = React.createElement('p',{className: "title-dropdown__title-fill"},"Rellena");
+        const divTitle = React.createElement('div', {className: "title-dropdown__icontitle"}, [icon, text]);
+        const arrow = React.createElement('i', {className:"arrowF fas fa-chevron-down"} );
+        const divArrow = React.createElement('div', {className: "title-dropdown__arrow arrowFill"}, [arrow])
+        const title = React.createElement('div', {className:"title-dropdown-fill" }, [divTitle, divArrow]);
         return (
-            <Collapsible trigger={<i className="far fa-keyboard"></i>}>
+            <Collapsible trigger={title}>
             <section className="fill-card">
-                <div className="title-dropdown-fill">
-                    <div className="title-dropdown__icontitle">
-                        <i className="far fa-keyboard"></i>
-                        <h2 className="title-dropdown__title-fill">Rellena</h2>
-                    </div>
-                    <div className="title-dropdown__arrow arrowFill">
-                        <i className="arrowF fas fa-chevron-down"></i>
-                    </div>
-                </div>
-
-
                 <form action="/signup" method="post" className="form ">
                     <Input name="name" content="Nombre completo" example="Ej: Sally Jill" type="text" />
                     <Input name="job" content="Profesión" example="Ej: Front-end unicorn" type="text" />
