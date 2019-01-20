@@ -2,20 +2,20 @@ import React, { Component, Fragment } from "react";
 
 class Input extends Component {
     render() {
-        const { value, name } = this.props;
+        const { value, name, content, example, type, handleInputs } = this.props;
         return (
             <Fragment>
                 <label htmlFor={name} className="item-label">
-                    {this.props.content}
+                    {content}
                 </label>
                 <input
                     value={value}
-                    placeholder={this.props.example}
+                    placeholder={example}
                     id={name}
-                    type={this.props.type}
+                    type={type}
                     name={name}
                     className="item-input"
-                    onChange = {this.props.handleInputs}
+                    onChange = {handleInputs}
                     required
                 />
             </Fragment>

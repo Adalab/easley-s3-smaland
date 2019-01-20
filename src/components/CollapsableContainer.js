@@ -169,7 +169,7 @@ class CollapsableContainer extends Component {
 
             <Input value={dataBack.linkedin}  name="linkedin" content="Linkedin" example="Ej: sally-hill" type="text" handleInputs = {this.props.handleInputs} />
 
-            <Input value={dataBack.github} name="github" content="ithub" example="Ej: sally-hill" type="text" handleInputs = {this.props.handleInputs} />
+            <Input value={dataBack.github} name="github" content="GitHub" example="Ej: sally-hill" type="text" handleInputs = {this.props.handleInputs} />
 
             <div className="container-skills">
               <p className="text-skills">Habilidades (máximo 3)</p>
