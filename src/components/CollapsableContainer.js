@@ -5,7 +5,7 @@ class CollapsableContainer extends Component {
   constructor(props) {
     super(props);
     this.saveSkills = this.saveSkills.bind(this);
-    this.handleClickInputs = this.handleClickInputs.bind(this);
+    // this.handleClickInputs = this.handleClickInputs.bind(this);
   }
 
   

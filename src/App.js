@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./stylesheets/scss/main.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header.js";
 import dataBack from "./services/DataBack";
@@ -104,20 +103,19 @@ class App extends Component {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path="/" component={ MainHome } />
-          <Route 
-          path ="/card-creator"
-          render = { () => (
-            <MainCardCreator 
-              dataBack={this.state.dataBack} 
-              colorClass={this.state.colorClass} 
-              fontClass={this.state.fontClass} 
-              skills={skills} 
-              handleColorInput={this.handleColorInput} 
-              handleFontInput={this.handleFontInput} 
-              dataBack={this.state.dataBack}
-            />
-          )}
+          <Route exact path="/" component={MainHome} />
+          <Route
+            path="/card-creator"
+            render={() => (
+              <MainCardCreator
+                dataBack={this.state.dataBack}
+                colorClass={this.state.colorClass}
+                fontClass={this.state.fontClass}
+                skills={skills}
+                handleColorInput={this.handleColorInput}
+                handleFontInput={this.handleFontInput}
+              />
+            )}
           />
         </Switch>
         <Footer />
