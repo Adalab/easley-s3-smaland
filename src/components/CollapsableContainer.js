@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Input from './Input.js';
+import ImageUpdate from './ImageUpdate';
 
 class CollapsableContainer extends Component {
   constructor (props) {
     super(props); 
     this.saveSkills = this.saveSkills.bind(this); 
   }
-
 
   renderSkills() { 
     return this.props.skills.map(skill => {
@@ -25,8 +25,6 @@ class CollapsableContainer extends Component {
     )
     }
   
-  
-
   render() {
     return (
       <div className="tunning__responsive">
@@ -156,14 +154,7 @@ class CollapsableContainer extends Component {
           <form action="/signup" method="post" className="form ">
             <Input name="name" content="Nombre completo" example="Ej: Sally Jill" type="text"/>
             <Input name="job" content="Profesión" example="Ej: Front-end unicorn" type="text"/>
-
-            <p className="item-label">Imagen de perfil</p>
-            <div className="container-image">
-              <button className="image-link" type="submit">Añadir imagen</button>
-              <input type="file" name="" id="img-selector" className="action__hiddenField" />
-              <div className="image-preview image-preview-small">
-              </div>
-            </div>
+            <ImageUpdate dataBack= {this.props.dataBack} />
             <Input name="email" content="Email" example="Ej: sally-hill@gmail.com" type="email"/>
 
             <Input name="phone" content="Teléfono" example="Ej: 555·55·55·55" type="tel"/>
