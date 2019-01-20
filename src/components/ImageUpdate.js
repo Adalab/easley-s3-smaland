@@ -22,7 +22,6 @@ class ImageUpdate extends Component {
         console.log(fileUpdatedByUser);
         this.state.fr.addEventListener('load', this.addImageToState);
         this.state.fr.readAsDataURL(fileUpdatedByUser);
-        sendUrlToDataBack();
     }
 
     sendUrlToDataBack(){
