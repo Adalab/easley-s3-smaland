@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 class Button extends Component {
@@ -13,8 +13,7 @@ class Button extends Component {
 
 Button.propTypes = {
   type: PropTypes.string.isRequired,
-  styles: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired
+  styles: PropTypes.string.isRequired
 };
 
-export default Button; 
+export default Button;
