@@ -5,10 +5,8 @@ class CollapsableContainer extends Component {
   constructor(props) {
     super(props);
     this.saveSkills = this.saveSkills.bind(this);
-    this.handleClickInputs = this.handleClickInputs.bind(this);
   }
 
-  
   renderSkills() {
     return this.props.skills.map(skill => {
       return (
@@ -155,8 +153,8 @@ class CollapsableContainer extends Component {
 
 
           <form action="/signup" method="post" className="form ">
-            <Input value={dataBack.name} name="name" content="Nombre completo" example="Ej: Sally Jill" type="text" />
-            <Input value={dataBack.job} name="job" content="Profesión" example="Ej: Front-end unicorn" type="text" />
+            <Input value={dataBack.name} name="name" content="Nombre completo" example="Ej: Sally Jill" type="text" handleInputs = {this.props.handleInputs}/>
+            <Input value={dataBack.job} name="job" content="Profesión" example="Ej: Front-end unicorn" type="text" handleInputs = {this.props.handleInputs}/>
 
             <p className="item-label">Imagen de perfil</p>
             <div className="container-image">
@@ -165,13 +163,13 @@ class CollapsableContainer extends Component {
               <div className="image-preview image-preview-small">
               </div>
             </div>
-            <Input value={dataBack.email} name="email" content="Email" example="Ej: sally-hill@gmail.com" type="email" />
+            <Input value={dataBack.email} name="email" content="Email" example="Ej: sally-hill@gmail.com" type="email" handleInputs = {this.props.handleInputs}/>
 
-            <Input value={dataBack.phone}  name="phone" content="Teléfono" example="Ej: 555·55·55·55" type="tel" />
+            <Input value={dataBack.phone}  name="phone" content="Teléfono" example="Ej: 555·55·55·55" type="tel" handleInputs = {this.props.handleInputs}/>
 
-            <Input value={dataBack.linkedin}  name="Linkedin" content="Linkedin" example="Ej: sally-hill" type="text" />
+            <Input value={dataBack.linkedin}  name="linkedin" content="Linkedin" example="Ej: sally-hill" type="text" handleInputs = {this.props.handleInputs} />
 
-            <Input value={dataBack.github} name="Github" content="Github" example="Ej: sally-hill" type="text" />
+            <Input value={dataBack.github} name="github" content="GitHub" example="Ej: sally-hill" type="text" handleInputs = {this.props.handleInputs} />
 
             <div className="container-skills">
               <p className="text-skills">Habilidades (máximo 3)</p>
