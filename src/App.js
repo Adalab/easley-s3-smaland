@@ -3,6 +3,7 @@ import "./stylesheets/scss/main.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header.js";
 import ContainerCard from "./components/ContainerCard.js";
+import Collapsible from 'react-collapsible';
 import CollapsableContainer from "./components/CollapsableContainer";
 import dataBack from "./services/DataBack";
 
