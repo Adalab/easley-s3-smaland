@@ -3,22 +3,15 @@ import Collapsible from 'react-collapsible';
 
 class DesignContainer extends Component {
     render() {
+        const icon = React.createElement('i', {className:"far fa-object-ungroup title-dropdown__icon-design"} );
+        const text = React.createElement('p',{className: "title-dropdown__title-design"},"Diseña");
+        const divTitle = React.createElement('div', {className: "title-dropdown__icontitle"}, [icon, text]);
+        const arrow = React.createElement('i', {className:"arrowD fas fa-chevron-up"} );
+        const divArrow = React.createElement('div', {className: "title-dropdown__arrow arrowDesign"}, [arrow])
+        const title = React.createElement('div', {className:"title-dropdown" }, [divTitle, divArrow]);
         return (
-        <Collapsible trigger= {
-        <i className="far fa-object-ungroup title-dropdown__icon-design"></i>
-        } open="true">
-            
+        <Collapsible trigger= {title} open="true">
             <section className="design-card">
-                <div className="title-dropdown">
-                    <div className="title-dropdown__icontitle">
-                        <i className="far fa-object-ungroup title-dropdown__icon-design"></i>
-                        <h2 className="title-dropdown__title-design">Diseña</h2>
-                    </div>
-                    <div className="title-dropdown__arrow arrowDesign">
-                        <i className="arrowD fas fa-chevron-up"></i>
-                    </div>
-                </div>
-
                 <div className="design-card__options">
                     <div className="design-card__colors">
                         <h3 className="title-colors">Colores</h3>
