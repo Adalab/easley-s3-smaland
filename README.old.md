@@ -1,1 +1,0 @@
-# easly-s3-smaland

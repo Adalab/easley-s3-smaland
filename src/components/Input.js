@@ -1,16 +1,26 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from "react";
 
 class Input extends Component {
-    state = {}
-    render() {
-        const name = this.props.name;
-        return (
-            <Fragment>
-                <label for={name} className="item-label">{this.props.content}</label>
-                <input placeholder={this.props.example} id={name} type={this.props.type} name={name} className="item-input" required />
-            </Fragment>
-        );
-    }
+  render() {
+    const { value, name, content, example, type, handleInputs } = this.props;
+    return (
+      <Fragment>
+        <label htmlFor={name} className="item-label">
+          {content}
+        </label>
+        <input
+          value={value}
+          placeholder={example}
+          id={name}
+          type={type}
+          name={name}
+          className="item-input"
+          onChange={handleInputs}
+          required
+        />
+      </Fragment>
+    );
+  }
 }
 
 export default Input;
