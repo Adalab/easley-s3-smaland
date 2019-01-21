@@ -11,7 +11,7 @@ class CollapsableContainer extends Component {
     return this.props.skills.map(skill => {
       return (
         <label for={skill} className="checkbox-label">
-          <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" /*checked={this.props.skillsChecked[`${skill}Status`]}*/ onChange={this.props.saveSkills} />
+          <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" /*checked={this.props.skillsChecked[`${skill}Status`]}*/ onChange={this.props.handleSkills} />
           <p>{skill}</p>
         </label>)
     })
