@@ -8,7 +8,7 @@ let dataBack = {
   linkedin: "lauraferrandof",
   github: "lauraferrandof",
   photo: "",
-  skills: ["HTML", "CSS", "GULP"]
+  skills: ["HTML", "CSS", "Gulp"]
 }
 
 export default dataBack;

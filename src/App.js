@@ -15,6 +15,7 @@ class App extends Component {
       skills: [],
       colorClass: '',
       fontClass: '',
+      checked: false
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
@@ -29,11 +30,11 @@ class App extends Component {
     const selectedSkill = event.target.value;
     const { skills } = this.state.dataBack;
 
-    if (skills.includes(selectedSkill)){
+    if (skills.includes(selectedSkill)) {
       let newSkills = skills.filter((skill) => skill !== selectedSkill);
       this.setState((prevState) => {
         return {
-          dataBack : {
+          dataBack: {
             ...prevState.dataBack,
             skills: newSkills
           }
@@ -42,7 +43,7 @@ class App extends Component {
     } else {
       this.setState((prevState) => {
         return {
-          dataBack : {
+          dataBack: {
             ...prevState.dataBack,
             skills: skills.concat(selectedSkill)
           }
@@ -50,6 +51,8 @@ class App extends Component {
       })
     }
   }
+
+
 
   handleColorInput(event) {
     const currentValue = event.target.value;
@@ -130,7 +133,7 @@ class App extends Component {
         <Header />
         <main className="created__target">
           <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} skillsCard={this.state.dataBack} />
-          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} handleSkills={this.handleSkills} skillsChecked={this.state.skillsChecked} />
+          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} handleSkills={this.handleSkills} checked={this.checked} />
         </main>
         <Footer />
       </div>
