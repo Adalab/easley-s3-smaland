@@ -102,7 +102,7 @@ class App extends Component {
           }
         }
       })
-    } else {
+    } else if(skills.length < 3){
       this.setState((prevState) => {
         return {
           dataBack: {
@@ -113,7 +113,7 @@ class App extends Component {
       })
     }
   }
-  
+
   getSkills() {
     fetch(
       "https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json"
