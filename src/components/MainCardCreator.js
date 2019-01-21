@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ContainerCard from "./ContainerCard";
 import CollapsableContainer from "./CollapsableContainer";
 
+
 class MainCardCreator extends Component {
   render() {
     const { dataBack, skills, colorClass, fontClass, handleColorInput, handleFontInput, handleInputs } = this.props;
