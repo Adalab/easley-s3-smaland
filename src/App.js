@@ -26,34 +26,6 @@ class App extends Component {
     this.getSkills();
   }
 
-  handleSkills(event) {
-    const selectedSkill = event.target.value;
-    const { skills } = this.state.dataBack;
-
-    if (skills.includes(selectedSkill)) {
-      let newSkills = skills.filter((skill) => skill !== selectedSkill);
-      this.setState((prevState) => {
-        return {
-          dataBack: {
-            ...prevState.dataBack,
-            skills: newSkills
-          }
-        }
-      })
-    } else {
-      this.setState((prevState) => {
-        return {
-          dataBack: {
-            ...prevState.dataBack,
-            skills: skills.concat(selectedSkill)
-          }
-        }
-      })
-    }
-  }
-
-
-
   handleColorInput(event) {
     const currentValue = event.target.value;
     dataBack.palette = currentValue;
@@ -116,6 +88,32 @@ class App extends Component {
     }
   }
 
+  handleSkills(event) {
+    const selectedSkill = event.target.value;
+    const { skills } = this.state.dataBack;
+
+    if (skills.includes(selectedSkill)) {
+      let newSkills = skills.filter((skill) => skill !== selectedSkill);
+      this.setState((prevState) => {
+        return {
+          dataBack: {
+            ...prevState.dataBack,
+            skills: newSkills
+          }
+        }
+      })
+    } else {
+      this.setState((prevState) => {
+        return {
+          dataBack: {
+            ...prevState.dataBack,
+            skills: skills.concat(selectedSkill)
+          }
+        }
+      })
+    }
+  }
+  
   getSkills() {
     fetch(
       "https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json"

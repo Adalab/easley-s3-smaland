@@ -3,10 +3,10 @@ let dataBack = {
   typography: "1",
   name: "",
   job: "",
-  phone: "555555555",
-  email: "eision@hotmail.com",
-  linkedin: "lauraferrandof",
-  github: "lauraferrandof",
+  phone: "",
+  email: "",
+  linkedin: "",
+  github: "",
   photo: "",
   skills: ["HTML", "CSS", "Gulp"]
 }
