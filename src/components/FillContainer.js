@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './Input.js';
 import Collapsible from 'react-collapsible';
+import ImageUpdate from './ImageUpdate.js';
 
 class FillContainer extends Component {
     constructor(props) {
@@ -55,16 +56,7 @@ class FillContainer extends Component {
                             handleInputs={handleInputs}
                             />
 
-                        <p className="item-label">Imagen de perfil</p>
-                        <div className="container-image">
-                            <button className="image-link" type="submit">Añadir imagen</button>
-                            <input 
-                            type="file" 
-                            name="" 
-                            id="img-selector" className="action__hiddenField" />
-                            <div className="image-preview image-preview-small">
-                            </div>
-                        </div>
+                        <ImageUpdate dataBack={dataBack}/>
                         <Input 
                         name="email" 
                         content="Email" 

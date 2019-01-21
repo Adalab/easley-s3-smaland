@@ -15,7 +15,8 @@ class App extends Component {
       dataBack: dataBack,
       skills: [],
       colorClass: "",
-      fontClass: ""
+      fontClass: "",
+      fr: new FileReader()
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
@@ -24,6 +25,33 @@ class App extends Component {
     this.handleFontInput = this.handleFontInput.bind(this);
     this.handleInputs = this.handleInputs.bind(this);
     this.getSkills();
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.addImageToState = this.addImageToState.bind(this);
+    this.fileInput = React.createRef();
+  }
+
+  addImageToState() {
+    this.setState((prevState)=>{ 
+      return{
+        dataBack: {
+          ...prevState.dataBack,
+          photo: this.state.fr.result,
+        }
+    }});
+  }
+
+  fakeFileClick(){
+    const fileInputEl = this.fileInput.current;
+    fileInputEl.click();
+    fileInputEl.addEventListener("change", this.handleSubmit);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const fileUpdatedByUser = this.fileInput.current.files[0];
+    console.log(fileUpdatedByUser);
+    this.state.fr.addEventListener('load', this.addImageToState);
+    this.state.fr.readAsDataURL(fileUpdatedByUser);
   }
 
   handleInputs(event) {
@@ -132,6 +160,8 @@ class App extends Component {
                 handleColorInput={this.handleColorInput}
                 handleFontInput={this.handleFontInput}
                 handleInputs={this.handleInputs}
+                fakeFileClick={this.fakeFileClick}
+                fileInput={this.fileInput}
               />
             )}
           />

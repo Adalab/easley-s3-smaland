@@ -12,12 +12,13 @@ class CollapsableContainer extends Component {
       handleFontInput,
       skills,
       dataBack,
-      handleInputs
+      handleInputs, fakeFileClick, fileInput
     } = this.props;
     return (
       <div className="tunning__responsive">
         <DesignContainer handleColorInput={handleColorInput} handleFontInput={handleFontInput}/>
-        <FillContainer skills={skills} dataBack={dataBack} handleInputs={handleInputs} />
+        <FillContainer skills={skills} dataBack={dataBack} handleInputs={handleInputs} fakeFileClick={fakeFileClick}
+        fileInput={fileInput} />
         <ShareContainer/>
       </div>
     );
