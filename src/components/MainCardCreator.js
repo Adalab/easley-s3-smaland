@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import ContainerCard from "./ContainerCard";
 import CollapsableContainer from "./CollapsableContainer";
 
@@ -24,5 +25,17 @@ class MainCardCreator extends Component {
     );
   }
 }
+
+//PROP-TYPES
+MainCardCreator.propTypes = {
+  dataBack: PropTypes.object,
+  colorClass: PropTypes.string,
+  fontClass: PropTypes.string,
+  skills: PropTypes.arrayOf(PropTypes.string),
+  handleColorInput: PropTypes.func,
+  handleFontInput: PropTypes.func,
+  handleInputs: PropTypes.func,
+};
+
 
 export default MainCardCreator;

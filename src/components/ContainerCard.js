@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Card from "./Card.js";
 import Button from "./Button.js";
 
@@ -22,4 +23,12 @@ class ContainerCard extends Component {
     }
 }
 
+//PROP-TYPES
+ContainerCard.propTypes = {
+    dataBack: PropTypes.object,
+    colorClass: PropTypes.string,
+    fontClass: PropTypes.string,
+    };
+
 export default ContainerCard;
+

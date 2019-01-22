@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 
 class Input extends Component {
   render() {
@@ -21,6 +22,16 @@ class Input extends Component {
       </Fragment>
     );
   }
+}
+
+//PROP-TYPES
+Input.PropTypes = {
+  value: PropTypes.string,
+  name: PropTypes.string,
+  content:PropTypes.string,
+  example: PropTypes.string,
+  type: PropTypes.string,
+  handleInputs: PropTypes.func,
 }
 
 export default Input;

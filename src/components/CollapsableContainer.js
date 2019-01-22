@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import DesignContainer from './DesignContainer.js';
 import FillContainer from './FillContainer.js';
 import ShareContainer from './ShareContainer.js';
@@ -22,6 +23,15 @@ class CollapsableContainer extends Component {
       </div>
     );
   }
+}
+
+//PROP-TYPES
+CollapsableContainer.PropTypes = {
+  handleColorInput: PropTypes.func,
+  handleFontInput: PropTypes.func,
+  skills: PropTypes.arrayOf(PropTypes.string),
+  dataBack: PropTypes.object,
+  handleInputs: PropTypes.func,
 }
 
 export default CollapsableContainer;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import Input from './Input.js';
 import Collapsible from 'react-collapsible';
 
@@ -106,5 +107,12 @@ class FillContainer extends Component {
         );
     }
 }
+
+//PPROP-TYPES
+FillContainer.PropTypes = {
+    skills: PropTypes.arrayOf(PropTypes.string),
+    dataBack: PropTypes.object,
+    handleInputs: PropTypes.func,
+    }
 
 export default FillContainer;

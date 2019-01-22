@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import Collapsible from 'react-collapsible';
 
 class DesignContainer extends Component {
@@ -116,5 +117,12 @@ class DesignContainer extends Component {
         );
     }
 }
+
+//PROP-TYPES
+DesignContainer.PropTypes = {
+    handleColorInput: PropTypes.func,
+    handleFontInput: PropTypes.func,
+    }
+
 
 export default DesignContainer;
