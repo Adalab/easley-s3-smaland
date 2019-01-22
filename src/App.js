@@ -26,6 +26,7 @@ class App extends Component {
     this.handleSkills = this.handleSkills.bind(this);
     this.isChecked = this.isChecked.bind(this);
     this.renderSkills = this.renderSkills.bind(this);
+    this.resetFunction = this.resetFunction.bind(this);
     this.getSkills();
   }
 
@@ -158,6 +159,10 @@ class App extends Component {
     })
   }
 
+  resetFunction(event){
+    
+  }
+
   render() {
     const { dataBack, skills, colorClass, fontClass } = this.state;
     return (
@@ -181,6 +186,7 @@ class App extends Component {
                 handleInputs={this.handleInputs}
                 handleSkills={this.handleSkills}
                 renderSkills={this.renderSkills}
+                resetFunction={this.resetFunction}
               />
             )}
           />
