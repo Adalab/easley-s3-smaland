@@ -1,5 +1,5 @@
 .section__card {
-  background-image: url('../../images/restaurant.png');
+  background-image: url('../images/restaurant.png');
   min-height: 457px;
   display: flex;
   justify-content: center;
@@ -31,7 +31,7 @@
 }
 
 .img {
-  background-image: url('../../images/silueta.jpg');
+  background-image: url('../images/silueta.jpg');
   background-position: center;
   background-size: cover;
   height: 200px;

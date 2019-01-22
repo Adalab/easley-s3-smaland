@@ -29,6 +29,8 @@
   color: $gunmetal;
   text-transform: uppercase;
   margin-left: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .title-dropdown__icon-share {

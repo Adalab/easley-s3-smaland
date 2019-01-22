@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import "./stylesheets/scss/main.scss";
 import Footer from "./components/Footer";
-import Header from "./components/Header.js";
-import ContainerCard from "./components/ContainerCard.js";
-import CollapsableContainer from "./components/CollapsableContainer";
+import HeaderCardCreator from "./components/HeaderCardCreator.js";
+import HeaderHome from "./components/HeaderHome";
 import dataBack from "./services/DataBack";
+import { Route, Switch } from "react-router-dom";
+import MainCardCreator from "./components/MainCardCreator";
+import MainHome from "./components/MainHome";
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class App extends Component {
       dataBack: dataBack,
       skills: [],
       colorClass: "",
-      fontClass: "",
+      fontClass: ""
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
@@ -23,18 +24,20 @@ class App extends Component {
     this.handleFontInput = this.handleFontInput.bind(this);
     this.handleInputs = this.handleInputs.bind(this);
     this.handleSkills = this.handleSkills.bind(this);
+    this.isChecked = this.isChecked.bind(this);
+    this.renderSkills = this.renderSkills.bind(this);
     this.getSkills();
   }
 
   handleInputs(event) {
     const { name, value } = event.target;
-    this.setState(prevState => { 
+    this.setState(prevState => {
       return {
-      dataBack: {
-        ...prevState.dataBack,
-        [name]: value,
+        dataBack: {
+          ...prevState.dataBack,
+          [name]: value,
+        }
       }
-    }
     });
   }
 
@@ -136,15 +139,52 @@ class App extends Component {
       });
   }
 
+  isChecked(currentSkill) {
+    const { skills } = this.state.dataBack;
+    if(skills.includes(currentSkill)){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  renderSkills() {
+    return this.state.skills.map(skill => {
+      return (
+        <label for={skill} className="checkbox-label">
+          <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" checked={this.isChecked(skill)} onChange={this.handleSkills} />
+          <p>{skill}</p>
+        </label>)
+    })
+  }
+
   render() {
-    const { skills } = this.state;
+    const { dataBack, skills, colorClass, fontClass } = this.state;
     return (
-      <div className="App">
-        <Header />
-        <main className="created__target">
-          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} skillsCard={this.state.dataBack} />
-          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} handleSkills={this.handleSkills} checked={this.checked} />
-        </main>
+      <div className="App">        
+        <Switch>
+          <Route exact path="/" component={HeaderHome} />
+          <Route path="/card-creator" component={HeaderCardCreator} />
+        </Switch>
+        <Switch>
+          <Route exact path="/" component={MainHome} />
+          <Route
+            path="/card-creator"
+            render={() => (
+              <MainCardCreator
+                dataBack={dataBack}
+                colorClass={colorClass}
+                fontClass={fontClass}
+                skills={skills}
+                handleColorInput={this.handleColorInput}
+                handleFontInput={this.handleFontInput}
+                handleInputs={this.handleInputs}
+                handleSkills={this.handleSkills}
+                renderSkills={this.renderSkills}
+              />
+            )}
+          />
+        </Switch>
         <Footer />
       </div>
     );
