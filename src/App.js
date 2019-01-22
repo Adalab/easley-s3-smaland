@@ -15,7 +15,9 @@ class App extends Component {
       dataBack: dataBack,
       skills: [],
       colorClass: "",
-      fontClass: ""
+      fontClass: "",
+      loading: true,
+      cardURL: ""
     };
 
     this.handleColorInput = this.handleColorInput.bind(this);
@@ -26,6 +28,7 @@ class App extends Component {
     this.handleSkills = this.handleSkills.bind(this);
     this.isChecked = this.isChecked.bind(this);
     this.renderSkills = this.renderSkills.bind(this);
+    this.sendCardToBackend = this.sendCardToBackend.bind(this);
     this.getSkills();
   }
 
@@ -117,7 +120,7 @@ class App extends Component {
           }
         }
       })
-    } else if(skills.length < 3){
+    } else if (skills.length < 3) {
       this.setState((prevState) => {
         return {
           dataBack: {
@@ -141,7 +144,7 @@ class App extends Component {
 
   isChecked(currentSkill) {
     const { skills } = this.state.dataBack;
-    if(skills.includes(currentSkill)){
+    if (skills.includes(currentSkill)) {
       return true
     } else {
       return false
@@ -158,10 +161,23 @@ class App extends Component {
     })
   }
 
+  sendCardToBackend() {
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+      method: 'POST',
+      body: JSON.stringify(this.state.dataBack),
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+    .then((response) => response.json())
+    .then((url) => {
+      console.log(url);
+    })
+  }
   render() {
-    const { dataBack, skills, colorClass, fontClass } = this.state;
+    const { dataBack, skills, colorClass, fontClass, cardURL } = this.state;
     return (
-      <div className="App">        
+      <div className="App">
         <Switch>
           <Route exact path="/" component={HeaderHome} />
           <Route path="/card-creator" component={HeaderCardCreator} />
@@ -181,6 +197,7 @@ class App extends Component {
                 handleInputs={this.handleInputs}
                 handleSkills={this.handleSkills}
                 renderSkills={this.renderSkills}
+                cardURL = {cardURL}
               />
             )}
           />
