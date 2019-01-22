@@ -160,11 +160,20 @@ class App extends Component {
   }
 
   resetFunction(event){
-    
+    this.setState((prevState) => {
+      return {
+        dataBack: {
+          ...prevState,
+          dataBack: dataBack,
+          skills: []
+        }
+      }
+    })
   }
 
   render() {
     const { dataBack, skills, colorClass, fontClass } = this.state;
+    console.log(this.state.dataBack);
     return (
       <div className="App">        
         <Switch>

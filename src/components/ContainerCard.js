@@ -9,9 +9,9 @@ class ContainerCard extends Component {
         return (
             <section className="section__card">
                 <div className="container__width">
-                    <Button type="reset" styles="button__reset">
+                    <Button type="reset" styles="button__reset" resetFunction={resetFunction}>
                         <i className="far fa-trash-alt" />
-                        <span className="button" onClick={resetFunction}>Reset</span>
+                        <span className="button">Reset</span>
                     </Button>
                     <Card
                         dataBack={this.props.dataBack}
