@@ -173,6 +173,8 @@ class App extends Component {
       .then((response) => response.json())
       .then((url) => {
         console.log(url);
+        //cuando tengamos foto, retornamos el link y cambiamos loading a false
+        //tambien debemos cambiar clase del boton e incoporar la movida de twitter al estado
       })
       .catch((error)=>console.log(error))
   }
