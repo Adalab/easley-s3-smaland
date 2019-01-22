@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import defaultImage from '../images/silueta.jpg';
 
 class Card extends Component {
     render() {
         const { dataBack } = this.props;
         const nameDefault = "Nombre Apellido";
         const jobDefault = "Front-End Developer";
+        
         return (
             <div className={`box__card ${this.props.colorClass}`} id="box">
                 <div className={`userInfo ${this.props.fontClass}`} id="userInfo">
@@ -13,7 +15,7 @@ class Card extends Component {
                     <h3 className="userInfo__job">{dataBack.job || jobDefault}</h3>
                 </div>
                 
-                <img className= "img image-preview__file" src = {dataBack.photo} alt = {dataBack.name} />
+                <img className= "img image-preview__file" src= {dataBack.photo || defaultImage} alt = {dataBack.name} />
                 <ul className="list__icon">
                     <li className="list__item">
                         <a className="item__link mobile" href={dataBack.phone}>
