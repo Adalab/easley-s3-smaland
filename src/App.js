@@ -16,8 +16,10 @@ class App extends Component {
       skills: [],
       colorClass: "",
       fontClass: "",
-      fr: new FileReader()
+      fr: new FileReader()  
     };
+
+  
 
     this.handleColorInput = this.handleColorInput.bind(this);
     this.handleColorClass = this.handleColorClass.bind(this);
