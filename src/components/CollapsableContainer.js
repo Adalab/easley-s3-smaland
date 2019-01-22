@@ -5,20 +5,20 @@ import FillContainer from './FillContainer.js';
 import ShareContainer from './ShareContainer.js';
 
 class CollapsableContainer extends Component {
-  
-
   render() {
     const {
       handleColorInput,
       handleFontInput,
       skills,
       dataBack,
-      handleInputs
+      handleInputs,
+      handleSkills,
+      renderSkills
     } = this.props;
     return (
       <div className="tunning__responsive">
         <DesignContainer handleColorInput={handleColorInput} handleFontInput={handleFontInput}/>
-        <FillContainer skills={skills} dataBack={dataBack} handleInputs={handleInputs} />
+        <FillContainer skills={skills} dataBack={dataBack} handleInputs={handleInputs} handleSkills={handleSkills} renderSkills={renderSkills} />
         <ShareContainer/>
       </div>
     );
@@ -26,12 +26,14 @@ class CollapsableContainer extends Component {
 }
 
 //PROP-TYPES
-CollapsableContainer.PropTypes = {
+CollapsableContainer.propTypes = {
   handleColorInput: PropTypes.func.isRequired,
   handleFontInput: PropTypes.func.isRequired,
   skills: PropTypes.arrayOf(PropTypes.string).isRequired,
   dataBack: PropTypes.object.isRequired,
   handleInputs: PropTypes.func.isRequired,
+  handleSkills: PropTypes.func.isRequired,
+  renderSkills: PropTypes.func.isRequired,
 }
 
 export default CollapsableContainer;

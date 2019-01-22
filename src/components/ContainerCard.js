@@ -16,6 +16,7 @@ class ContainerCard extends Component {
                         dataBack={this.props.dataBack}
                         colorClass={this.props.colorClass}
                         fontClass={this.props.fontClass}
+                        skillsCard={this.props.skillsCard}
                     />
                 </div>
             </section>

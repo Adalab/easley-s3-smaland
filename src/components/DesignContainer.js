@@ -11,7 +11,7 @@ class DesignContainer extends Component {
         const divArrow = React.createElement('div', {className: "title-dropdown__arrow arrowDesign"}, [arrow])
         const title = React.createElement('div', {className:"title-dropdown" }, [divTitle, divArrow]);
         return (
-        <Collapsible trigger= {title} open="true">
+        <Collapsible trigger= {title} open={true}>
             <section className="design-card">
                 <div className="design-card__options">
                     <div className="design-card__colors">
@@ -119,7 +119,7 @@ class DesignContainer extends Component {
 }
 
 //PROP-TYPES
-DesignContainer.PropTypes = {
+DesignContainer.propTypes = {
     handleColorInput: PropTypes.func.isRequired,
     handleFontInput: PropTypes.func.isRequired,
     }

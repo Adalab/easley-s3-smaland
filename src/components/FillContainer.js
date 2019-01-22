@@ -4,34 +4,12 @@ import Input from './Input.js';
 import Collapsible from 'react-collapsible';
 
 class FillContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.saveSkills = this.saveSkills.bind(this);
-        this.renderSkills = this.renderSkills.bind(this);
-    }
-
-    renderSkills() {
-        return this.props.skills.map(skill => {
-            return (
-                <label htmlFor={skill} className="checkbox-label">
-                    <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" onClick={this.saveSkills} />
-                    <p>{skill}</p>
-                </label>)
-        })
-    }
-
-    saveSkills(event) {
-        const { dataBack } = this.props;
-        const valueInput = event.currentTarget.value;
-        return (
-            dataBack.skills.push(valueInput)
-        )
-    }
 
     render() {
         const {
             dataBack,
-            handleInputs
+            handleInputs,
+            renderSkills
         } = this.props;
         const icon = React.createElement('i', { className: "far fa-keyboard" });
         const text = React.createElement('p', { className: "title-dropdown__title-fill" }, "Rellena");
@@ -45,7 +23,9 @@ class FillContainer extends Component {
                     <form action="/signup" method="post" className="form ">
                         <Input
                             name="name"
-                            content="Nombre completo" example="Ej: Sally Jill" type="text"
+                            content="Nombre completo" 
+                            example="Ej: Sally Jill"
+                            type="text"
                             value={dataBack.name}
                             handleInputs={handleInputs}
                             />
@@ -99,7 +79,7 @@ class FillContainer extends Component {
 
                         <div className="container-skills">
                             <p className="text-skills">Habilidades (máximo 3)</p>
-                            {this.renderSkills()}
+                            {renderSkills()}
                         </div>
                     </form>
                 </section>
@@ -109,7 +89,7 @@ class FillContainer extends Component {
 }
 
 //PPROP-TYPES
-FillContainer.PropTypes = {
+FillContainer.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string).isRequired,
     dataBack: PropTypes.object.isRequired,
     handleInputs: PropTypes.func.isRequired,

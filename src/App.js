@@ -23,6 +23,9 @@ class App extends Component {
     this.handleFontClass = this.handleFontClass.bind(this);
     this.handleFontInput = this.handleFontInput.bind(this);
     this.handleInputs = this.handleInputs.bind(this);
+    this.handleSkills = this.handleSkills.bind(this);
+    this.isChecked = this.isChecked.bind(this);
+    this.renderSkills = this.renderSkills.bind(this);
     this.getSkills();
   }
 
@@ -41,7 +44,6 @@ class App extends Component {
   handleColorInput(event) {
     const currentValue = event.target.value;
     dataBack.palette = currentValue;
-
     this.handleColorClass();
   }
 
@@ -101,6 +103,32 @@ class App extends Component {
     }
   }
 
+  handleSkills(event) {
+    const selectedSkill = event.target.value;
+    const { skills } = this.state.dataBack;
+
+    if (skills.includes(selectedSkill)) {
+      let newSkills = skills.filter((skill) => skill !== selectedSkill);
+      this.setState((prevState) => {
+        return {
+          dataBack: {
+            ...prevState.dataBack,
+            skills: newSkills
+          }
+        }
+      })
+    } else if(skills.length < 3){
+      this.setState((prevState) => {
+        return {
+          dataBack: {
+            ...prevState.dataBack,
+            skills: skills.concat(selectedSkill)
+          }
+        }
+      })
+    }
+  }
+
   getSkills() {
     fetch(
       "https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json"
@@ -111,10 +139,29 @@ class App extends Component {
       });
   }
 
+  isChecked(currentSkill) {
+    const { skills } = this.state.dataBack;
+    if(skills.includes(currentSkill)){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  renderSkills() {
+    return this.state.skills.map(skill => {
+      return (
+        <label for={skill} className="checkbox-label">
+          <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" checked={this.isChecked(skill)} onChange={this.handleSkills} />
+          <p>{skill}</p>
+        </label>)
+    })
+  }
+
   render() {
     const { dataBack, skills, colorClass, fontClass } = this.state;
     return (
-      <div className="App">
+      <div className="App">        
         <Switch>
           <Route exact path="/" component={HeaderHome} />
           <Route path="/card-creator" component={HeaderCardCreator} />
@@ -132,6 +179,8 @@ class App extends Component {
                 handleColorInput={this.handleColorInput}
                 handleFontInput={this.handleFontInput}
                 handleInputs={this.handleInputs}
+                handleSkills={this.handleSkills}
+                renderSkills={this.renderSkills}
               />
             )}
           />
