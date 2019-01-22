@@ -154,7 +154,7 @@ class App extends Component {
   renderSkills() {
     return this.state.skills.map(skill => {
       return (
-        <label for={skill} className="checkbox-label">
+        <label htmlFor={skill} className="checkbox-label">
           <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" checked={this.isChecked(skill)} onChange={this.handleSkills} />
           <p>{skill}</p>
         </label>)
@@ -162,6 +162,7 @@ class App extends Component {
   }
 
   sendCardToBackend() {
+    console.log('hola');
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
       method: 'POST',
       body: JSON.stringify(this.state.dataBack),
@@ -169,10 +170,11 @@ class App extends Component {
         "content-type": "application/json"
       }
     })
-    .then((response) => response.json())
-    .then((url) => {
-      console.log(url);
-    })
+      .then((response) => response.json())
+      .then((url) => {
+        console.log(url);
+      })
+      .catch((error)=>console.log(error))
   }
   render() {
     const { dataBack, skills, colorClass, fontClass, cardURL } = this.state;
@@ -197,7 +199,8 @@ class App extends Component {
                 handleInputs={this.handleInputs}
                 handleSkills={this.handleSkills}
                 renderSkills={this.renderSkills}
-                cardURL = {cardURL}
+                sendCardToBackend={this.sendCardToBackend}
+                cardURL={cardURL}
               />
             )}
           />
