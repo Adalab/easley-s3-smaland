@@ -22,6 +22,7 @@ class App extends Component {
     this.handleFontClass = this.handleFontClass.bind(this);
     this.handleFontInput = this.handleFontInput.bind(this);
     this.handleInputs = this.handleInputs.bind(this);
+    this.handleSkills = this.handleSkills.bind(this);
     this.getSkills();
   }
 
@@ -40,7 +41,6 @@ class App extends Component {
   handleColorInput(event) {
     const currentValue = event.target.value;
     dataBack.palette = currentValue;
-
     this.handleColorClass();
   }
 
@@ -100,6 +100,32 @@ class App extends Component {
     }
   }
 
+  handleSkills(event) {
+    const selectedSkill = event.target.value;
+    const { skills } = this.state.dataBack;
+
+    if (skills.includes(selectedSkill)) {
+      let newSkills = skills.filter((skill) => skill !== selectedSkill);
+      this.setState((prevState) => {
+        return {
+          dataBack: {
+            ...prevState.dataBack,
+            skills: newSkills
+          }
+        }
+      })
+    } else if(skills.length < 3){
+      this.setState((prevState) => {
+        return {
+          dataBack: {
+            ...prevState.dataBack,
+            skills: skills.concat(selectedSkill)
+          }
+        }
+      })
+    }
+  }
+
   getSkills() {
     fetch(
       "https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json"
@@ -116,18 +142,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <main className="created__target">
-          <ContainerCard
-            dataBack={this.state.dataBack}
-            colorClass={this.state.colorClass}
-            fontClass={this.state.fontClass}
-          />
-          <CollapsableContainer
-            skills={skills}
-            handleColorInput={this.handleColorInput}
-            handleFontInput={this.handleFontInput}
-            handleInputs={this.handleInputs}
-            dataBack={this.state.dataBack}
-          />
+          <ContainerCard dataBack={this.state.dataBack} colorClass={this.state.colorClass} fontClass={this.state.fontClass} skillsCard={this.state.dataBack} />
+          <CollapsableContainer skills={skills} handleColorInput={this.handleColorInput} handleFontInput={this.handleFontInput} dataBack={this.state.dataBack} handleSkills={this.handleSkills} checked={this.checked} />
         </main>
         <Footer />
       </div>

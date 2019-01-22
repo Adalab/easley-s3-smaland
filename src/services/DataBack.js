@@ -1,14 +1,14 @@
 let dataBack = {
   palette: "1",
   typography: "1",
-  name: "maria",
-  job: "ser pobre",
+  name: "",
+  job: "",
   phone: "",
   email: "",
   linkedin: "",
   github: "",
   photo: "",
-  skills: ["HTML", "CSS", "Gulp"],
+  skills: []
 }
 
 export default dataBack;

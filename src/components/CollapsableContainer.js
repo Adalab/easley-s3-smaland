@@ -4,25 +4,26 @@ import Input from './Input.js';
 class CollapsableContainer extends Component {
   constructor(props) {
     super(props);
-    this.saveSkills = this.saveSkills.bind(this);
+    this.renderSkills = this.renderSkills.bind(this);
+  }
+
+  isChecked(currentSkill) {
+    const { skills } = this.props.dataBack;
+    if(skills.includes(currentSkill)){
+      return true
+    } else {
+      return false
+    }
   }
 
   renderSkills() {
     return this.props.skills.map(skill => {
       return (
         <label for={skill} className="checkbox-label">
-          <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" onClick={this.saveSkills} />
+          <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" checked={this.isChecked(skill)} onChange={this.props.handleSkills} />
           <p>{skill}</p>
         </label>)
     })
-  }
-
-  saveSkills(event) {
-    const { dataBack } = this.props;
-    const valueInput = event.currentTarget.value;
-    return (
-      dataBack.skills.push(valueInput)
-    )
   }
 
   render() {
