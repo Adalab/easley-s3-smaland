@@ -120,8 +120,8 @@ class DesignContainer extends Component {
 
 //PROP-TYPES
 DesignContainer.PropTypes = {
-    handleColorInput: PropTypes.func,
-    handleFontInput: PropTypes.func,
+    handleColorInput: PropTypes.func.isRequired,
+    handleFontInput: PropTypes.func.isRequired,
     }
 
 

@@ -28,13 +28,13 @@ class MainCardCreator extends Component {
 
 //PROP-TYPES
 MainCardCreator.propTypes = {
-  dataBack: PropTypes.object,
-  colorClass: PropTypes.string,
-  fontClass: PropTypes.string,
-  skills: PropTypes.arrayOf(PropTypes.string),
-  handleColorInput: PropTypes.func,
-  handleFontInput: PropTypes.func,
-  handleInputs: PropTypes.func,
+  dataBack: PropTypes.object.isRequired,
+  colorClass: PropTypes.string.isRequired,
+  fontClass: PropTypes.string.isRequired,
+  skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleColorInput: PropTypes.func.isRequired,
+  handleFontInput: PropTypes.func.isRequired,
+  handleInputs: PropTypes.func.isRequired,
 };
 
 

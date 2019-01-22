@@ -25,9 +25,9 @@ class ContainerCard extends Component {
 
 //PROP-TYPES
 ContainerCard.propTypes = {
-    dataBack: PropTypes.object,
-    colorClass: PropTypes.string,
-    fontClass: PropTypes.string,
+    dataBack: PropTypes.object.isRequired,
+    colorClass: PropTypes.string.isRequired,
+    fontClass: PropTypes.string.isRequired,
     };
 
 export default ContainerCard;

@@ -13,7 +13,8 @@ class Button extends Component {
 
 Button.propTypes = {
   type: PropTypes.string.isRequired,
-  styles: PropTypes.string.isRequired
+  styles: PropTypes.string.isRequired,
+  children: PropTypes.element,
 };
 
 export default Button;

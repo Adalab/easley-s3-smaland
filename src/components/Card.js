@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 
 class Card extends Component {
     render() {
@@ -50,5 +51,13 @@ class Card extends Component {
         );
     }
 }
+
+
+//PROP-TYPES
+Card.propTypes = {
+    dataBack: PropTypes.object.isRequired,
+    colorClass: PropTypes.string.isRequired,
+    fontClass: PropTypes.string.isRequired,
+    };
 
 export default Card;

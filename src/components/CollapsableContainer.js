@@ -27,11 +27,11 @@ class CollapsableContainer extends Component {
 
 //PROP-TYPES
 CollapsableContainer.PropTypes = {
-  handleColorInput: PropTypes.func,
-  handleFontInput: PropTypes.func,
-  skills: PropTypes.arrayOf(PropTypes.string),
-  dataBack: PropTypes.object,
-  handleInputs: PropTypes.func,
+  handleColorInput: PropTypes.func.isRequired,
+  handleFontInput: PropTypes.func.isRequired,
+  skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+  dataBack: PropTypes.object.isRequired,
+  handleInputs: PropTypes.func.isRequired,
 }
 
 export default CollapsableContainer;

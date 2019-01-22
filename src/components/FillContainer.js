@@ -110,9 +110,9 @@ class FillContainer extends Component {
 
 //PPROP-TYPES
 FillContainer.PropTypes = {
-    skills: PropTypes.arrayOf(PropTypes.string),
-    dataBack: PropTypes.object,
-    handleInputs: PropTypes.func,
+    skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+    dataBack: PropTypes.object.isRequired,
+    handleInputs: PropTypes.func.isRequired,
     }
 
 export default FillContainer;

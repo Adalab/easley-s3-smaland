@@ -26,12 +26,12 @@ class Input extends Component {
 
 //PROP-TYPES
 Input.PropTypes = {
-  value: PropTypes.string,
-  name: PropTypes.string,
-  content:PropTypes.string,
-  example: PropTypes.string,
-  type: PropTypes.string,
-  handleInputs: PropTypes.func,
-}
+  value: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  content:PropTypes.string.isRequired,
+  example: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  handleInputs: PropTypes.func.isRequired,
+};
 
 export default Input;
