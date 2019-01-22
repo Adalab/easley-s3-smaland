@@ -26,6 +26,7 @@ class App extends Component {
     this.handleInputs = this.handleInputs.bind(this);
     this.getSkills();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.fakeFileClick = this.fakeFileClick.bind(this);
     this.addImageToState = this.addImageToState.bind(this);
     this.fileInput = React.createRef();
   }

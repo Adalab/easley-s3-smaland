@@ -31,7 +31,9 @@ class FillContainer extends Component {
     render() {
         const {
             dataBack,
-            handleInputs
+            handleInputs,
+            fakeFileClick,
+            fileInput,
         } = this.props;
         const icon = React.createElement('i', { className: "far fa-keyboard" });
         const text = React.createElement('p', { className: "title-dropdown__title-fill" }, "Rellena");
@@ -56,7 +58,11 @@ class FillContainer extends Component {
                             handleInputs={handleInputs}
                             />
 
-                        <ImageUpdate dataBack={dataBack}/>
+                        <ImageUpdate 
+                            dataBack={dataBack} 
+                            fakeFileClick={fakeFileClick} 
+                            fileInput={fileInput}/>
+
                         <Input 
                         name="email" 
                         content="Email" 
