@@ -11,7 +11,7 @@ class ImageUpdate extends Component {
                     <input type="file" ref={fileInput} name="" id="img-selector" /*className="action__hiddenField"*/ />
                 </form>
                 <div className="image-preview image-preview-small">
-                    <img src={dataBack.photo} alt=""></img>
+                    <img className="image-preview image-preview__file"src={dataBack.photo} alt={dataBack.name}></img>
                 </div>
             </React.Fragment>
         );

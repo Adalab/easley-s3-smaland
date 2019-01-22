@@ -12,8 +12,8 @@ class Card extends Component {
                     <h2 className="userInfo__name">{dataBack.name || nameDefault} </h2>
                     <h3 className="userInfo__job">{dataBack.job || jobDefault}</h3>
                 </div>
-                <div className="img image-preview__file">
-                </div>
+                
+                <img className= "img image-preview__file" src = {dataBack.photo} alt = {dataBack.name} />
                 <ul className="list__icon">
                     <li className="list__item">
                         <a className="item__link mobile" href={dataBack.phone}>
