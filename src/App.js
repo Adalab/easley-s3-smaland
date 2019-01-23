@@ -16,14 +16,13 @@ class App extends Component {
       skills: [],
       colorClass: "",
       fontClass: "",
-      colorSelected: "1",
-      fontSelected: "2"
+      palette: "1",
+      typography: "2"
     };
 
-    this.handleColorInput = this.handleColorInput.bind(this);
+    this.handleSelectInputs = this.handleSelectInputs.bind(this);
     this.handleColorClass = this.handleColorClass.bind(this);
     this.handleFontClass = this.handleFontClass.bind(this);
-    this.handleFontInput = this.handleFontInput.bind(this);
     this.handleInputs = this.handleInputs.bind(this);
     this.handleSkills = this.handleSkills.bind(this);
     this.isChecked = this.isChecked.bind(this);
@@ -43,18 +42,22 @@ class App extends Component {
     });
   }
 
-  handleColorInput(event) {
-    const currentValue = event.target.value;
+  handleSelectInputs(event) {
+    const { name, value } = event.target;
     this.setState(prevState => {
       return {
         dataBack: {
           ...prevState.dataBack,
-          palette: currentValue
+          [name]: value
         },
-        colorSelected: currentValue
+        [name]: value
       };
     });
-    this.handleColorClass();
+    if (name === "palette") {
+      this.handleColorClass();
+    } else if (name === "typography") {
+      this.handleFontClass();
+    }
   }
 
   handleColorClass() {
@@ -80,20 +83,6 @@ class App extends Component {
         colorClass: "box__card--orange"
       });
     }
-  }
-
-  handleFontInput(event) {
-    const currentValue = event.target.value;
-    this.setState(prevState => {
-      return {
-        dataBack: {
-          ...prevState.dataBack,
-          typography: currentValue
-        },
-        fontSelected: currentValue
-      };
-    });
-    this.handleFontClass();
   }
 
   handleFontClass() {
@@ -191,8 +180,8 @@ class App extends Component {
       skills,
       colorClass,
       fontClass,
-      colorSelected,
-      fontSelected
+      palette,
+      typography
     } = this.state;
     return (
       <div className="App">
@@ -210,10 +199,9 @@ class App extends Component {
                 colorClass={colorClass}
                 fontClass={fontClass}
                 skills={skills}
-                colorSelected={colorSelected}
-                fontSelected={fontSelected}
-                handleColorInput={this.handleColorInput}
-                handleFontInput={this.handleFontInput}
+                palette={palette}
+                typography={typography}
+                handleSelectInputs={this.handleSelectInputs}
                 handleInputs={this.handleInputs}
                 handleSkills={this.handleSkills}
                 renderSkills={this.renderSkills}

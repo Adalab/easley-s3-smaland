@@ -10,10 +10,11 @@ class MainCardCreator extends Component {
       skills,
       colorClass,
       fontClass,
-      colorSelected,
-      fontSelected,
+      palette,
+      typography,
       handleColorInput,
       handleFontInput,
+      handleSelectInputs,
       handleInputs,
       handleSkills,
       renderSkills
@@ -29,10 +30,9 @@ class MainCardCreator extends Component {
         <CollapsableContainer
           dataBack={dataBack}
           skills={skills}
-          colorSelected={colorSelected}
-          fontSelected={fontSelected}
-          handleColorInput={handleColorInput}
-          handleFontInput={handleFontInput}
+          palette={palette}
+          typography={typography}
+          handleSelectInputs={handleSelectInputs}
           handleInputs={handleInputs}
           handleSkills={handleSkills}
           renderSkills={renderSkills}
@@ -47,11 +47,10 @@ MainCardCreator.propTypes = {
   dataBack: PropTypes.object.isRequired,
   colorClass: PropTypes.string.isRequired,
   fontClass: PropTypes.string.isRequired,
-  colorSelected: PropTypes.string.isRequired,
-  fontSelected: PropTypes.string.isRequired,
+  palette: PropTypes.string.isRequired,
+  typography: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(PropTypes.string).isRequired,
-  handleColorInput: PropTypes.func.isRequired,
-  handleFontInput: PropTypes.func.isRequired,
+  handleSelectInputs: PropTypes.func.isRequired,
   handleInputs: PropTypes.func.isRequired
 };
 

@@ -9,8 +9,9 @@ class CollapsableContainer extends Component {
     const {
       handleColorInput,
       handleFontInput,
-      colorSelected,
-      fontSelected,
+      handleSelectInputs,
+      palette,
+      typography,
       skills,
       dataBack,
       handleInputs,
@@ -20,10 +21,9 @@ class CollapsableContainer extends Component {
     return (
       <div className="tunning__responsive">
         <DesignContainer
-          colorSelected={colorSelected}
-          fontSelected={fontSelected}
-          handleColorInput={handleColorInput}
-          handleFontInput={handleFontInput}
+          palette={palette}
+          typography={typography}
+          handleSelectInputs={handleSelectInputs}
         />
         <FillContainer
           skills={skills}
@@ -40,10 +40,9 @@ class CollapsableContainer extends Component {
 
 //PROP-TYPES
 CollapsableContainer.propTypes = {
-  handleColorInput: PropTypes.func.isRequired,
-  handleFontInput: PropTypes.func.isRequired,
-  colorSelected: PropTypes.string.isRequired,
-  fontSelected: PropTypes.string.isRequired,
+  handleSelectInputs: PropTypes.func.isRequired,
+  palette: PropTypes.string.isRequired,
+  typography: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(PropTypes.string).isRequired,
   dataBack: PropTypes.object.isRequired,
   handleInputs: PropTypes.func.isRequired,

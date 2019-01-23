@@ -30,10 +30,11 @@ class DesignContainer extends Component {
       divArrow
     ]);
     const {
-      colorSelected,
+      palette,
       handleColorInput,
-      fontSelected,
-      handleFontInput
+      typography,
+      handleFontInput,
+      handleSelectInputs
     } = this.props;
     return (
       <Collapsible trigger={title} open={true}>
@@ -50,9 +51,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-palette="paletteGreen"
                     value="1"
-                    name="selectPalete"
-                    checked={colorSelected === "1"}
-                    onChange={handleColorInput}
+                    name="palette"
+                    checked={palette === "1"}
+                    onChange={handleSelectInputs}
                     required
                   />
                   <div className="colors-palette">
@@ -69,9 +70,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-palette="paletteRed"
                     value="2"
-                    name="selectPalete"
-                    checked={colorSelected === "2"}
-                    onChange={handleColorInput}
+                    name="palette"
+                    checked={palette === "2"}
+                    onChange={handleSelectInputs}
                   />
                   <div className="colors-palette">
                     <div className="colors-palette__item red1" />
@@ -87,9 +88,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-palette="paletteGrey"
                     value="3"
-                    name="selectPalete"
-                    checked={colorSelected === "3"}
-                    onChange={handleColorInput}
+                    name="palette"
+                    checked={palette === "3"}
+                    onChange={handleSelectInputs}
                   />
                   <div className="colors-palette">
                     <div className="colors-palette__item blue1" />
@@ -105,9 +106,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-palette="palettePurple"
                     value="4"
-                    name="selectPalete"
-                    checked={colorSelected === "4"}
-                    onChange={handleColorInput}
+                    name="palette"
+                    checked={palette === "4"}
+                    onChange={handleSelectInputs}
                   />
                   <div className="colors-palette">
                     <div className="colors-palette__item purple1" />
@@ -123,9 +124,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-palette="paletteOrange"
                     value="5"
-                    name="selectPalete"
-                    checked={colorSelected === "5"}
-                    onChange={handleColorInput}
+                    name="palette"
+                    checked={palette === "5"}
+                    onChange={handleSelectInputs}
                   />
                   <div className="colors-palette palette5">
                     <div className="colors-palette__item orange1" />
@@ -147,9 +148,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-font="Ubuntu"
                     value="1"
-                    name="selectFont"
-                    checked={fontSelected === "1"}
-                    onChange={handleFontInput}
+                    name="typography"
+                    checked={typography === "1"}
+                    onChange={handleSelectInputs}
                     required
                   />
                   <p className="font-Ubuntu">Ubuntu</p>
@@ -162,9 +163,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-font="ComicSans"
                     value="2"
-                    name="selectFont"
-                    checked={fontSelected === "2"}
-                    onChange={handleFontInput}
+                    name="typography"
+                    checked={typography === "2"}
+                    onChange={handleSelectInputs}
                   />
                   <p className="font-ComicSans">Comic Sans</p>
                 </label>
@@ -176,9 +177,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-font="Montserrat"
                     value="3"
-                    name="selectFont"
-                    checked={fontSelected === "3"}
-                    onChange={handleFontInput}
+                    name="typography"
+                    checked={typography === "3"}
+                    onChange={handleSelectInputs}
                   />
                   <p className="font-Monserrat">Monserrat</p>
                 </label>
@@ -190,9 +191,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-font="Indie"
                     value="4"
-                    name="selectFont"
-                    checked={fontSelected === "4"}
-                    onChange={handleFontInput}
+                    name="typography"
+                    checked={typography === "4"}
+                    onChange={handleSelectInputs}
                   />
                   <p className="font-Indie">Indie</p>
                 </label>
@@ -204,9 +205,9 @@ class DesignContainer extends Component {
                     type="radio"
                     data-font="Baskerville"
                     value="5"
-                    name="selectFont"
-                    checked={fontSelected === "5"}
-                    onChange={handleFontInput}
+                    name="typography"
+                    checked={typography === "5"}
+                    onChange={handleSelectInputs}
                   />
                   <p className="font-Baskerville">Baskerville</p>
                 </label>
@@ -221,10 +222,9 @@ class DesignContainer extends Component {
 
 //PROP-TYPES
 DesignContainer.propTypes = {
-  colorSelected: PropTypes.string.isRequired,
-  fontSelected: PropTypes.string.isRequired,
-  handleColorInput: PropTypes.func.isRequired,
-  handleFontInput: PropTypes.func.isRequired
+  palette: PropTypes.string.isRequired,
+  typography: PropTypes.string.isRequired,
+  handleSelectInputs: PropTypes.func.isRequired
 };
 
 export default DesignContainer;
