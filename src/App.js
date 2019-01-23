@@ -30,67 +30,47 @@ class App extends Component {
   handleInputs(event) {
     const { name, value } = event.target;
     this.setState(prevState => {
-      return {
+      const newState = {
         dataBack: {
           ...prevState.dataBack,
           [name]: value
         }
-      };
+      }
+      if (name === "palette") {
+        newState.colorClass = this.handleColorClass(value);
+      } else if (name === "typography") {
+        newState.fontClass = this.handleFontClass(value);
+      }
+      return newState;
     });
-    if (name === "palette") {
-      this.handleColorClass();
-    } else if (name === "typography") {
-      this.handleFontClass();
-    }
+
   }
 
-  handleColorClass() {
-    const { palette } = this.state.dataBack;
+  handleColorClass(palette) {
     if (palette === "1") {
-      this.setState({
-        colorClass: "box__card"
-      });
+      return "box__card"
     } else if (palette === "2") {
-      this.setState({
-        colorClass: "box__card--red"
-      });
+      return "box__card--red"
     } else if (palette === "3") {
-      this.setState({
-        colorClass: "box__card--grey"
-      });
+      return "box__card--grey"
     } else if (palette === "4") {
-      this.setState({
-        colorClass: "box__card--purple"
-      });
+      return "box__card--purple"
     } else if (palette === "5") {
-      this.setState({
-        colorClass: "box__card--orange"
-      });
+      return "box__card--orange"
     }
   }
 
-  handleFontClass() {
-    const { typography } = this.state.dataBack;
+  handleFontClass(typography) {
     if (typography === "1") {
-      this.setState({
-        fontClass: "userInfo--ubuntu"
-      });
+      return "userInfo--ubuntu"
     } else if (typography === "2") {
-      this.setState({
-        fontClass: "userInfo--quaternary"
-      });
+      return "userInfo--quaternary"
     } else if (typography === "3") {
-      this.setState({
-        fontClass: "userInfo--mont"
-      });
+      return "userInfo--mont"
     } else if (typography === "4") {
-      this.setState({
-        fontClass: "userInfo--hand"
-      });
+      return "userInfo--hand"
     } else if (typography === "5") {
-      this.setState({
-        fontClass: "userInfo-libre"
-      });
+      return "userInfo--libre"
     }
   }
 
