@@ -149,9 +149,9 @@ class App extends Component {
   }
 
   renderSkills() {
-    return this.state.skills.map(skill => {
+    return this.state.skills.map((skill, index) => {
       return (
-        <label for={skill} className="checkbox-label">
+        <label key={index} for={skill} className="checkbox-label">
           <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" checked={this.isChecked(skill)} onChange={this.handleSkills} />
           <p>{skill}</p>
         </label>)
