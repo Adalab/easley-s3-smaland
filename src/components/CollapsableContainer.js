@@ -12,8 +12,12 @@ class CollapsableContainer extends Component {
       handleInputs,
       handleSkills,
       renderSkills,
+      sendCardToBackend,
+      cardURL,
       fakeFileClick, 
-      fileInput
+      fileInput,
+      hidden,
+      cardCreationLoading
     } = this.props;
     return (
       <div className="tunning__responsive">
@@ -27,7 +31,10 @@ class CollapsableContainer extends Component {
           fakeFileClick={fakeFileClick}
           fileInput={fileInput}/>
         />
-        <ShareContainer />
+        <ShareContainer sendCardToBackend={sendCardToBackend} 
+        cardURL={cardURL} 
+        hidden ={hidden}
+        cardCreationLoading = {cardCreationLoading} />
       </div>
     );
   }

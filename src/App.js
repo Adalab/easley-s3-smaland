@@ -16,7 +16,11 @@ class App extends Component {
       skills: [],
       colorClass: "",
       fontClass: "",
-      fr: new FileReader()  
+      loading: true,
+      cardURL: "",
+      fr: new FileReader(),
+      hidden: "hidden",
+      isPushing: false
     };
 
     this.handleColorClass = this.handleColorClass.bind(this);
@@ -25,6 +29,7 @@ class App extends Component {
     this.handleSkills = this.handleSkills.bind(this);
     this.isChecked = this.isChecked.bind(this);
     this.renderSkills = this.renderSkills.bind(this);
+    this.sendCardToBackend = this.sendCardToBackend.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fakeFileClick = this.fakeFileClick.bind(this);
     this.addImageToState = this.addImageToState.bind(this);
@@ -32,21 +37,22 @@ class App extends Component {
     this.fileInput = React.createRef();
   }
 
-  componentDidMount () {
-    this.getSkills(); 
+  componentDidMount() {
+    this.getSkills();
   }
 
   addImageToState() {
-    this.setState((prevState)=>{ 
-      return{
+    this.setState((prevState) => {
+      return {
         dataBack: {
           ...prevState.dataBack,
           photo: this.state.fr.result,
         }
-    }});
+      }
+    });
   }
 
-  fakeFileClick(){
+  fakeFileClick() {
     const fileInputEl = this.fileInput.current;
     fileInputEl.click();
     fileInputEl.addEventListener("change", this.handleSubmit);
@@ -191,7 +197,27 @@ class App extends Component {
     });
   }
 
-  resetFunction(event){
+  sendCardToBackend() {
+    this.setState({ isPushing: true })
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+      method: 'POST',
+      body: JSON.stringify(this.state.dataBack),
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+      .then((response) => response.json())
+      .then((url) => {
+        const cardURL = url.cardURL;
+        this.setState({
+          cardURL: cardURL,
+          hidden: '', isPushing: false
+        })
+      })
+      .catch((error) => console.log(error))
+  }
+
+  resetFunction(event) {
     this.setState((prevState) => {
       return {
         dataBack: {
@@ -204,8 +230,8 @@ class App extends Component {
   }
 
   render() {
-    const { dataBack, skills, colorClass, fontClass } = this.state;
-    console.log(this.state.dataBack);
+    const { dataBack, skills, colorClass, fontClass, cardURL, hidden, isPushing } = this.state;
+
     return (
       <div className="App">
         <Switch>
@@ -225,8 +251,12 @@ class App extends Component {
                 handleInputs={this.handleInputs}
                 handleSkills={this.handleSkills}
                 renderSkills={this.renderSkills}
+                sendCardToBackend={this.sendCardToBackend}
+                cardURL={cardURL}
                 fakeFileClick={this.fakeFileClick}
                 fileInput={this.fileInput}
+                hidden={hidden}
+                cardCreationLoading={isPushing}
                 resetFunction={this.resetFunction}
               />
             )}
