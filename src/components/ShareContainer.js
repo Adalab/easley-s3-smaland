@@ -7,12 +7,28 @@ class ShareContainer extends Component {
     this.state = {}
   }
   render() {
-    const icon = React.createElement('i', { className: "fas fa-share-alt" });
-    const text = React.createElement('p', { className: "title-dropdown__title-share" }, "Comparte");
-    const divTitle = React.createElement('div', { className: "title-dropdown__icontitle title-dropdown__icon-share" }, [icon, text]);
-    const arrow = React.createElement('i', { className: "arrowSa fas fa-chevron-down" });
-    const divArrow = React.createElement('div', { className: "arrow-share-down" }, [arrow])
-    const title = React.createElement('div', { className: "container-title " }, [divTitle, divArrow]);
+    const icon = (
+      <i className="fas fa-share-alt" />);
+    const text = (
+      <p className="title-dropdown__title-share">
+        Comparte
+      </p>);
+    const divTitle = (
+      <div className="title-dropdown__icontitle title-dropdown__icon-share">
+        {icon}
+        {text}
+      </div>);
+    const arrow = (
+      <i className="arrowSa fas fa-chevron-down" />);
+    const divArrow = (
+      <div className="arrow-share-down">
+        {arrow}
+      </div>);
+    const title = (
+      <div className="container-title">
+        {divTitle}
+        {divArrow}
+      </div>);
     return (
       <Collapsible trigger={title}>
         <section className="share">

@@ -12,7 +12,8 @@ class MainCardCreator extends Component {
       fontClass,
       handleInputs,
       handleSkills,
-      renderSkills
+      renderSkills,
+      fakeFileClick, fileInput, resetFunction
     } = this.props;
     return (
       <main className="created__target">
@@ -21,13 +22,17 @@ class MainCardCreator extends Component {
           colorClass={colorClass}
           fontClass={fontClass}
           skillsCard={dataBack}
+          resetFunction={resetFunction}
+          
         />
         <CollapsableContainer
           dataBack={dataBack}
           skills={skills}
           handleInputs={handleInputs}
-          handleSkills={handleSkills}
-          renderSkills={renderSkills}
+          handleSkills = {handleSkills}
+          renderSkills = {renderSkills}
+          fakeFileClick={fakeFileClick}
+          fileInput={fileInput}
         />
       </main>
     );

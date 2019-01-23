@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import SkillsCard from "./SkillsCard";
+import defaultImage from '../images/silueta.jpg';
 
 class Card extends Component {
   render() {

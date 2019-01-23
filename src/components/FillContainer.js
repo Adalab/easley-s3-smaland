@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import Input from './Input.js';
 import Collapsible from 'react-collapsible';
+import ImageUpdate from './ImageUpdate.js';
 
 class FillContainer extends Component {
 
@@ -9,14 +10,32 @@ class FillContainer extends Component {
         const {
             dataBack,
             handleInputs,
-            renderSkills
+            renderSkills,
+            fakeFileClick,
+            fileInput,
         } = this.props;
-        const icon = React.createElement('i', { className: "far fa-keyboard" });
-        const text = React.createElement('p', { className: "title-dropdown__title-fill" }, "Rellena");
-        const divTitle = React.createElement('div', { className: "title-dropdown__icontitle" }, [icon, text]);
-        const arrow = React.createElement('i', { className: "arrowF fas fa-chevron-down" });
-        const divArrow = React.createElement('div', { className: "title-dropdown__arrow arrowFill" }, [arrow])
-        const title = React.createElement('div', { className: "title-dropdown-fill" }, [divTitle, divArrow]);
+        const icon = (
+            <i className="far fa-keyboard"/>);
+        const text = (
+            <p className="title-dropdown__title-fill">
+            Rellena
+            </p>);
+        const divTitle = (
+            <div className="title-dropdown__icontitle">
+                {icon}
+                {text}
+            </div>);
+        const arrow =(
+            <i className="arrowF fas fa-chevron-down"/>);
+        const divArrow = (
+            <div className= "title-dropdown__arrow arrowFill">
+                {arrow}
+            </div>);
+        const title = (
+            <div className="title-dropdown-fill">
+                {divTitle}
+                {divArrow}
+            </div>);
         return (
             <Collapsible trigger={title}>
                 <section className="fill-card">
@@ -36,22 +55,17 @@ class FillContainer extends Component {
                             handleInputs={handleInputs}
                         />
 
-                        <p className="item-label">Imagen de perfil</p>
-                        <div className="container-image">
-                            <button className="image-link" type="submit">Añadir imagen</button>
-                            <input
-                                type="file"
-                                name=""
-                                id="img-selector" className="action__hiddenField" />
-                            <div className="image-preview image-preview-small">
-                            </div>
-                        </div>
-                        <Input
-                            name="email"
-                            content="Email"
-                            example="Ej: sally-hill@gmail.com" type="email"
-                            value={dataBack.email}
-                            handleInputs={handleInputs}
+                        <ImageUpdate 
+                            dataBack={dataBack} 
+                            fakeFileClick={fakeFileClick} 
+                            fileInput={fileInput}/>
+
+                        <Input 
+                        name="email" 
+                        content="Email" 
+                        example="Ej: sally-hill@gmail.com" type="email" 
+                        value={dataBack.email}
+                        handleInputs={handleInputs}
                         />
 
                         <Input
