@@ -7,8 +7,6 @@ import ShareContainer from "./ShareContainer.js";
 class CollapsableContainer extends Component {
   render() {
     const {
-      handleColorInput,
-      handleFontInput,
       handleSelectInputs,
       palette,
       typography,

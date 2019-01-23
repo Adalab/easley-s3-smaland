@@ -31,9 +31,7 @@ class DesignContainer extends Component {
     ]);
     const {
       palette,
-      handleColorInput,
       typography,
-      handleFontInput,
       handleSelectInputs
     } = this.props;
     return (

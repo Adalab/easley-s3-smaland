@@ -12,8 +12,6 @@ class MainCardCreator extends Component {
       fontClass,
       palette,
       typography,
-      handleColorInput,
-      handleFontInput,
       handleSelectInputs,
       handleInputs,
       handleSkills,
