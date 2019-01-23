@@ -37,6 +37,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fakeFileClick = this.fakeFileClick.bind(this);
     this.addImageToState = this.addImageToState.bind(this);
+    this.resetFunction = this.resetFunction.bind(this);
     this.fileInput = React.createRef();
   }
 
@@ -64,9 +65,9 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const fileUpdatedByUser = this.fileInput.current.files[0];
-    console.log(fileUpdatedByUser);
     this.state.fr.addEventListener('load', this.addImageToState);
     this.state.fr.readAsDataURL(fileUpdatedByUser);
+    this.getSkills();
   }
 
   handleInputs(event) {
@@ -189,9 +190,9 @@ class App extends Component {
   }
 
   renderSkills() {
-    return this.state.skills.map(skill => {
+    return this.state.skills.map((skill, index) => {
       return (
-        <label htmlFor={skill} className="checkbox-label">
+        <label key={index} htmlFor={skill} className="checkbox-label">
           <input id={skill} type="checkbox" value={skill} name="skills" className="checkbox-input" checked={this.isChecked(skill)} onChange={this.handleSkills} />
           <p>{skill}</p>
         </label>)
@@ -199,7 +200,6 @@ class App extends Component {
   }
 
   sendCardToBackend() {
-    console.log('hola');
     this.setState({ isPushing: true })
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
       method: 'POST',
@@ -215,13 +215,25 @@ class App extends Component {
           cardURL: cardURL,
           hidden: '', isPushing: false
         })
-        //cuando tengamos foto, retornamos el link y cambiamos loading a false
-        //tambien debemos cambiar clase del boton e incoporar la movida de twitter al estado
       })
       .catch((error) => console.log(error))
   }
+
+  resetFunction(event) {
+    this.setState((prevState) => {
+      return {
+        dataBack: {
+          ...prevState,
+          dataBack: dataBack,
+          skills: []
+        }
+      }
+    })
+  }
+
   render() {
     const { dataBack, skills, colorClass, fontClass, cardURL, hidden, isPushing } = this.state;
+
     return (
       <div className="App">
         <Switch>
@@ -249,6 +261,7 @@ class App extends Component {
                 fileInput={this.fileInput}
                 hidden={hidden}
                 cardCreationLoading={isPushing}
+                resetFunction={this.resetFunction}
               />
             )}
           />

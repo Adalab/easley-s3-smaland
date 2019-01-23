@@ -14,12 +14,28 @@ class FillContainer extends Component {
             fakeFileClick,
             fileInput,
         } = this.props;
-        const icon = React.createElement('i', { className: "far fa-keyboard" });
-        const text = React.createElement('p', { className: "title-dropdown__title-fill" }, "Rellena");
-        const divTitle = React.createElement('div', { className: "title-dropdown__icontitle" }, [icon, text]);
-        const arrow = React.createElement('i', { className: "arrowF fas fa-chevron-down" });
-        const divArrow = React.createElement('div', { className: "title-dropdown__arrow arrowFill" }, [arrow])
-        const title = React.createElement('div', { className: "title-dropdown-fill" }, [divTitle, divArrow]);
+        const icon = (
+            <i className="far fa-keyboard"/>);
+        const text = (
+            <p className="title-dropdown__title-fill">
+            Rellena
+            </p>);
+        const divTitle = (
+            <div className="title-dropdown__icontitle">
+                {icon}
+                {text}
+            </div>);
+        const arrow =(
+            <i className="arrowF fas fa-chevron-down"/>);
+        const divArrow = (
+            <div className= "title-dropdown__arrow arrowFill">
+                {arrow}
+            </div>);
+        const title = (
+            <div className="title-dropdown-fill">
+                {divTitle}
+                {divArrow}
+            </div>);
         return (
             <Collapsible trigger={title}>
                 <section className="fill-card">

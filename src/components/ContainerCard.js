@@ -5,10 +5,11 @@ import Button from "./Button.js";
 
 class ContainerCard extends Component {
     render() {
+        const {resetFunction} = this.props;
         return (
             <section className="section__card">
                 <div className="container__width">
-                    <Button type="reset" styles="button__reset">
+                    <Button type="reset" styles="button__reset" resetFunction={resetFunction}>
                         <i className="far fa-trash-alt" />
                         <span className="button">Reset</span>
                     </Button>
