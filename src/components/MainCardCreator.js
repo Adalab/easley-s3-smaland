@@ -3,10 +3,21 @@ import PropTypes from "prop-types";
 import ContainerCard from "./ContainerCard";
 import CollapsableContainer from "./CollapsableContainer";
 
-
 class MainCardCreator extends Component {
   render() {
-    const { dataBack, skills, colorClass, fontClass, handleColorInput, handleFontInput, handleInputs, handleSkills, renderSkills } = this.props;
+    const {
+      dataBack,
+      skills,
+      colorClass,
+      fontClass,
+      colorSelected,
+      fontSelected,
+      handleColorInput,
+      handleFontInput,
+      handleInputs,
+      handleSkills,
+      renderSkills
+    } = this.props;
     return (
       <main className="created__target">
         <ContainerCard
@@ -18,11 +29,13 @@ class MainCardCreator extends Component {
         <CollapsableContainer
           dataBack={dataBack}
           skills={skills}
+          colorSelected={colorSelected}
+          fontSelected={fontSelected}
           handleColorInput={handleColorInput}
           handleFontInput={handleFontInput}
           handleInputs={handleInputs}
-          handleSkills = {handleSkills}
-          renderSkills = {renderSkills}
+          handleSkills={handleSkills}
+          renderSkills={renderSkills}
         />
       </main>
     );
@@ -34,11 +47,12 @@ MainCardCreator.propTypes = {
   dataBack: PropTypes.object.isRequired,
   colorClass: PropTypes.string.isRequired,
   fontClass: PropTypes.string.isRequired,
+  colorSelected: PropTypes.string.isRequired,
+  fontSelected: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleColorInput: PropTypes.func.isRequired,
   handleFontInput: PropTypes.func.isRequired,
-  handleInputs: PropTypes.func.isRequired,
+  handleInputs: PropTypes.func.isRequired
 };
-
 
 export default MainCardCreator;
