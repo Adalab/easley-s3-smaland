@@ -17,8 +17,9 @@ class App extends Component {
       colorClass: "",
       fontClass: "",
       loading: true,
-      cardURL: ""
-      fr: new FileReader()  
+      cardURL: "",
+      fr: new FileReader(),
+      hidden : "hidden"  
     };
 
   
@@ -206,14 +207,16 @@ class App extends Component {
     })
       .then((response) => response.json())
       .then((url) => {
-        console.log(url);
+        const cardURL = url.cardURL;
+        this.setState({cardURL : cardURL ,
+       hidden : '' })
         //cuando tengamos foto, retornamos el link y cambiamos loading a false
         //tambien debemos cambiar clase del boton e incoporar la movida de twitter al estado
       })
       .catch((error)=>console.log(error))
   }
   render() {
-    const { dataBack, skills, colorClass, fontClass, cardURL } = this.state;
+    const { dataBack, skills, colorClass, fontClass, cardURL, hidden } = this.state;
     return (
       <div className="App">
         <Switch>
@@ -239,6 +242,7 @@ class App extends Component {
                 cardURL={cardURL}
                 fakeFileClick={this.fakeFileClick}
                 fileInput={this.fileInput}
+                hidden={hidden}
               />
             )}
           />
