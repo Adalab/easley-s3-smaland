@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      dataBack: dataBack,
+      dataBack: this.getDataFromLocalStorage(),
       skills: [],
       colorClass: "",
       fontClass: ""
@@ -26,19 +26,24 @@ class App extends Component {
     this.handleSkills = this.handleSkills.bind(this);
     this.isChecked = this.isChecked.bind(this);
     this.renderSkills = this.renderSkills.bind(this);
+    this.saveDataAtLocalStorage = this.saveDataAtLocalStorage.bind(this);
     this.getSkills();
   }
 
   handleInputs(event) {
     const { name, value } = event.target;
+
     this.setState(prevState => {
+      const newDataBack =  {
+        ...prevState.dataBack,
+        [name]: value,
+      }
+      this.saveDataAtLocalStorage(newDataBack);
       return {
-        dataBack: {
-          ...prevState.dataBack,
-          [name]: value,
-        }
+        dataBack: newDataBack
       }
     });
+
   }
 
   handleColorInput(event) {
@@ -110,23 +115,29 @@ class App extends Component {
     if (skills.includes(selectedSkill)) {
       let newSkills = skills.filter((skill) => skill !== selectedSkill);
       this.setState((prevState) => {
+        const savedSkills = {
+          ...prevState.dataBack,
+          skills: newSkills
+        }
+        
+        this.saveDataAtLocalStorage(savedSkills);
         return {
-          dataBack: {
-            ...prevState.dataBack,
-            skills: newSkills
-          }
+          dataBack: savedSkills
         }
       })
-    } else if(skills.length < 3){
+    } else if (skills.length < 3) {
       this.setState((prevState) => {
+        const savedSkills = {
+          ...prevState.dataBack,
+          skills: skills.concat(selectedSkill)
+        }
+        this.saveDataAtLocalStorage(savedSkills);
         return {
-          dataBack: {
-            ...prevState.dataBack,
-            skills: skills.concat(selectedSkill)
-          }
+          dataBack: savedSkills
         }
       })
     }
+    
   }
 
   getSkills() {
@@ -141,13 +152,26 @@ class App extends Component {
 
   isChecked(currentSkill) {
     const { skills } = this.state.dataBack;
-    if(skills.includes(currentSkill)){
+    if (skills.includes(currentSkill)) {
       return true
     } else {
       return false
     }
   }
 
+  saveDataAtLocalStorage(data) {
+    localStorage.setItem('preferences', JSON.stringify(data));
+  }
+
+  getDataFromLocalStorage() {
+    const data = localStorage.getItem('preferences');
+    if (!data) {
+      return dataBack
+    } else {
+      return JSON.parse(data)
+    }
+    
+  }
   renderSkills() {
     return this.state.skills.map(skill => {
       return (
@@ -161,7 +185,7 @@ class App extends Component {
   render() {
     const { dataBack, skills, colorClass, fontClass } = this.state;
     return (
-      <div className="App">        
+      <div className="App">
         <Switch>
           <Route exact path="/" component={HeaderHome} />
           <Route path="/card-creator" component={HeaderCardCreator} />
