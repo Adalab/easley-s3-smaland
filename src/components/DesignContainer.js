@@ -29,11 +29,7 @@ class DesignContainer extends Component {
       divTitle,
       divArrow
     ]);
-    const {
-      palette,
-      typography,
-      handleSelectInputs
-    } = this.props;
+    const { dataBack, handleInputs } = this.props;
     return (
       <Collapsible trigger={title} open={true}>
         <section className="design-card">
@@ -50,8 +46,8 @@ class DesignContainer extends Component {
                     data-palette="paletteGreen"
                     value="1"
                     name="palette"
-                    checked={palette === "1"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.palette === "1"}
+                    onChange={handleInputs}
                     required
                   />
                   <div className="colors-palette">
@@ -69,8 +65,8 @@ class DesignContainer extends Component {
                     data-palette="paletteRed"
                     value="2"
                     name="palette"
-                    checked={palette === "2"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.palette === "2"}
+                    onChange={handleInputs}
                   />
                   <div className="colors-palette">
                     <div className="colors-palette__item red1" />
@@ -87,8 +83,8 @@ class DesignContainer extends Component {
                     data-palette="paletteGrey"
                     value="3"
                     name="palette"
-                    checked={palette === "3"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.palette === "3"}
+                    onChange={handleInputs}
                   />
                   <div className="colors-palette">
                     <div className="colors-palette__item blue1" />
@@ -105,8 +101,8 @@ class DesignContainer extends Component {
                     data-palette="palettePurple"
                     value="4"
                     name="palette"
-                    checked={palette === "4"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.palette === "4"}
+                    onChange={handleInputs}
                   />
                   <div className="colors-palette">
                     <div className="colors-palette__item purple1" />
@@ -123,8 +119,8 @@ class DesignContainer extends Component {
                     data-palette="paletteOrange"
                     value="5"
                     name="palette"
-                    checked={palette === "5"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.palette === "5"}
+                    onChange={handleInputs}
                   />
                   <div className="colors-palette palette5">
                     <div className="colors-palette__item orange1" />
@@ -147,8 +143,8 @@ class DesignContainer extends Component {
                     data-font="Ubuntu"
                     value="1"
                     name="typography"
-                    checked={typography === "1"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.typography === "1"}
+                    onChange={handleInputs}
                     required
                   />
                   <p className="font-Ubuntu">Ubuntu</p>
@@ -162,8 +158,8 @@ class DesignContainer extends Component {
                     data-font="ComicSans"
                     value="2"
                     name="typography"
-                    checked={typography === "2"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.typography === "2"}
+                    onChange={handleInputs}
                   />
                   <p className="font-ComicSans">Comic Sans</p>
                 </label>
@@ -176,8 +172,8 @@ class DesignContainer extends Component {
                     data-font="Montserrat"
                     value="3"
                     name="typography"
-                    checked={typography === "3"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.typography === "3"}
+                    onChange={handleInputs}
                   />
                   <p className="font-Monserrat">Monserrat</p>
                 </label>
@@ -190,8 +186,8 @@ class DesignContainer extends Component {
                     data-font="Indie"
                     value="4"
                     name="typography"
-                    checked={typography === "4"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.typography === "4"}
+                    onChange={handleInputs}
                   />
                   <p className="font-Indie">Indie</p>
                 </label>
@@ -204,8 +200,8 @@ class DesignContainer extends Component {
                     data-font="Baskerville"
                     value="5"
                     name="typography"
-                    checked={typography === "5"}
-                    onChange={handleSelectInputs}
+                    checked={dataBack.typography === "5"}
+                    onChange={handleInputs}
                   />
                   <p className="font-Baskerville">Baskerville</p>
                 </label>
@@ -220,9 +216,8 @@ class DesignContainer extends Component {
 
 //PROP-TYPES
 DesignContainer.propTypes = {
-  palette: PropTypes.string.isRequired,
-  typography: PropTypes.string.isRequired,
-  handleSelectInputs: PropTypes.func.isRequired
+  dataBack: PropTypes.object.isRequired,
+  handleInputs: PropTypes.func.isRequired
 };
 
 export default DesignContainer;

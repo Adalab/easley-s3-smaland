@@ -7,9 +7,6 @@ import ShareContainer from "./ShareContainer.js";
 class CollapsableContainer extends Component {
   render() {
     const {
-      handleSelectInputs,
-      palette,
-      typography,
       skills,
       dataBack,
       handleInputs,
@@ -18,11 +15,7 @@ class CollapsableContainer extends Component {
     } = this.props;
     return (
       <div className="tunning__responsive">
-        <DesignContainer
-          palette={palette}
-          typography={typography}
-          handleSelectInputs={handleSelectInputs}
-        />
+        <DesignContainer dataBack={dataBack} handleInputs={handleInputs} />
         <FillContainer
           skills={skills}
           dataBack={dataBack}
@@ -38,9 +31,6 @@ class CollapsableContainer extends Component {
 
 //PROP-TYPES
 CollapsableContainer.propTypes = {
-  handleSelectInputs: PropTypes.func.isRequired,
-  palette: PropTypes.string.isRequired,
-  typography: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(PropTypes.string).isRequired,
   dataBack: PropTypes.object.isRequired,
   handleInputs: PropTypes.func.isRequired,

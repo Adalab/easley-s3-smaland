@@ -15,12 +15,9 @@ class App extends Component {
       dataBack: dataBack,
       skills: [],
       colorClass: "",
-      fontClass: "",
-      palette: "1",
-      typography: "2"
+      fontClass: ""
     };
 
-    this.handleSelectInputs = this.handleSelectInputs.bind(this);
     this.handleColorClass = this.handleColorClass.bind(this);
     this.handleFontClass = this.handleFontClass.bind(this);
     this.handleInputs = this.handleInputs.bind(this);
@@ -38,19 +35,6 @@ class App extends Component {
           ...prevState.dataBack,
           [name]: value
         }
-      };
-    });
-  }
-
-  handleSelectInputs(event) {
-    const { name, value } = event.target;
-    this.setState(prevState => {
-      return {
-        dataBack: {
-          ...prevState.dataBack,
-          [name]: value
-        },
-        [name]: value
       };
     });
     if (name === "palette") {
@@ -175,14 +159,7 @@ class App extends Component {
   }
 
   render() {
-    const {
-      dataBack,
-      skills,
-      colorClass,
-      fontClass,
-      palette,
-      typography
-    } = this.state;
+    const { dataBack, skills, colorClass, fontClass } = this.state;
     return (
       <div className="App">
         <Switch>
@@ -199,9 +176,6 @@ class App extends Component {
                 colorClass={colorClass}
                 fontClass={fontClass}
                 skills={skills}
-                palette={palette}
-                typography={typography}
-                handleSelectInputs={this.handleSelectInputs}
                 handleInputs={this.handleInputs}
                 handleSkills={this.handleSkills}
                 renderSkills={this.renderSkills}

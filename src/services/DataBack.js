@@ -1,6 +1,6 @@
 let dataBack = {
   palette: "1",
-  typography: "1",
+  typography: "2",
   name: "",
   job: "",
   phone: "",
@@ -9,6 +9,6 @@ let dataBack = {
   github: "",
   photo: "",
   skills: []
-}
+};
 
 export default dataBack;
