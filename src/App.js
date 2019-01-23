@@ -32,6 +32,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fakeFileClick = this.fakeFileClick.bind(this);
     this.addImageToState = this.addImageToState.bind(this);
+    this.resetFunction = this.resetFunction.bind(this);
     this.fileInput = React.createRef();
   }
 
@@ -58,9 +59,9 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const fileUpdatedByUser = this.fileInput.current.files[0];
-    console.log(fileUpdatedByUser);
     this.state.fr.addEventListener('load', this.addImageToState);
     this.state.fr.readAsDataURL(fileUpdatedByUser);
+    this.getSkills();
   }
 
   handleInputs(event) {
@@ -192,8 +193,21 @@ class App extends Component {
     })
   }
 
+  resetFunction(event){
+    this.setState((prevState) => {
+      return {
+        dataBack: {
+          ...prevState,
+          dataBack: dataBack,
+          skills: []
+        }
+      }
+    })
+  }
+
   render() {
     const { dataBack, skills, colorClass, fontClass } = this.state;
+    console.log(this.state.dataBack);
     return (
       <div className="App">        
         <Switch>
@@ -217,6 +231,7 @@ class App extends Component {
                 renderSkills={this.renderSkills}
                 fakeFileClick={this.fakeFileClick}
                 fileInput={this.fileInput}
+                resetFunction={this.resetFunction}
               />
             )}
           />
