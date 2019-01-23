@@ -6,7 +6,8 @@ import CollapsableContainer from "./CollapsableContainer";
 
 class MainCardCreator extends Component {
   render() {
-    const { dataBack, skills, colorClass, fontClass, handleColorInput, handleFontInput, handleInputs, handleSkills, renderSkills } = this.props;
+    const { dataBack, skills, colorClass, fontClass, handleColorInput, handleFontInput, handleInputs, handleSkills, renderSkills, fakeFileClick, fileInput, resetFunction } = this.props;
+  
     return (
       <main className="created__target">
         <ContainerCard
@@ -14,6 +15,8 @@ class MainCardCreator extends Component {
           colorClass={colorClass}
           fontClass={fontClass}
           skillsCard={dataBack}
+          resetFunction={resetFunction}
+          
         />
         <CollapsableContainer
           dataBack={dataBack}
@@ -23,6 +26,8 @@ class MainCardCreator extends Component {
           handleInputs={handleInputs}
           handleSkills = {handleSkills}
           renderSkills = {renderSkills}
+          fakeFileClick={fakeFileClick}
+          fileInput={fileInput}
         />
       </main>
     );

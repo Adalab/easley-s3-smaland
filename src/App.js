@@ -15,8 +15,11 @@ class App extends Component {
       dataBack: dataBack,
       skills: [],
       colorClass: "",
-      fontClass: ""
+      fontClass: "",
+      fr: new FileReader()  
     };
+
+  
 
     this.handleColorInput = this.handleColorInput.bind(this);
     this.handleColorClass = this.handleColorClass.bind(this);
@@ -26,6 +29,38 @@ class App extends Component {
     this.handleSkills = this.handleSkills.bind(this);
     this.isChecked = this.isChecked.bind(this);
     this.renderSkills = this.renderSkills.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fakeFileClick = this.fakeFileClick.bind(this);
+    this.addImageToState = this.addImageToState.bind(this);
+    this.resetFunction = this.resetFunction.bind(this);
+    this.fileInput = React.createRef();
+  }
+
+  componentDidMount () {
+    this.getSkills(); 
+  }
+
+  addImageToState() {
+    this.setState((prevState)=>{ 
+      return{
+        dataBack: {
+          ...prevState.dataBack,
+          photo: this.state.fr.result,
+        }
+    }});
+  }
+
+  fakeFileClick(){
+    const fileInputEl = this.fileInput.current;
+    fileInputEl.click();
+    fileInputEl.addEventListener("change", this.handleSubmit);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const fileUpdatedByUser = this.fileInput.current.files[0];
+    this.state.fr.addEventListener('load', this.addImageToState);
+    this.state.fr.readAsDataURL(fileUpdatedByUser);
     this.getSkills();
   }
 
@@ -158,8 +193,21 @@ class App extends Component {
     })
   }
 
+  resetFunction(event){
+    this.setState((prevState) => {
+      return {
+        dataBack: {
+          ...prevState,
+          dataBack: dataBack,
+          skills: []
+        }
+      }
+    })
+  }
+
   render() {
     const { dataBack, skills, colorClass, fontClass } = this.state;
+    console.log(this.state.dataBack);
     return (
       <div className="App">        
         <Switch>
@@ -181,6 +229,9 @@ class App extends Component {
                 handleInputs={this.handleInputs}
                 handleSkills={this.handleSkills}
                 renderSkills={this.renderSkills}
+                fakeFileClick={this.fakeFileClick}
+                fileInput={this.fileInput}
+                resetFunction={this.resetFunction}
               />
             )}
           />
