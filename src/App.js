@@ -29,11 +29,14 @@ class App extends Component {
     this.handleSkills = this.handleSkills.bind(this);
     this.isChecked = this.isChecked.bind(this);
     this.renderSkills = this.renderSkills.bind(this);
-    this.getSkills();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fakeFileClick = this.fakeFileClick.bind(this);
     this.addImageToState = this.addImageToState.bind(this);
     this.fileInput = React.createRef();
+  }
+
+  componentDidMount () {
+    this.getSkills(); 
   }
 
   addImageToState() {
