@@ -15,32 +15,27 @@ class FillContainer extends Component {
             fileInput,
         } = this.props;
         const icon = (
-            <i className="far fa-keyboard"/>
-        );
+            <i className="far fa-keyboard"/>);
         const text = (
             <p className="title-dropdown__title-fill">
             Rellena
-            </p>
-        );
+            </p>);
         const divTitle = (
             <div className="title-dropdown__icontitle">
                 {icon}
                 {text}
-            </div>
-        );
+            </div>);
         const arrow =(
             <i className="arrowF fas fa-chevron-down"/>);
         const divArrow = (
             <div className= "title-dropdown__arrow arrowFill">
                 {arrow}
-            </div>
-        );
+            </div>);
         const title = (
             <div className="title-dropdown-fill">
                 {divTitle}
                 {divArrow}
-            </div>
-        );
+            </div>);
         return (
             <Collapsible trigger={title}>
                 <section className="fill-card">

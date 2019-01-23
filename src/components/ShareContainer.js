@@ -8,32 +8,27 @@ class ShareContainer extends Component {
   }
   render() {
     const icon = (
-      <i className="fas fa-share-alt" />
-    );
+      <i className="fas fa-share-alt" />);
     const text = (
       <p className="title-dropdown__title-share">
         Comparte
-      </p>
-    );
+      </p>);
     const divTitle = (
       <div className="title-dropdown__icontitle title-dropdown__icon-share">
         {icon}
         {text}
-      </div>
-    );
+      </div>);
     const arrow = (
       <i className="arrowSa fas fa-chevron-down" />);
     const divArrow = (
       <div className="arrow-share-down">
         {arrow}
-      </div>
-    );
+      </div>);
     const title = (
       <div className="container-title">
         {divTitle}
         {divArrow}
-      </div>
-    );
+      </div>);
     return (
       <Collapsible trigger={title}>
         <section className="share">
