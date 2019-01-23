@@ -19,10 +19,11 @@ class App extends Component {
       loading: true,
       cardURL: "",
       fr: new FileReader(),
-      hidden : "hidden"  
+      hidden: "hidden",
+      isPushing: false
     };
 
-  
+
 
     this.handleColorInput = this.handleColorInput.bind(this);
     this.handleColorClass = this.handleColorClass.bind(this);
@@ -39,21 +40,22 @@ class App extends Component {
     this.fileInput = React.createRef();
   }
 
-  componentDidMount () {
-    this.getSkills(); 
+  componentDidMount() {
+    this.getSkills();
   }
 
   addImageToState() {
-    this.setState((prevState)=>{ 
-      return{
+    this.setState((prevState) => {
+      return {
         dataBack: {
           ...prevState.dataBack,
           photo: this.state.fr.result,
         }
-    }});
+      }
+    });
   }
 
-  fakeFileClick(){
+  fakeFileClick() {
     const fileInputEl = this.fileInput.current;
     fileInputEl.click();
     fileInputEl.addEventListener("change", this.handleSubmit);
@@ -198,6 +200,7 @@ class App extends Component {
 
   sendCardToBackend() {
     console.log('hola');
+    this.setState({ isPushing: true })
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
       method: 'POST',
       body: JSON.stringify(this.state.dataBack),
@@ -208,15 +211,17 @@ class App extends Component {
       .then((response) => response.json())
       .then((url) => {
         const cardURL = url.cardURL;
-        this.setState({cardURL : cardURL ,
-       hidden : '' })
+        this.setState({
+          cardURL: cardURL,
+          hidden: '', isPushing: false
+        })
         //cuando tengamos foto, retornamos el link y cambiamos loading a false
         //tambien debemos cambiar clase del boton e incoporar la movida de twitter al estado
       })
-      .catch((error)=>console.log(error))
+      .catch((error) => console.log(error))
   }
   render() {
-    const { dataBack, skills, colorClass, fontClass, cardURL, hidden } = this.state;
+    const { dataBack, skills, colorClass, fontClass, cardURL, hidden, isPushing } = this.state;
     return (
       <div className="App">
         <Switch>
@@ -243,6 +248,7 @@ class App extends Component {
                 fakeFileClick={this.fakeFileClick}
                 fileInput={this.fileInput}
                 hidden={hidden}
+                cardCreationLoading={isPushing}
               />
             )}
           />

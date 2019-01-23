@@ -14,7 +14,7 @@ class ShareContainer extends Component {
     const divArrow = React.createElement('div', { className: "arrow-share-down" }, [arrow])
     const title = React.createElement('div', { className: "container-title " }, [divTitle, divArrow]);
 
-    const { hidden , cardURL } = this.props;
+    const { hidden, cardURL, cardCreationLoading } = this.props;
 
     return (
       <Collapsible trigger={title}>
@@ -25,15 +25,22 @@ class ShareContainer extends Component {
                 <i className="far fa-address-card"></i>
                 <p>Crear tarjeta</p>
               </button>
-              <span className="loading"></span>
-              <div className={`container-hide-section ${hidden}`}>
-                <h3 className="text-hide-section">La tarjeta ha sido creada:</h3>
-                <a className="link-profile-card" href={cardURL}>{cardURL}</a>
-                <a className="share-twitter twitter-share-button" href={`https://twitter.com/intent/tweet?text=Mira%20mi%20tarjeta%20${cardURL}`}>
-                  <i className="fab fa-twitter"></i>
-                  <p className="share-twitter-text">Compartir en twitter</p>
-                </a>
-              </div>
+
+              {cardCreationLoading ? (
+                <span className="loading">Loading...</span>
+
+              ) : (
+
+                  <div className={`container-hide-section ${hidden}`}>
+                    <h3 className="text-hide-section">La tarjeta ha sido creada:</h3>
+                    <a className="link-profile-card" href={cardURL}>{cardURL}</a>
+                    <a className="share-twitter twitter-share-button" href={`https://twitter.com/intent/tweet?text=Mira%20mi%20tarjeta%20${cardURL}`}>
+                      <i className="fab fa-twitter"></i>
+                      <p className="share-twitter-text">Compartir en twitter</p>
+                    </a>
+                  </div>
+
+                )}
             </div>
           </div>
         </section>
