@@ -16,11 +16,14 @@ class CollapsableContainer extends Component {
       renderSkills,
       sendCardToBackend,
       cardURL
+      fakeFileClick, 
+      fileInput
     } = this.props;
     return (
       <div className="tunning__responsive">
         <DesignContainer handleColorInput={handleColorInput} handleFontInput={handleFontInput}/>
-        <FillContainer skills={skills} dataBack={dataBack} handleInputs={handleInputs} handleSkills={handleSkills} renderSkills={renderSkills} />
+        <FillContainer skills={skills} dataBack={dataBack} handleInputs={handleInputs} handleSkills={handleSkills} renderSkills={renderSkills} fakeFileClick={fakeFileClick}
+        fileInput={fileInput}/>
         <ShareContainer sendCardToBackend={sendCardToBackend} cardURL={cardURL}/>
       </div>
     );
