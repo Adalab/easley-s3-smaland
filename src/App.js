@@ -72,18 +72,18 @@ class App extends Component {
     const { name, value } = event.target;
     this.setState(prevState => {
       const newState = {
+        dataBack: {
           ...prevState.dataBack,
           [name]: value,
+        }
       }
-      if(name === "palette"){
+      if (name === "palette") {
         newState.colorClass = this.handleColorClass(value);
-      } else if (name === "typography"){
+      } else if (name === "typography") {
         newState.fontClass = this.handleFontClass(value);
-      } 
-      this.saveDataAtLocalStorage(newState);
-      return {
-        dataBack: newState,
       }
+      this.saveDataAtLocalStorage(newState);
+      return newState;
     });
   }
 
@@ -220,14 +220,13 @@ class App extends Component {
     localStorage.removeItem('preferences');
     this.setState((prevState) => {
       return {
-          ...prevState,
-          dataBack: this.getDataFromLocalStorage(),
-          skills: [],
-          cardURL: '',
-          colorClass: "",
-          fontClass: "",
-          hidden: "hidden",
-          isPushing: false,
+        ...prevState,
+        dataBack: this.getDataFromLocalStorage(),
+        cardURL: '',
+        colorClass: "",
+        fontClass: "",
+        hidden: "hidden",
+        isPushing: false,
       }
     })
   }

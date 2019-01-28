@@ -46,7 +46,7 @@ class ShareContainer extends Component {
                   <div className={`container-hide-section ${hidden}`}>
                     <h3 className="text-hide-section">La tarjeta ha sido creada:</h3>
                     <a className="link-profile-card" href={cardURL}>{cardURL}</a>
-                    <a className="share-twitter twitter-share-button" href={`https://twitter.com/intent/tweet?text=Mira%20mi%20tarjeta%20${cardURL}`}>
+                    <a className="share-twitter twitter-share-button" href={`https://twitter.com/intent/tweet?text=Mira%20mi%20tarjeta%20${cardURL}`} target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-twitter"></i>
                       <p className="share-twitter-text">Compartir en twitter</p>
                     </a>
