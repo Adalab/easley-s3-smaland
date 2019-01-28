@@ -21,6 +21,14 @@
     margin-left: 30px;
   }
 
+  .img .image-preview__file .image-preview__file .image-preview-small{
+    width: 240px;
+    height: 200px;
+    object-position: 50% 50%;
+    object-fit: cover;
+  }
+
+
   .tunning__responsive {
     max-width: 300px;
     grid-column: 1/2;
