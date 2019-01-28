@@ -9,7 +9,7 @@ class ContainerCard extends Component {
         return (
             <section className="section__card">
                 <div className="container__width">
-                    <Button type="reset" styles="button__reset" resetFunction={resetFunction}>
+                    <Button type="reset" styles="button__reset" handleClick={resetFunction}>
                         <i className="far fa-trash-alt" />
                         <span className="button">Reset</span>
                     </Button>
