@@ -15,7 +15,7 @@ class FillContainer extends Component {
             fileInput,
         } = this.props;
         const icon = (
-            <i className="far fa-keyboard"/>);
+            <i className="far fa-keyboard icon-keyboard"/>);
         const text = (
             <p className="title-dropdown__title-fill">
             Rellena
