@@ -21,20 +21,18 @@ Trabajamos en Open Source, por lo que cualquiera que esté interesado puede cola
 
 1. Clona el proyecto en tu ordenador
 
-2.
+2. Escribe esto en el terminal, unido al nombre que quieras darle a la rama, para escribir tus mejoras sin afectar al proyecto principal
 ### `git checkout -b` 
-Escribe esto en el terminal, unido al nombre que quieras darle a la rama, para escribir tus mejoras sin afectar al proyecto principal
 
-3. 
+3. Ejecuta esto para ver el proyecto en el navegador
 ### `npm start`
-Ejecuta esto para ver el proyecto en el navegador
 
-4.
+4. 
+Siguiendo estos pasos podrás guardar y subir tus cambios
 ### `git add .`
 ### `git commit -m "message"`
 ### `git push origin "branchname"`
 
-Siguiendo estos pasos podrás guardar y subir tus cambios
 
 
 ## Scripts Disponibles
