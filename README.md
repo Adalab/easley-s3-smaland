@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Småland
 
-## Available Scripts
+Småland es un proyecto en base a un código heredado, escrito originariamente en JavaScript y convertirlo a React.
+El proyecto consiste en realizar un creador de tarjetas de presentación destinado a compartirse a través de Twitter.
+El reto consistía en entender un código heredado, y reconvertirlo por completo a React.
 
-In the project directory, you can run:
+## ¿Por qué Småland?
+
+El nombre está inspirado en Ikea, concretamente en el espacio de juegos destiandos a los niños, y su significado traducido al castellano viene a ser algo parecido a "Bosque mágico".
+Al igual que ocurre con los muebles de Ikea, en los que para obtener un resultado final hay que juntar componentes, lo mismo ocurre con React. Juntando componentes se consigue el resultado esperado.
+De ahí la elección del nombre, que consideramos que iba en coherencia con nuestro proyecto.
+
+
+## Creación del proyecto
+
+Este proyecto ha sido realizado con [Create React App](https://github.com/facebook/create-react-app).
+
+## ¿Te gustaría colaborar en el proyecto?
+
+Trabajamos en Open Source, por lo que cualquiera que esté interesado puede colaborar con nuestro proyecto y ayudarnos a mejorarlo.
+
+1. Clona el proyecto en tu ordenador
+
+2.
+## git checkout -b 
+Escribe esto en el terminal, unido al nombre que quieras darle a la rama, para escribir tus mejoras sin afectar al proyecto principal
+
+3. 
+## npm start
+Ejecuta esto para ver el proyecto en el navegador
+
+4.
+## git add .
+## git commit -m "message"
+## git push origin "branchname"
+
+Siguiendo estos pasos podrás guardar y subir tus cambios
+
+
+## Scripts Disponibles
+
+A continuación escribimos una lista de lo que puedes ejecutar :
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Te permitirá ver el proyecto en el navegador y revisar los errores en la consola
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Te permite ejecutar pruebas para detectar los errores
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Crea la versión para producción
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Aprende más
 
-### `npm run eject`
+Puede obtener más información en [Crear la documentación de la aplicación React] (https://facebook.github.io/create-react-app/docs/getting-started).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para obtener información sobre React, consulte la [documentación de React] (https://reactjs.org/).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## ¡Muchas gracias! Esperamos que disfrutéis del proyecto tanto como nosotras creándola.
