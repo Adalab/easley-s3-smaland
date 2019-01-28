@@ -13,7 +13,6 @@ class MainCardCreator extends Component {
           dataBack={dataBack}
           colorClass={colorClass}
           fontClass={fontClass}
-          skillsCard={dataBack}
           resetFunction={resetFunction}
           
         />

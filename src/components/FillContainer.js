@@ -102,11 +102,12 @@ class FillContainer extends Component {
     }
 }
 
-//PPROP-TYPES
 FillContainer.propTypes = {
-    skills: PropTypes.arrayOf(PropTypes.string).isRequired,
     dataBack: PropTypes.object.isRequired,
     handleInputs: PropTypes.func.isRequired,
+    renderSkills: PropTypes.func.isRequired,
+    fakeFileClick: PropTypes.func.isRequired,
+    fileInput: PropTypes.object.isRequired
 }
 
 export default FillContainer;

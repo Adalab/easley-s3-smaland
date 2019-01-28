@@ -8,6 +8,7 @@ class Card extends Component {
     const { dataBack, colorClass, fontClass } = this.props;
     const nameDefault = "Nombre Apellido";
     const jobDefault = "Front-End Developer";
+
     return (
       <div className={`box__card ${colorClass}`} id="box">
         <div className={`userInfo ${fontClass}`} id="userInfo">
@@ -15,7 +16,7 @@ class Card extends Component {
           <h2 className="userInfo__name">{dataBack.name || nameDefault} </h2>
           <h3 className="userInfo__job">{dataBack.job || jobDefault}</h3>
         </div>
-        <div className="img image-preview__file" />
+        <img className="img image-preview__file" src={dataBack.photo || defaultImage} alt={dataBack.name} />
         <ul className="list__icon">
           <li className="list__item">
             <a className="item__link mobile" href={dataBack.phone}>
@@ -51,7 +52,6 @@ class Card extends Component {
   }
 }
 
-//PROP-TYPES
 Card.propTypes = {
   dataBack: PropTypes.object.isRequired,
   colorClass: PropTypes.string.isRequired,

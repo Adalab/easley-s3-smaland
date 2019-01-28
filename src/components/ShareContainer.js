@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Collapsible from 'react-collapsible';
+import propTypes from 'prop-types';
 
 class ShareContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
   render() {
     const icon = (
       <i className="fas fa-share-alt" />);
@@ -29,14 +26,14 @@ class ShareContainer extends Component {
         {divTitle}
         {divArrow}
       </div>);
-    const { cardURL, hidden, cardCreationLoading } = this.props;
+    const { cardURL, hidden, cardCreationLoading,sendCardToBackend } = this.props;
     return (
 
       <Collapsible trigger={title}>
         <section className="share">
           <div className="container-section">
             <div className="container-share">
-              <button type="submit" className="button-create no-clicked" onClick={this.props.sendCardToBackend}>
+              <button type="submit" className="button-create no-clicked" onClick={sendCardToBackend}>
                 <i className="far fa-address-card"></i>
                 <p>Crear tarjeta</p>
               </button>
@@ -54,7 +51,6 @@ class ShareContainer extends Component {
                       <p className="share-twitter-text">Compartir en twitter</p>
                     </a>
                   </div>
-
                 )}
             </div>
           </div>
@@ -62,6 +58,13 @@ class ShareContainer extends Component {
       </Collapsible>
     );
   }
+}
+
+ShareContainer.propTypes = {
+  cardURL: propTypes.string.isRequired,
+  hidden: propTypes.string.isRequired,
+  cardCreationLoading: propTypes.bool.isRequired,
+  sendCardToBackend: propTypes.func.isRequired
 }
 
 export default ShareContainer;

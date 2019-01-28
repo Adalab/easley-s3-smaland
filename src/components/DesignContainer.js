@@ -214,7 +214,6 @@ class DesignContainer extends Component {
   }
 }
 
-//PROP-TYPES
 DesignContainer.propTypes = {
   dataBack: PropTypes.object.isRequired,
   handleInputs: PropTypes.func.isRequired
