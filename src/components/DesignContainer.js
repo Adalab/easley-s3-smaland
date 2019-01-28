@@ -4,31 +4,28 @@ import Collapsible from "react-collapsible";
 
 class DesignContainer extends Component {
   render() {
-    const icon = React.createElement("i", {
-      className: "far fa-object-ungroup title-dropdown__icon-design"
-    });
-    const text = React.createElement(
-      "p",
-      { className: "title-dropdown__title-design" },
-      "Diseña"
-    );
-    const divTitle = React.createElement(
-      "div",
-      { className: "title-dropdown__icontitle" },
-      [icon, text]
-    );
-    const arrow = React.createElement("i", {
-      className: "arrowD fas fa-chevron-up"
-    });
-    const divArrow = React.createElement(
-      "div",
-      { className: "title-dropdown__arrow arrowDesign" },
-      [arrow]
-    );
-    const title = React.createElement("div", { className: "title-dropdown" }, [
-      divTitle,
-      divArrow
-    ]);
+    const icon = (
+        <i className="far fa-object-ungroup title-dropdown__icon-design"/>);
+    const text = (
+        <p className="title-dropdown__title-design">
+        Diseña
+        </p>);
+    const divTitle = (
+        <div className="title-dropdown__icontitle">
+            {icon}
+            {text}
+        </div>);
+    const arrow =(
+        <i className="arrowD fas fa-chevron-up"/>);
+    const divArrow = (
+        <div className= "title-dropdown__arrow arrowDesign">
+            {arrow}
+        </div>);
+    const title = (
+        <div className="title-dropdown">
+            {divTitle}
+            {divArrow}
+        </div>);
     const { dataBack, handleInputs } = this.props;
     return (
       <Collapsible trigger={title} open={true}>
