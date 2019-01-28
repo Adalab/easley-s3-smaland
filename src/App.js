@@ -217,16 +217,17 @@ class App extends Component {
   }
 
   resetFunction(event) {
+    localStorage.removeItem('preferences');
     this.setState((prevState) => {
       return {
-        dataBack: {
           ...prevState,
-          dataBack: dataBack,
+          dataBack: this.getDataFromLocalStorage(),
           skills: [],
           cardURL: '',
           colorClass: "",
           fontClass: "",
-        }
+          hidden: "hidden",
+          isPushing: false,
       }
     })
   }
