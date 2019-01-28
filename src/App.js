@@ -202,7 +202,10 @@ class App extends Component {
         dataBack: {
           ...prevState,
           dataBack: dataBack,
-          skills: []
+          skills: [],
+          cardURL: '',
+          colorClass: "",
+          fontClass: "",
         }
       }
     })
