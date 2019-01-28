@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      dataBack: dataBack,
+      dataBack: this.getDataFromLocalStorage(),
       skills: [],
       colorClass: "",
       fontClass: "",
@@ -35,6 +35,8 @@ class App extends Component {
     this.addImageToState = this.addImageToState.bind(this);
     this.resetFunction = this.resetFunction.bind(this);
     this.fileInput = React.createRef();
+    this.saveDataAtLocalStorage = this.saveDataAtLocalStorage.bind(this);
+    this.getDataFromLocalStorage = this.getDataFromLocalStorage.bind(this);
   }
 
   componentDidMount() {
@@ -70,17 +72,18 @@ class App extends Component {
     const { name, value } = event.target;
     this.setState(prevState => {
       const newState = {
-        dataBack: {
           ...prevState.dataBack,
           [name]: value,
-        }
       }
       if(name === "palette"){
         newState.colorClass = this.handleColorClass(value);
       } else if (name === "typography"){
         newState.fontClass = this.handleFontClass(value);
       } 
-      return newState;
+      this.saveDataAtLocalStorage(newState);
+      return {
+        dataBack: newState,
+      }
     });
   }
 
@@ -119,21 +122,25 @@ class App extends Component {
     if (skills.includes(selectedSkill)) {
       let newSkills = skills.filter(skill => skill !== selectedSkill);
       this.setState(prevState => {
+        const savedSkills = {
+          ...prevState.dataBack,
+          skills: newSkills
+        }
+        this.saveDataAtLocalStorage(savedSkills);
         return {
-          dataBack: {
-            ...prevState.dataBack,
-            skills: newSkills
-          }
-        };
+          dataBack: savedSkills,
+        }
       });
     } else if (skills.length < 3) {
       this.setState(prevState => {
+        const savedSkills = {
+          ...prevState.dataBack,
+          skills: skills.concat(selectedSkill)
+        }
+        this.saveDataAtLocalStorage(savedSkills);
         return {
-          dataBack: {
-            ...prevState.dataBack,
-            skills: skills.concat(selectedSkill)
-          }
-        };
+          dataBack: savedSkills,
+        }
       });
     }
   }
@@ -154,6 +161,19 @@ class App extends Component {
       return true;
     } else {
       return false;
+    }
+  }
+
+  saveDataAtLocalStorage(data) {
+    localStorage.setItem('preferences', JSON.stringify(data));
+  }
+
+  getDataFromLocalStorage() {
+    const data = localStorage.getItem('preferences');
+    if (!data) {
+      return dataBack
+    } else {
+      return JSON.parse(data)
     }
   }
 

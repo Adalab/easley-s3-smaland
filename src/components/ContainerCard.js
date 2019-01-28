@@ -5,7 +5,7 @@ import Button from "./Button.js";
 
 class ContainerCard extends Component {
     render() {
-        const {resetFunction} = this.props;
+        const {resetFunction, dataBack, colorClass, fontClass} = this.props;
         return (
             <section className="section__card">
                 <div className="container__width">
@@ -14,9 +14,9 @@ class ContainerCard extends Component {
                         <span className="button">Reset</span>
                     </Button>
                     <Card
-                        dataBack={this.props.dataBack}
-                        colorClass={this.props.colorClass}
-                        fontClass={this.props.fontClass}
+                        dataBack={dataBack}
+                        colorClass={colorClass}
+                        fontClass={fontClass}
                     />
                 </div>
             </section>
