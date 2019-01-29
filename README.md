@@ -1,8 +1,11 @@
 ## Småland
 
-Småland es un proyecto en base a un código heredado, escrito originariamente en JavaScript y convertirlo a React.
+Småland es un proyecto en base a un código heredado, escrito originariamente en JavaScript y convertirdo a React.
 El proyecto consiste en realizar un creador de tarjetas de presentación destinado a compartirse a través de Twitter.
 El reto consistía en entender un código heredado, y reconvertirlo por completo a React.
+
+Como grupo hemos trabajado de forma colaborativa. Nuestra dinámica de trabajo se ha basado en la filosfía Agile. Nuestras aportaciones trabajando juntas han ido más allá de lo técnico y nuestros conocimientos, también. 
+[Leélo todo aquí] (https://twitter.com/clara_cloro/status/1082976953261539328). 
 
 ## ¿Por qué Småland?
 
