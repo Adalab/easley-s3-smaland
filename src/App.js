@@ -14,8 +14,8 @@ class App extends Component {
     this.state = {
       dataBack: this.getDataFromLocalStorage(),
       skills: [],
-      colorClass: "",
-      fontClass: "",
+      colorClass:this.getColorClass(),
+      fontClass: this.getFontClass(),
       loading: true,
       cardURL: "",
       fr: new FileReader(),
@@ -37,6 +37,26 @@ class App extends Component {
     this.fileInput = React.createRef();
     this.saveDataAtLocalStorage = this.saveDataAtLocalStorage.bind(this);
     this.getDataFromLocalStorage = this.getDataFromLocalStorage.bind(this);
+  }
+
+  getFontClass() {
+    const localStorageDataBack = localStorage.getItem('preferences');
+    const localStorageJSON = JSON.parse(localStorageDataBack);
+    if (!localStorageDataBack) {
+      return ""
+    } else {
+      return this.handleFontClass(localStorageJSON.typography);
+    }
+  }
+
+  getColorClass() {
+    const localStorageDataBack = localStorage.getItem('preferences');
+    const localStorageJSON = JSON.parse(localStorageDataBack);
+    if (!localStorageDataBack) {
+      return ""
+    } else {
+      return this.handleColorClass(localStorageJSON.palette);
+    }
   }
 
   componentDidMount() {
@@ -82,7 +102,7 @@ class App extends Component {
       } else if (name === "typography") {
         newState.fontClass = this.handleFontClass(value);
       }
-      this.saveDataAtLocalStorage(newState);
+      this.saveDataAtLocalStorage(newState.dataBack);
       return newState;
     });
   }
