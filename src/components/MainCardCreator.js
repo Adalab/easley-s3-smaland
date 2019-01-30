@@ -5,8 +5,8 @@ import CollapsableContainer from "./CollapsableContainer";
 
 class MainCardCreator extends Component {
   render() {
-    const { dataBack, skills, colorClass, fontClass, handleInputs, handleSkills, renderSkills, sendCardToBackend, fakeFileClick,fileInput, hidden, cardURL, cardCreationLoading, resetFunction } = this.props;
-    
+    const { dataBack, skills, colorClass, fontClass, handleInputs, handleSkills, renderSkills, sendCardToBackend, fakeFileClick, fileInput, hidden, cardURL, cardCreationLoading, resetFunction } = this.props;
+
     return (
       <main className="created__target">
         <ContainerCard
@@ -14,27 +14,26 @@ class MainCardCreator extends Component {
           colorClass={colorClass}
           fontClass={fontClass}
           resetFunction={resetFunction}
-          
         />
+
         <CollapsableContainer
           dataBack={dataBack}
           skills={skills}
           handleInputs={handleInputs}
-          handleSkills = {handleSkills}
-          renderSkills = {renderSkills}
+          handleSkills={handleSkills}
+          renderSkills={renderSkills}
           sendCardToBackend={sendCardToBackend}
           fakeFileClick={fakeFileClick}
           fileInput={fileInput}
-          hidden = {hidden}
-          cardURL = {cardURL}
-          cardCreationLoading = {cardCreationLoading}
+          hidden={hidden}
+          cardURL={cardURL}
+          cardCreationLoading={cardCreationLoading}
         />
       </main>
     );
   }
 }
 
-//PROP-TYPES
 MainCardCreator.propTypes = {
   dataBack: PropTypes.object.isRequired,
   colorClass: PropTypes.string.isRequired,
