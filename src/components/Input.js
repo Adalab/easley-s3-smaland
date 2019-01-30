@@ -24,11 +24,10 @@ class Input extends Component {
   }
 }
 
-//PROP-TYPES
 Input.propTypes = {
   value: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  content:PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
   example: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   handleInputs: PropTypes.func.isRequired,

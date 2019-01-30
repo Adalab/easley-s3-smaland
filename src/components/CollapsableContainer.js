@@ -13,7 +13,7 @@ class CollapsableContainer extends Component {
       renderSkills,
       sendCardToBackend,
       cardURL,
-      fakeFileClick, 
+      fakeFileClick,
       fileInput,
       hidden,
       cardCreationLoading
@@ -29,11 +29,11 @@ class CollapsableContainer extends Component {
           fakeFileClick={fakeFileClick}
           fileInput={fileInput}
         />
-        <ShareContainer 
-          sendCardToBackend={sendCardToBackend} 
-          cardURL={cardURL} 
-          hidden ={hidden}
-          cardCreationLoading = {cardCreationLoading} />
+        <ShareContainer
+          sendCardToBackend={sendCardToBackend}
+          cardURL={cardURL}
+          hidden={hidden}
+          cardCreationLoading={cardCreationLoading} />
       </div>
     );
   }

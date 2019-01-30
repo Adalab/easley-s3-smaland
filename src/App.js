@@ -14,11 +14,11 @@ class App extends Component {
     this.state = {
       dataBack: this.getDataFromLocalStorage(),
       skills: [],
-      colorClass: "",
-      fontClass: "",
+      colorClass: this.getColorClass(),
+      fontClass: this.getFontClass(),
       loading: true,
       cardURL: "",
-      fr: new FileReader(),
+      fileReader: new FileReader(),
       hidden: "hidden",
       isPushing: false
     };
@@ -43,14 +43,34 @@ class App extends Component {
     this.getSkills();
   }
 
+  getFontClass() {
+    const localStorageDataBack = localStorage.getItem("preferences");
+    const localStorageJSON = JSON.parse(localStorageDataBack);
+    if (!localStorageDataBack) {
+      return "";
+    } else {
+      return this.handleFontClass(localStorageJSON.typography);
+    }
+  }
+
+  getColorClass() {
+    const localStorageDataBack = localStorage.getItem("preferences");
+    const localStorageJSON = JSON.parse(localStorageDataBack);
+    if (!localStorageDataBack) {
+      return "";
+    } else {
+      return this.handleColorClass(localStorageJSON.palette);
+    }
+  }
+
   addImageToState() {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return {
         dataBack: {
           ...prevState.dataBack,
-          photo: this.state.fr.result,
+          photo: this.state.fileReader.result
         }
-      }
+      };
     });
   }
 
@@ -63,8 +83,8 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const fileUpdatedByUser = this.fileInput.current.files[0];
-    this.state.fr.addEventListener('load', this.addImageToState);
-    this.state.fr.readAsDataURL(fileUpdatedByUser);
+    this.state.fileReader.addEventListener("load", this.addImageToState);
+    this.state.fileReader.readAsDataURL(fileUpdatedByUser);
     this.getSkills();
   }
 
@@ -74,44 +94,44 @@ class App extends Component {
       const newState = {
         dataBack: {
           ...prevState.dataBack,
-          [name]: value,
+          [name]: value
         }
-      }
+      };
       if (name === "palette") {
         newState.colorClass = this.handleColorClass(value);
       } else if (name === "typography") {
         newState.fontClass = this.handleFontClass(value);
       }
-      this.saveDataAtLocalStorage(newState);
+      this.saveDataAtLocalStorage(newState.dataBack);
       return newState;
     });
   }
 
   handleColorClass(palette) {
     if (palette === "1") {
-      return "box__card"
+      return "box__card";
     } else if (palette === "2") {
-      return "box__card--red"
+      return "box__card--red";
     } else if (palette === "3") {
-      return "box__card--grey"
+      return "box__card--grey";
     } else if (palette === "4") {
-      return "box__card--purple"
+      return "box__card--purple";
     } else if (palette === "5") {
-      return "box__card--orange"
+      return "box__card--orange";
     }
   }
 
   handleFontClass(typography) {
     if (typography === "1") {
-      return "userInfo--ubuntu"
+      return "userInfo--ubuntu";
     } else if (typography === "2") {
-      return "userInfo--quaternary"
+      return "userInfo--quaternary";
     } else if (typography === "3") {
-      return "userInfo--mont"
+      return "userInfo--mont";
     } else if (typography === "4") {
-      return "userInfo--hand"
+      return "userInfo--hand";
     } else if (typography === "5") {
-      return "userInfo--libre"
+      return "userInfo--libre";
     }
   }
 
@@ -125,22 +145,22 @@ class App extends Component {
         const savedSkills = {
           ...prevState.dataBack,
           skills: newSkills
-        }
+        };
         this.saveDataAtLocalStorage(savedSkills);
         return {
-          dataBack: savedSkills,
-        }
+          dataBack: savedSkills
+        };
       });
     } else if (skills.length < 3) {
       this.setState(prevState => {
         const savedSkills = {
           ...prevState.dataBack,
           skills: skills.concat(selectedSkill)
-        }
+        };
         this.saveDataAtLocalStorage(savedSkills);
         return {
-          dataBack: savedSkills,
-        }
+          dataBack: savedSkills
+        };
       });
     }
   }
@@ -165,15 +185,15 @@ class App extends Component {
   }
 
   saveDataAtLocalStorage(data) {
-    localStorage.setItem('preferences', JSON.stringify(data));
+    localStorage.setItem("preferences", JSON.stringify(data));
   }
 
   getDataFromLocalStorage() {
-    const data = localStorage.getItem('preferences');
+    const data = localStorage.getItem("preferences");
     if (!data) {
-      return dataBack
+      return dataBack;
     } else {
-      return JSON.parse(data)
+      return JSON.parse(data);
     }
   }
 
@@ -197,42 +217,51 @@ class App extends Component {
   }
 
   sendCardToBackend() {
-    this.setState({ isPushing: true })
-    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
-      method: 'POST',
+    this.setState({ isPushing: true });
+    fetch("https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/", {
+      method: "POST",
       body: JSON.stringify(this.state.dataBack),
       headers: {
         "content-type": "application/json"
       }
     })
-      .then((response) => response.json())
-      .then((url) => {
+      .then(response => response.json())
+      .then(url => {
         const cardURL = url.cardURL;
         this.setState({
           cardURL: cardURL,
-          hidden: '', isPushing: false
-        })
+          hidden: "",
+          isPushing: false
+        });
       })
-      .catch((error) => console.log(error))
+      .catch(error => console.log(error));
   }
 
-  resetFunction(event) {
-    localStorage.removeItem('preferences');
-    this.setState((prevState) => {
+  resetFunction() {
+    localStorage.removeItem("preferences");
+    this.setState(prevState => {
       return {
         ...prevState,
         dataBack: this.getDataFromLocalStorage(),
-        cardURL: '',
+        cardURL: "",
         colorClass: "",
         fontClass: "",
         hidden: "hidden",
-        isPushing: false,
-      }
-    })
+        isPushing: false
+      };
+    });
   }
 
   render() {
-    const { dataBack, skills, colorClass, fontClass, cardURL, hidden, isPushing } = this.state;
+    const {
+      dataBack,
+      skills,
+      colorClass,
+      fontClass,
+      cardURL,
+      hidden,
+      isPushing
+    } = this.state;
 
     return (
       <div className="App">
