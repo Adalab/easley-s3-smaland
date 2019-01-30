@@ -1,16 +1,16 @@
 {
-  "main.css": "./static/css/main.7c56f017.chunk.css",
-  "main.js": "./static/js/main.b13ce649.chunk.js",
-  "main.js.map": "./static/js/main.b13ce649.chunk.js.map",
+  "main.css": "./static/css/main.06f2cc6b.chunk.css",
+  "main.js": "./static/js/main.75b9b1c0.chunk.js",
+  "main.js.map": "./static/js/main.75b9b1c0.chunk.js.map",
   "static/js/1.1d0471c1.chunk.js": "./static/js/1.1d0471c1.chunk.js",
   "static/js/1.1d0471c1.chunk.js.map": "./static/js/1.1d0471c1.chunk.js.map",
   "runtime~main.js": "./static/js/runtime~main.4a686d48.js",
   "runtime~main.js.map": "./static/js/runtime~main.4a686d48.js.map",
-  "static/css/main.7c56f017.chunk.css.map": "./static/css/main.7c56f017.chunk.css.map",
+  "static/css/main.06f2cc6b.chunk.css.map": "./static/css/main.06f2cc6b.chunk.css.map",
   "static/media/descarga.svg": "./static/media/descarga.0118e311.svg",
   "static/media/main.scss": "./static/media/restaurant.aee038bb.png",
   "static/media/silueta.jpg": "./static/media/silueta.1c06e538.jpg",
   "index.html": "./index.html",
-  "precache-manifest.48de7338d94eeb39b4d9cb1cc1063acb.js": "./precache-manifest.48de7338d94eeb39b4d9cb1cc1063acb.js",
+  "precache-manifest.ee8e35214d7a5677e28f774e89c50c4b.js": "./precache-manifest.ee8e35214d7a5677e28f774e89c50c4b.js",
   "service-worker.js": "./service-worker.js"
 }
