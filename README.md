@@ -9,7 +9,8 @@ Como grupo hemos trabajado de forma colaborativa. Nuestra dinámica de trabajo s
 
 ## ¿Por qué Småland?
 
-El nombre está inspirado en Ikea, concretamente en el espacio de juegos destiandos a los niños, y su significado traducido al castellano viene a ser algo parecido a "Bosque mágico".
+El nombre está inspirado en Ikea, concretamente en el espacio de juegos destinado a los niños, "
+Småland. Bosque mágico".
 Al igual que ocurre con los muebles de Ikea, en los que para obtener un resultado final hay que juntar componentes, lo mismo ocurre con React. Juntando componentes se consigue el resultado esperado.
 De ahí la elección del nombre, que consideramos que iba en coherencia con nuestro proyecto.
 
